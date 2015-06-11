@@ -4,39 +4,37 @@ libfor - Fast C Library for Frame of Reference Integer Compression
 As the name suggests, this is a C/C++ library with a fast scalar (non-SIMD)
 implementation for Frame of Reference integer compression.
 
-More about FOR
------------------------
-
-* Daniel Lemire, Leonid Boytsov, Nathan Kurz, SIMD Compression and the Intersection of Sorted Integers, Software Practice & Experience (to appear) http://arxiv.org/abs/1401.6399
-* Daniel Lemire and Leonid Boytsov, Decoding billions of integers per second through vectorization, Software Practice & Experience 45 (1), 2015.  http://arxiv.org/abs/1209.2137 http://onlinelibrary.wiley.com/doi/10.1002/spe.2203/abstract
-* Jeff Plaisance, Nathan Kurz, Daniel Lemire, Vectorized VByte Decoding, International Symposium on Web Algorithms 2015, 2015. http://arxiv.org/abs/1503.07387
-* Wayne Xin Zhao, Xudong Zhang, Daniel Lemire, Dongdong Shan, Jian-Yun Nie, Hongfei Yan, Ji-Rong Wen, A General SIMD-based Approach to Accelerating Compression Algorithms, ACM Transactions on Information Systems 33 (3), 2015. http://arxiv.org/abs/1502.01916
-
 Simple demo
 ------------------------
 
-    uint32_t in[100] = {0};
+    #define LEN 100
+    uint32_t in[LEN] = {0};
     uint8_t out[512];
 
-    // now fill |in| with numbers of your choice
-    // ...
+    // Fill |in| with numbers of your choice
+    for (int i = 0; i < LEN; i++)
+      in[i] = i;
 
-    // now compress; can also use for_compress_sorted() if the numbers are
-    // sorted. This is slightly faster.
-    uint32_t size = for_compress_unsorted(&in[0], &out[0], 100);
-    printf("compressing 100 integers requires %u bytes\n", size);
-
-   // and now decompress again
-   uint32_t decompressed[100];
-   for_uncompress(&out[0], decompressed, 100);
+    // Now compress; can also use for_compress_sorted() if the numbers
+    // are sorted. This is slightly faster.
+    uint32_t size = for_compress_unsorted(&in[0], &out[0], LEN);
+    printf("compressing %u integers (%u bytes) into %u bytes\n",
+            LEN, LEN * 4, size);
+ 
+    // Decompress again
+    uint32_t decompressed[LEN];
+    for_uncompress(&out[0], &decompressed[0], LEN);
 
 Usage
 ------------------------
 
-make
-./test
+It can't be more simple:
 
-(follow the instructions)
+    make
+
+To run the tests:
+
+    ./test
 
 Where is this used?
 ----------------------
