@@ -14,7 +14,7 @@ lib: for.o
 	$(AR) rvs libfor.a *.o
 
 test: test.c
-	$(CC) -Wall -Wextra -pedantic -g -O0 test.c -o test -L. -lfor 
+	$(CC) -g -O0 -Wall -Wextra -pedantic test.c -o test -L. -lfor 
 
 for.o: for.h for.c for-gen.c
-	$(CC) -O3 -Wall -Wextra -pedantic for.c -c -o for.o
+	$(CC) -g -O0 -Wall -Wextra -pedantic for.c -c -o for.o

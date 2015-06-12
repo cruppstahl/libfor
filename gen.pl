@@ -8,6 +8,16 @@ sub consume
   return $t;
 }
 
+sub bitmask
+{
+  my $bits = shift;
+  my $mask = 0;
+  for (my $m = 0; $m < $bits; $m++) {
+    $mask |= 1 << $m;
+  }
+  return $mask;
+}
+
 #
 # TODO
 # if bits are aligned (i.e. $bits_per_word % $bits == 0), then use 4 different
@@ -26,13 +36,23 @@ sub generate_pack_impl
 
   print "static uint32_t\n";
   print "$fname(uint32_t base, const uint32_t *in, uint8_t *out) {\n";
+
+  # for 32 bits simply use memcpy and leave
+  if ($bits == 32) {
+    print "  (void)base;\n";
+    print "  memcpy(out, in, $block * sizeof(uint32_t));\n";
+    print "  return $block * sizeof(uint32_t);\n";
+    print "}\n\n";
+    return;
+  }
+
   print "  $type tmp;\n";
 
   my $i = 0;
+  my $j = 0;
 
   while (1) {
     my $b = 0;
-    my $j = 0;
     while ($b < $bits_per_word and $i < $block) {
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
@@ -108,15 +128,27 @@ sub generate_unpack_impl
   my $consumed = 0;
   my $inittmp = 1;
 
+  my $mask = bitmask($bits);
+
   print "static uint32_t\n";
   print "$fname(uint32_t base, const uint8_t *in, uint32_t *out) {\n";
+
+  # for 32 bits simply use memcpy and leave
+  if ($bits == 32) {
+    print "  (void)base;\n";
+    print "  memcpy(out, in, $block * sizeof(uint32_t));\n";
+    print "  return $block * sizeof(uint32_t);\n";
+    print "}\n\n";
+    return;
+  }
+
   print "  $type tmp;\n";
 
   my $i = 0;
+  my $j = 0;
 
   while (1) {
     my $b = 0;
-    my $j = 0;
     while ($b < $bits_per_word and $i < $block) {
       if ($inittmp != 0) {
         print "  tmp = *($type *)in;\n";
@@ -126,7 +158,7 @@ sub generate_unpack_impl
 
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
-        print "  *(out + $j)  = base + ((tmp >> $b) & $bits);\n";
+        print "  *(out + $j)  = base + ((tmp >> $b) & $mask);\n";
         $b += $bits;
       }
       # if not then decode at a word boundary
@@ -194,10 +226,10 @@ sub generate_packx
   print "    return 0;\n";
 
   my $i = 0;
+  my $j = 0;
 
   while (1) {
     my $b = 0;
-    my $j = 0;
     while ($b < $bits_per_word and $i < 8) {
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
@@ -250,6 +282,8 @@ sub generate_unpackx
   my $bits_per_word = shift;
   my $bits = shift;
 
+  my $mask = bitmask($bits);
+
   my $inittmp = 1;
 
   print "static uint32_t\n";
@@ -259,10 +293,10 @@ sub generate_unpackx
   print "    return 0;\n";
 
   my $i = 0;
+  my $j = 0;
 
   while (1) {
     my $b = 0;
-    my $j = 0;
     while ($b < $bits_per_word and $i < 8) {
       if ($inittmp != 0) {
         print "  tmp = *($type *)in;\n";
@@ -271,7 +305,7 @@ sub generate_unpackx
 
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
-        print "  *(out + $j)  = base + ((tmp >> $b) & $bits);\n";
+        print "  *(out + $j)  = base + ((tmp >> $b) & $mask);\n";
         $b += $bits;
       }
       # if not then decode at a word boundary
@@ -299,7 +333,6 @@ sub generate_unpackx
     # or reached the end?
     else {
       print "bail:\n";
-      print "  *($type *)out = tmp;\n";
       print "  return ((length * $bits) + 7) / 8;\n";
       last;
     }

@@ -16,6 +16,7 @@
 #include "for.h"
 
 #include <assert.h>
+#include <string.h> /* for memcpy */
 
 typedef uint32_t (*for_unpackfunc_t) (uint32_t, const uint8_t *, uint32_t *);
 typedef uint32_t (*for_packfunc_t)   (uint32_t, const uint32_t *, uint8_t *);
@@ -111,20 +112,20 @@ for_compress_bits(const uint32_t *in, uint8_t *out, uint32_t length,
 
   assert(bits <= 32);
 
-  for (; i + 32 < length; i += 32, in += 32)
+  for (; i + 32 <= length; i += 32, in += 32)
     written += for_pack32[bits](base, in, out + written);
 
-  for (; i + 16 < length; i += 16, in += 16)
+  for (; i + 16 <= length; i += 16, in += 16)
     written += for_pack16[bits](base, in, out + written);
 
-  for (; i + 8 < length; i += 8, in += 8)
+  for (; i + 8 <= length; i += 8, in += 8)
     written += for_pack8[bits](base, in, out + written);
 
   return written + for_packx[bits](base, in, out + written, length - i);
 }
 
 uint32_t
-compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length)
+for_compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length)
 {
   uint32_t i, b, m, M;
 
@@ -177,20 +178,20 @@ for_uncompress_bits(const uint8_t *in, uint32_t *out, uint32_t length,
                 uint32_t base, uint32_t bits)
 {
   uint32_t i = 0;
-  uint32_t read = 0;
+  const uint8_t *bin = in;
 
   assert(bits <= 32);
 
-  for (; i + 32 < length; i += 32, in += 32)
-    read += for_unpack32[bits](base, in, out + read);
+  for (; i + 32 <= length; i += 32, out += 32)
+    in += for_unpack32[bits](base, in, out);
 
-  for (; i + 16 < length; i += 16, in += 16)
-    read += for_unpack16[bits](base, in, out + read);
+  for (; i + 16 <= length; i += 16, out += 16)
+    in += for_unpack16[bits](base, in, out);
 
-  for (; i + 8 < length; i += 8, in += 8)
-    read += for_unpack8[bits](base, in, out + read);
+  for (; i + 8 <= length; i += 8, out += 8)
+    in += for_unpack8[bits](base, in, out);
 
-  return read + for_unpackx[bits](base, in, out + read, length - i);
+  return (in - bin) + for_unpackx[bits](base, in, out, length - i);
 }
 
 uint32_t

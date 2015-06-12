@@ -144,22 +144,22 @@ pack2_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 2;
-  tmp |= (*(in + 2) - base) << 4;
-  tmp |= (*(in + 3) - base) << 6;
-  tmp |= (*(in + 4) - base) << 8;
-  tmp |= (*(in + 5) - base) << 10;
-  tmp |= (*(in + 6) - base) << 12;
-  tmp |= (*(in + 7) - base) << 14;
-  tmp |= (*(in + 8) - base) << 16;
-  tmp |= (*(in + 9) - base) << 18;
-  tmp |= (*(in + 10) - base) << 20;
-  tmp |= (*(in + 11) - base) << 22;
-  tmp |= (*(in + 12) - base) << 24;
-  tmp |= (*(in + 13) - base) << 26;
-  tmp |= (*(in + 14) - base) << 28;
-  tmp |= (*(in + 15) - base) << 30;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 2;
+  tmp |= (*(in + 18) - base) << 4;
+  tmp |= (*(in + 19) - base) << 6;
+  tmp |= (*(in + 20) - base) << 8;
+  tmp |= (*(in + 21) - base) << 10;
+  tmp |= (*(in + 22) - base) << 12;
+  tmp |= (*(in + 23) - base) << 14;
+  tmp |= (*(in + 24) - base) << 16;
+  tmp |= (*(in + 25) - base) << 18;
+  tmp |= (*(in + 26) - base) << 20;
+  tmp |= (*(in + 27) - base) << 22;
+  tmp |= (*(in + 28) - base) << 24;
+  tmp |= (*(in + 29) - base) << 26;
+  tmp |= (*(in + 30) - base) << 28;
+  tmp |= (*(in + 31) - base) << 30;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 8) */
   *(uint32_t *)out = tmp;
@@ -171,41 +171,41 @@ unpack2_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 2);
-  *(out + 1)  = base + ((tmp >> 2) & 2);
-  *(out + 2)  = base + ((tmp >> 4) & 2);
-  *(out + 3)  = base + ((tmp >> 6) & 2);
-  *(out + 4)  = base + ((tmp >> 8) & 2);
-  *(out + 5)  = base + ((tmp >> 10) & 2);
-  *(out + 6)  = base + ((tmp >> 12) & 2);
-  *(out + 7)  = base + ((tmp >> 14) & 2);
-  *(out + 8)  = base + ((tmp >> 16) & 2);
-  *(out + 9)  = base + ((tmp >> 18) & 2);
-  *(out + 10)  = base + ((tmp >> 20) & 2);
-  *(out + 11)  = base + ((tmp >> 22) & 2);
-  *(out + 12)  = base + ((tmp >> 24) & 2);
-  *(out + 13)  = base + ((tmp >> 26) & 2);
-  *(out + 14)  = base + ((tmp >> 28) & 2);
-  *(out + 15)  = base + ((tmp >> 30) & 2);
+  *(out + 0)  = base + ((tmp >> 0) & 3);
+  *(out + 1)  = base + ((tmp >> 2) & 3);
+  *(out + 2)  = base + ((tmp >> 4) & 3);
+  *(out + 3)  = base + ((tmp >> 6) & 3);
+  *(out + 4)  = base + ((tmp >> 8) & 3);
+  *(out + 5)  = base + ((tmp >> 10) & 3);
+  *(out + 6)  = base + ((tmp >> 12) & 3);
+  *(out + 7)  = base + ((tmp >> 14) & 3);
+  *(out + 8)  = base + ((tmp >> 16) & 3);
+  *(out + 9)  = base + ((tmp >> 18) & 3);
+  *(out + 10)  = base + ((tmp >> 20) & 3);
+  *(out + 11)  = base + ((tmp >> 22) & 3);
+  *(out + 12)  = base + ((tmp >> 24) & 3);
+  *(out + 13)  = base + ((tmp >> 26) & 3);
+  *(out + 14)  = base + ((tmp >> 28) & 3);
+  *(out + 15)  = base + ((tmp >> 30) & 3);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 2);
-  *(out + 1)  = base + ((tmp >> 2) & 2);
-  *(out + 2)  = base + ((tmp >> 4) & 2);
-  *(out + 3)  = base + ((tmp >> 6) & 2);
-  *(out + 4)  = base + ((tmp >> 8) & 2);
-  *(out + 5)  = base + ((tmp >> 10) & 2);
-  *(out + 6)  = base + ((tmp >> 12) & 2);
-  *(out + 7)  = base + ((tmp >> 14) & 2);
-  *(out + 8)  = base + ((tmp >> 16) & 2);
-  *(out + 9)  = base + ((tmp >> 18) & 2);
-  *(out + 10)  = base + ((tmp >> 20) & 2);
-  *(out + 11)  = base + ((tmp >> 22) & 2);
-  *(out + 12)  = base + ((tmp >> 24) & 2);
-  *(out + 13)  = base + ((tmp >> 26) & 2);
-  *(out + 14)  = base + ((tmp >> 28) & 2);
-  *(out + 15)  = base + ((tmp >> 30) & 2);
+  *(out + 16)  = base + ((tmp >> 0) & 3);
+  *(out + 17)  = base + ((tmp >> 2) & 3);
+  *(out + 18)  = base + ((tmp >> 4) & 3);
+  *(out + 19)  = base + ((tmp >> 6) & 3);
+  *(out + 20)  = base + ((tmp >> 8) & 3);
+  *(out + 21)  = base + ((tmp >> 10) & 3);
+  *(out + 22)  = base + ((tmp >> 12) & 3);
+  *(out + 23)  = base + ((tmp >> 14) & 3);
+  *(out + 24)  = base + ((tmp >> 16) & 3);
+  *(out + 25)  = base + ((tmp >> 18) & 3);
+  *(out + 26)  = base + ((tmp >> 20) & 3);
+  *(out + 27)  = base + ((tmp >> 22) & 3);
+  *(out + 28)  = base + ((tmp >> 24) & 3);
+  *(out + 29)  = base + ((tmp >> 26) & 3);
+  *(out + 30)  = base + ((tmp >> 28) & 3);
+  *(out + 31)  = base + ((tmp >> 30) & 3);
   /* remaining: 0 bits */
   return (8);
 }
@@ -264,48 +264,48 @@ unpack3_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 3);
-  *(out + 1)  = base + ((tmp >> 3) & 3);
-  *(out + 2)  = base + ((tmp >> 6) & 3);
-  *(out + 3)  = base + ((tmp >> 9) & 3);
-  *(out + 4)  = base + ((tmp >> 12) & 3);
-  *(out + 5)  = base + ((tmp >> 15) & 3);
-  *(out + 6)  = base + ((tmp >> 18) & 3);
-  *(out + 7)  = base + ((tmp >> 21) & 3);
-  *(out + 8)  = base + ((tmp >> 24) & 3);
-  *(out + 9)  = base + ((tmp >> 27) & 3);
+  *(out + 0)  = base + ((tmp >> 0) & 7);
+  *(out + 1)  = base + ((tmp >> 3) & 7);
+  *(out + 2)  = base + ((tmp >> 6) & 7);
+  *(out + 3)  = base + ((tmp >> 9) & 7);
+  *(out + 4)  = base + ((tmp >> 12) & 7);
+  *(out + 5)  = base + ((tmp >> 15) & 7);
+  *(out + 6)  = base + ((tmp >> 18) & 7);
+  *(out + 7)  = base + ((tmp >> 21) & 7);
+  *(out + 8)  = base + ((tmp >> 24) & 7);
+  *(out + 9)  = base + ((tmp >> 27) & 7);
   *(out + 10)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 1)) << (3 - 1);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 1) & 3);
-  *(out + 12)  = base + ((tmp >> 4) & 3);
-  *(out + 13)  = base + ((tmp >> 7) & 3);
-  *(out + 14)  = base + ((tmp >> 10) & 3);
-  *(out + 15)  = base + ((tmp >> 13) & 3);
-  *(out + 16)  = base + ((tmp >> 16) & 3);
-  *(out + 17)  = base + ((tmp >> 19) & 3);
-  *(out + 18)  = base + ((tmp >> 22) & 3);
-  *(out + 19)  = base + ((tmp >> 25) & 3);
-  *(out + 20)  = base + ((tmp >> 28) & 3);
+  *(out + 11)  = base + ((tmp >> 1) & 7);
+  *(out + 12)  = base + ((tmp >> 4) & 7);
+  *(out + 13)  = base + ((tmp >> 7) & 7);
+  *(out + 14)  = base + ((tmp >> 10) & 7);
+  *(out + 15)  = base + ((tmp >> 13) & 7);
+  *(out + 16)  = base + ((tmp >> 16) & 7);
+  *(out + 17)  = base + ((tmp >> 19) & 7);
+  *(out + 18)  = base + ((tmp >> 22) & 7);
+  *(out + 19)  = base + ((tmp >> 25) & 7);
+  *(out + 20)  = base + ((tmp >> 28) & 7);
   *(out + 21)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 21) |= (tmp % (1U << 2)) << (3 - 2);
   *(out + 21) += base;
-  *(out + 22)  = base + ((tmp >> 2) & 3);
-  *(out + 23)  = base + ((tmp >> 5) & 3);
-  *(out + 24)  = base + ((tmp >> 8) & 3);
-  *(out + 25)  = base + ((tmp >> 11) & 3);
-  *(out + 26)  = base + ((tmp >> 14) & 3);
-  *(out + 27)  = base + ((tmp >> 17) & 3);
-  *(out + 28)  = base + ((tmp >> 20) & 3);
-  *(out + 29)  = base + ((tmp >> 23) & 3);
-  *(out + 30)  = base + ((tmp >> 26) & 3);
-  *(out + 31)  = base + ((tmp >> 29) & 3);
+  *(out + 22)  = base + ((tmp >> 2) & 7);
+  *(out + 23)  = base + ((tmp >> 5) & 7);
+  *(out + 24)  = base + ((tmp >> 8) & 7);
+  *(out + 25)  = base + ((tmp >> 11) & 7);
+  *(out + 26)  = base + ((tmp >> 14) & 7);
+  *(out + 27)  = base + ((tmp >> 17) & 7);
+  *(out + 28)  = base + ((tmp >> 20) & 7);
+  *(out + 29)  = base + ((tmp >> 23) & 7);
+  *(out + 30)  = base + ((tmp >> 26) & 7);
+  *(out + 31)  = base + ((tmp >> 29) & 7);
   /* remaining: 0 bits */
   return (12);
 }
@@ -324,36 +324,36 @@ pack4_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 4;
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 12;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 20;
-  tmp |= (*(in + 6) - base) << 24;
-  tmp |= (*(in + 7) - base) << 28;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 4;
+  tmp |= (*(in + 10) - base) << 8;
+  tmp |= (*(in + 11) - base) << 12;
+  tmp |= (*(in + 12) - base) << 16;
+  tmp |= (*(in + 13) - base) << 20;
+  tmp |= (*(in + 14) - base) << 24;
+  tmp |= (*(in + 15) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 4;
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 12;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 20;
-  tmp |= (*(in + 6) - base) << 24;
-  tmp |= (*(in + 7) - base) << 28;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 4;
+  tmp |= (*(in + 18) - base) << 8;
+  tmp |= (*(in + 19) - base) << 12;
+  tmp |= (*(in + 20) - base) << 16;
+  tmp |= (*(in + 21) - base) << 20;
+  tmp |= (*(in + 22) - base) << 24;
+  tmp |= (*(in + 23) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 4;
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 12;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 20;
-  tmp |= (*(in + 6) - base) << 24;
-  tmp |= (*(in + 7) - base) << 28;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 4;
+  tmp |= (*(in + 26) - base) << 8;
+  tmp |= (*(in + 27) - base) << 12;
+  tmp |= (*(in + 28) - base) << 16;
+  tmp |= (*(in + 29) - base) << 20;
+  tmp |= (*(in + 30) - base) << 24;
+  tmp |= (*(in + 31) - base) << 28;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 16) */
   *(uint32_t *)out = tmp;
@@ -365,47 +365,47 @@ unpack4_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 0)  = base + ((tmp >> 0) & 15);
+  *(out + 1)  = base + ((tmp >> 4) & 15);
+  *(out + 2)  = base + ((tmp >> 8) & 15);
+  *(out + 3)  = base + ((tmp >> 12) & 15);
+  *(out + 4)  = base + ((tmp >> 16) & 15);
+  *(out + 5)  = base + ((tmp >> 20) & 15);
+  *(out + 6)  = base + ((tmp >> 24) & 15);
+  *(out + 7)  = base + ((tmp >> 28) & 15);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 8)  = base + ((tmp >> 0) & 15);
+  *(out + 9)  = base + ((tmp >> 4) & 15);
+  *(out + 10)  = base + ((tmp >> 8) & 15);
+  *(out + 11)  = base + ((tmp >> 12) & 15);
+  *(out + 12)  = base + ((tmp >> 16) & 15);
+  *(out + 13)  = base + ((tmp >> 20) & 15);
+  *(out + 14)  = base + ((tmp >> 24) & 15);
+  *(out + 15)  = base + ((tmp >> 28) & 15);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 16)  = base + ((tmp >> 0) & 15);
+  *(out + 17)  = base + ((tmp >> 4) & 15);
+  *(out + 18)  = base + ((tmp >> 8) & 15);
+  *(out + 19)  = base + ((tmp >> 12) & 15);
+  *(out + 20)  = base + ((tmp >> 16) & 15);
+  *(out + 21)  = base + ((tmp >> 20) & 15);
+  *(out + 22)  = base + ((tmp >> 24) & 15);
+  *(out + 23)  = base + ((tmp >> 28) & 15);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 24)  = base + ((tmp >> 0) & 15);
+  *(out + 25)  = base + ((tmp >> 4) & 15);
+  *(out + 26)  = base + ((tmp >> 8) & 15);
+  *(out + 27)  = base + ((tmp >> 12) & 15);
+  *(out + 28)  = base + ((tmp >> 16) & 15);
+  *(out + 29)  = base + ((tmp >> 20) & 15);
+  *(out + 30)  = base + ((tmp >> 24) & 15);
+  *(out + 31)  = base + ((tmp >> 28) & 15);
   /* remaining: 0 bits */
   return (16);
 }
@@ -472,58 +472,58 @@ unpack5_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 5);
-  *(out + 1)  = base + ((tmp >> 5) & 5);
-  *(out + 2)  = base + ((tmp >> 10) & 5);
-  *(out + 3)  = base + ((tmp >> 15) & 5);
-  *(out + 4)  = base + ((tmp >> 20) & 5);
-  *(out + 5)  = base + ((tmp >> 25) & 5);
+  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 1)  = base + ((tmp >> 5) & 31);
+  *(out + 2)  = base + ((tmp >> 10) & 31);
+  *(out + 3)  = base + ((tmp >> 15) & 31);
+  *(out + 4)  = base + ((tmp >> 20) & 31);
+  *(out + 5)  = base + ((tmp >> 25) & 31);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 3)) << (5 - 3);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 3) & 5);
-  *(out + 8)  = base + ((tmp >> 8) & 5);
-  *(out + 9)  = base + ((tmp >> 13) & 5);
-  *(out + 10)  = base + ((tmp >> 18) & 5);
-  *(out + 11)  = base + ((tmp >> 23) & 5);
+  *(out + 7)  = base + ((tmp >> 3) & 31);
+  *(out + 8)  = base + ((tmp >> 8) & 31);
+  *(out + 9)  = base + ((tmp >> 13) & 31);
+  *(out + 10)  = base + ((tmp >> 18) & 31);
+  *(out + 11)  = base + ((tmp >> 23) & 31);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 1)) << (5 - 1);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 1) & 5);
-  *(out + 14)  = base + ((tmp >> 6) & 5);
-  *(out + 15)  = base + ((tmp >> 11) & 5);
-  *(out + 16)  = base + ((tmp >> 16) & 5);
-  *(out + 17)  = base + ((tmp >> 21) & 5);
-  *(out + 18)  = base + ((tmp >> 26) & 5);
+  *(out + 13)  = base + ((tmp >> 1) & 31);
+  *(out + 14)  = base + ((tmp >> 6) & 31);
+  *(out + 15)  = base + ((tmp >> 11) & 31);
+  *(out + 16)  = base + ((tmp >> 16) & 31);
+  *(out + 17)  = base + ((tmp >> 21) & 31);
+  *(out + 18)  = base + ((tmp >> 26) & 31);
   *(out + 19)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 19) |= (tmp % (1U << 4)) << (5 - 4);
   *(out + 19) += base;
-  *(out + 20)  = base + ((tmp >> 4) & 5);
-  *(out + 21)  = base + ((tmp >> 9) & 5);
-  *(out + 22)  = base + ((tmp >> 14) & 5);
-  *(out + 23)  = base + ((tmp >> 19) & 5);
-  *(out + 24)  = base + ((tmp >> 24) & 5);
+  *(out + 20)  = base + ((tmp >> 4) & 31);
+  *(out + 21)  = base + ((tmp >> 9) & 31);
+  *(out + 22)  = base + ((tmp >> 14) & 31);
+  *(out + 23)  = base + ((tmp >> 19) & 31);
+  *(out + 24)  = base + ((tmp >> 24) & 31);
   *(out + 25)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 25) |= (tmp % (1U << 2)) << (5 - 2);
   *(out + 25) += base;
-  *(out + 26)  = base + ((tmp >> 2) & 5);
-  *(out + 27)  = base + ((tmp >> 7) & 5);
-  *(out + 28)  = base + ((tmp >> 12) & 5);
-  *(out + 29)  = base + ((tmp >> 17) & 5);
-  *(out + 30)  = base + ((tmp >> 22) & 5);
-  *(out + 31)  = base + ((tmp >> 27) & 5);
+  *(out + 26)  = base + ((tmp >> 2) & 31);
+  *(out + 27)  = base + ((tmp >> 7) & 31);
+  *(out + 28)  = base + ((tmp >> 12) & 31);
+  *(out + 29)  = base + ((tmp >> 17) & 31);
+  *(out + 30)  = base + ((tmp >> 22) & 31);
+  *(out + 31)  = base + ((tmp >> 27) & 31);
   /* remaining: 0 bits */
   return (20);
 }
@@ -558,30 +558,30 @@ pack6_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 6;
-  tmp |= (*(in + 2) - base) << 12;
-  tmp |= (*(in + 3) - base) << 18;
-  tmp |= (*(in + 4) - base) << 24;
-  tmp |= (*(in + 5) - base) << 30;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 6;
+  tmp |= (*(in + 18) - base) << 12;
+  tmp |= (*(in + 19) - base) << 18;
+  tmp |= (*(in + 20) - base) << 24;
+  tmp |= (*(in + 21) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 5) - base) >> (6 - 4);
-  tmp |= (*(in + 6) - base) << 4;
-  tmp |= (*(in + 7) - base) << 10;
-  tmp |= (*(in + 8) - base) << 16;
-  tmp |= (*(in + 9) - base) << 22;
-  tmp |= (*(in + 10) - base) << 28;
+  tmp  = (*(in + 21) - base) >> (6 - 4);
+  tmp |= (*(in + 22) - base) << 4;
+  tmp |= (*(in + 23) - base) << 10;
+  tmp |= (*(in + 24) - base) << 16;
+  tmp |= (*(in + 25) - base) << 22;
+  tmp |= (*(in + 26) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 10) - base) >> (6 - 2);
-  tmp |= (*(in + 11) - base) << 2;
-  tmp |= (*(in + 12) - base) << 8;
-  tmp |= (*(in + 13) - base) << 14;
-  tmp |= (*(in + 14) - base) << 20;
-  tmp |= (*(in + 15) - base) << 26;
+  tmp  = (*(in + 26) - base) >> (6 - 2);
+  tmp |= (*(in + 27) - base) << 2;
+  tmp |= (*(in + 28) - base) << 8;
+  tmp |= (*(in + 29) - base) << 14;
+  tmp |= (*(in + 30) - base) << 20;
+  tmp |= (*(in + 31) - base) << 26;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 24) */
   *(uint32_t *)out = tmp;
@@ -593,61 +593,61 @@ unpack6_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 6);
-  *(out + 1)  = base + ((tmp >> 6) & 6);
-  *(out + 2)  = base + ((tmp >> 12) & 6);
-  *(out + 3)  = base + ((tmp >> 18) & 6);
-  *(out + 4)  = base + ((tmp >> 24) & 6);
+  *(out + 0)  = base + ((tmp >> 0) & 63);
+  *(out + 1)  = base + ((tmp >> 6) & 63);
+  *(out + 2)  = base + ((tmp >> 12) & 63);
+  *(out + 3)  = base + ((tmp >> 18) & 63);
+  *(out + 4)  = base + ((tmp >> 24) & 63);
   *(out + 5)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (6 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 6);
-  *(out + 7)  = base + ((tmp >> 10) & 6);
-  *(out + 8)  = base + ((tmp >> 16) & 6);
-  *(out + 9)  = base + ((tmp >> 22) & 6);
+  *(out + 6)  = base + ((tmp >> 4) & 63);
+  *(out + 7)  = base + ((tmp >> 10) & 63);
+  *(out + 8)  = base + ((tmp >> 16) & 63);
+  *(out + 9)  = base + ((tmp >> 22) & 63);
   *(out + 10)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 2)) << (6 - 2);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 2) & 6);
-  *(out + 12)  = base + ((tmp >> 8) & 6);
-  *(out + 13)  = base + ((tmp >> 14) & 6);
-  *(out + 14)  = base + ((tmp >> 20) & 6);
-  *(out + 15)  = base + ((tmp >> 26) & 6);
+  *(out + 11)  = base + ((tmp >> 2) & 63);
+  *(out + 12)  = base + ((tmp >> 8) & 63);
+  *(out + 13)  = base + ((tmp >> 14) & 63);
+  *(out + 14)  = base + ((tmp >> 20) & 63);
+  *(out + 15)  = base + ((tmp >> 26) & 63);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 6);
-  *(out + 1)  = base + ((tmp >> 6) & 6);
-  *(out + 2)  = base + ((tmp >> 12) & 6);
-  *(out + 3)  = base + ((tmp >> 18) & 6);
-  *(out + 4)  = base + ((tmp >> 24) & 6);
-  *(out + 5)  = tmp >> 30;
+  *(out + 16)  = base + ((tmp >> 0) & 63);
+  *(out + 17)  = base + ((tmp >> 6) & 63);
+  *(out + 18)  = base + ((tmp >> 12) & 63);
+  *(out + 19)  = base + ((tmp >> 18) & 63);
+  *(out + 20)  = base + ((tmp >> 24) & 63);
+  *(out + 21)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 4)) << (6 - 4);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 6);
-  *(out + 7)  = base + ((tmp >> 10) & 6);
-  *(out + 8)  = base + ((tmp >> 16) & 6);
-  *(out + 9)  = base + ((tmp >> 22) & 6);
-  *(out + 10)  = tmp >> 28;
+  *(out + 21) |= (tmp % (1U << 4)) << (6 - 4);
+  *(out + 21) += base;
+  *(out + 22)  = base + ((tmp >> 4) & 63);
+  *(out + 23)  = base + ((tmp >> 10) & 63);
+  *(out + 24)  = base + ((tmp >> 16) & 63);
+  *(out + 25)  = base + ((tmp >> 22) & 63);
+  *(out + 26)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 10) |= (tmp % (1U << 2)) << (6 - 2);
-  *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 2) & 6);
-  *(out + 12)  = base + ((tmp >> 8) & 6);
-  *(out + 13)  = base + ((tmp >> 14) & 6);
-  *(out + 14)  = base + ((tmp >> 20) & 6);
-  *(out + 15)  = base + ((tmp >> 26) & 6);
+  *(out + 26) |= (tmp % (1U << 2)) << (6 - 2);
+  *(out + 26) += base;
+  *(out + 27)  = base + ((tmp >> 2) & 63);
+  *(out + 28)  = base + ((tmp >> 8) & 63);
+  *(out + 29)  = base + ((tmp >> 14) & 63);
+  *(out + 30)  = base + ((tmp >> 20) & 63);
+  *(out + 31)  = base + ((tmp >> 26) & 63);
   /* remaining: 0 bits */
   return (24);
 }
@@ -722,68 +722,68 @@ unpack7_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 7);
-  *(out + 1)  = base + ((tmp >> 7) & 7);
-  *(out + 2)  = base + ((tmp >> 14) & 7);
-  *(out + 3)  = base + ((tmp >> 21) & 7);
+  *(out + 0)  = base + ((tmp >> 0) & 127);
+  *(out + 1)  = base + ((tmp >> 7) & 127);
+  *(out + 2)  = base + ((tmp >> 14) & 127);
+  *(out + 3)  = base + ((tmp >> 21) & 127);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 3)) << (7 - 3);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 3) & 7);
-  *(out + 6)  = base + ((tmp >> 10) & 7);
-  *(out + 7)  = base + ((tmp >> 17) & 7);
-  *(out + 8)  = base + ((tmp >> 24) & 7);
+  *(out + 5)  = base + ((tmp >> 3) & 127);
+  *(out + 6)  = base + ((tmp >> 10) & 127);
+  *(out + 7)  = base + ((tmp >> 17) & 127);
+  *(out + 8)  = base + ((tmp >> 24) & 127);
   *(out + 9)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 6)) << (7 - 6);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 6) & 7);
-  *(out + 11)  = base + ((tmp >> 13) & 7);
-  *(out + 12)  = base + ((tmp >> 20) & 7);
+  *(out + 10)  = base + ((tmp >> 6) & 127);
+  *(out + 11)  = base + ((tmp >> 13) & 127);
+  *(out + 12)  = base + ((tmp >> 20) & 127);
   *(out + 13)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 2)) << (7 - 2);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 2) & 7);
-  *(out + 15)  = base + ((tmp >> 9) & 7);
-  *(out + 16)  = base + ((tmp >> 16) & 7);
-  *(out + 17)  = base + ((tmp >> 23) & 7);
+  *(out + 14)  = base + ((tmp >> 2) & 127);
+  *(out + 15)  = base + ((tmp >> 9) & 127);
+  *(out + 16)  = base + ((tmp >> 16) & 127);
+  *(out + 17)  = base + ((tmp >> 23) & 127);
   *(out + 18)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 18) |= (tmp % (1U << 5)) << (7 - 5);
   *(out + 18) += base;
-  *(out + 19)  = base + ((tmp >> 5) & 7);
-  *(out + 20)  = base + ((tmp >> 12) & 7);
-  *(out + 21)  = base + ((tmp >> 19) & 7);
+  *(out + 19)  = base + ((tmp >> 5) & 127);
+  *(out + 20)  = base + ((tmp >> 12) & 127);
+  *(out + 21)  = base + ((tmp >> 19) & 127);
   *(out + 22)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 22) |= (tmp % (1U << 1)) << (7 - 1);
   *(out + 22) += base;
-  *(out + 23)  = base + ((tmp >> 1) & 7);
-  *(out + 24)  = base + ((tmp >> 8) & 7);
-  *(out + 25)  = base + ((tmp >> 15) & 7);
-  *(out + 26)  = base + ((tmp >> 22) & 7);
+  *(out + 23)  = base + ((tmp >> 1) & 127);
+  *(out + 24)  = base + ((tmp >> 8) & 127);
+  *(out + 25)  = base + ((tmp >> 15) & 127);
+  *(out + 26)  = base + ((tmp >> 22) & 127);
   *(out + 27)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 27) |= (tmp % (1U << 4)) << (7 - 4);
   *(out + 27) += base;
-  *(out + 28)  = base + ((tmp >> 4) & 7);
-  *(out + 29)  = base + ((tmp >> 11) & 7);
-  *(out + 30)  = base + ((tmp >> 18) & 7);
-  *(out + 31)  = base + ((tmp >> 25) & 7);
+  *(out + 28)  = base + ((tmp >> 4) & 127);
+  *(out + 29)  = base + ((tmp >> 11) & 127);
+  *(out + 30)  = base + ((tmp >> 18) & 127);
+  *(out + 31)  = base + ((tmp >> 25) & 127);
   /* remaining: 0 bits */
   return (28);
 }
@@ -798,52 +798,52 @@ pack8_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 8;
+  tmp |= (*(in + 6) - base) << 16;
+  tmp |= (*(in + 7) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 8;
+  tmp |= (*(in + 10) - base) << 16;
+  tmp |= (*(in + 11) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 8;
+  tmp |= (*(in + 14) - base) << 16;
+  tmp |= (*(in + 15) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 8;
+  tmp |= (*(in + 18) - base) << 16;
+  tmp |= (*(in + 19) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 20) - base) << 0;
+  tmp |= (*(in + 21) - base) << 8;
+  tmp |= (*(in + 22) - base) << 16;
+  tmp |= (*(in + 23) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 8;
+  tmp |= (*(in + 26) - base) << 16;
+  tmp |= (*(in + 27) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 28) - base) << 0;
+  tmp |= (*(in + 29) - base) << 8;
+  tmp |= (*(in + 30) - base) << 16;
+  tmp |= (*(in + 31) - base) << 24;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 32) */
   *(uint32_t *)out = tmp;
@@ -855,59 +855,59 @@ unpack8_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 0)  = base + ((tmp >> 0) & 255);
+  *(out + 1)  = base + ((tmp >> 8) & 255);
+  *(out + 2)  = base + ((tmp >> 16) & 255);
+  *(out + 3)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 4)  = base + ((tmp >> 0) & 255);
+  *(out + 5)  = base + ((tmp >> 8) & 255);
+  *(out + 6)  = base + ((tmp >> 16) & 255);
+  *(out + 7)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 8)  = base + ((tmp >> 0) & 255);
+  *(out + 9)  = base + ((tmp >> 8) & 255);
+  *(out + 10)  = base + ((tmp >> 16) & 255);
+  *(out + 11)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 12)  = base + ((tmp >> 0) & 255);
+  *(out + 13)  = base + ((tmp >> 8) & 255);
+  *(out + 14)  = base + ((tmp >> 16) & 255);
+  *(out + 15)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 16)  = base + ((tmp >> 0) & 255);
+  *(out + 17)  = base + ((tmp >> 8) & 255);
+  *(out + 18)  = base + ((tmp >> 16) & 255);
+  *(out + 19)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 20)  = base + ((tmp >> 0) & 255);
+  *(out + 21)  = base + ((tmp >> 8) & 255);
+  *(out + 22)  = base + ((tmp >> 16) & 255);
+  *(out + 23)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 24)  = base + ((tmp >> 0) & 255);
+  *(out + 25)  = base + ((tmp >> 8) & 255);
+  *(out + 26)  = base + ((tmp >> 16) & 255);
+  *(out + 27)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 28)  = base + ((tmp >> 0) & 255);
+  *(out + 29)  = base + ((tmp >> 8) & 255);
+  *(out + 30)  = base + ((tmp >> 16) & 255);
+  *(out + 31)  = base + ((tmp >> 24) & 255);
   /* remaining: 0 bits */
   return (32);
 }
@@ -990,78 +990,78 @@ unpack9_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 9);
-  *(out + 1)  = base + ((tmp >> 9) & 9);
-  *(out + 2)  = base + ((tmp >> 18) & 9);
+  *(out + 0)  = base + ((tmp >> 0) & 511);
+  *(out + 1)  = base + ((tmp >> 9) & 511);
+  *(out + 2)  = base + ((tmp >> 18) & 511);
   *(out + 3)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (9 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 9);
-  *(out + 5)  = base + ((tmp >> 13) & 9);
-  *(out + 6)  = base + ((tmp >> 22) & 9);
+  *(out + 4)  = base + ((tmp >> 4) & 511);
+  *(out + 5)  = base + ((tmp >> 13) & 511);
+  *(out + 6)  = base + ((tmp >> 22) & 511);
   *(out + 7)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (9 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 9);
-  *(out + 9)  = base + ((tmp >> 17) & 9);
+  *(out + 8)  = base + ((tmp >> 8) & 511);
+  *(out + 9)  = base + ((tmp >> 17) & 511);
   *(out + 10)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 3)) << (9 - 3);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 3) & 9);
-  *(out + 12)  = base + ((tmp >> 12) & 9);
-  *(out + 13)  = base + ((tmp >> 21) & 9);
+  *(out + 11)  = base + ((tmp >> 3) & 511);
+  *(out + 12)  = base + ((tmp >> 12) & 511);
+  *(out + 13)  = base + ((tmp >> 21) & 511);
   *(out + 14)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 7)) << (9 - 7);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 7) & 9);
-  *(out + 16)  = base + ((tmp >> 16) & 9);
+  *(out + 15)  = base + ((tmp >> 7) & 511);
+  *(out + 16)  = base + ((tmp >> 16) & 511);
   *(out + 17)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 17) |= (tmp % (1U << 2)) << (9 - 2);
   *(out + 17) += base;
-  *(out + 18)  = base + ((tmp >> 2) & 9);
-  *(out + 19)  = base + ((tmp >> 11) & 9);
-  *(out + 20)  = base + ((tmp >> 20) & 9);
+  *(out + 18)  = base + ((tmp >> 2) & 511);
+  *(out + 19)  = base + ((tmp >> 11) & 511);
+  *(out + 20)  = base + ((tmp >> 20) & 511);
   *(out + 21)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 21) |= (tmp % (1U << 6)) << (9 - 6);
   *(out + 21) += base;
-  *(out + 22)  = base + ((tmp >> 6) & 9);
-  *(out + 23)  = base + ((tmp >> 15) & 9);
+  *(out + 22)  = base + ((tmp >> 6) & 511);
+  *(out + 23)  = base + ((tmp >> 15) & 511);
   *(out + 24)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 24) |= (tmp % (1U << 1)) << (9 - 1);
   *(out + 24) += base;
-  *(out + 25)  = base + ((tmp >> 1) & 9);
-  *(out + 26)  = base + ((tmp >> 10) & 9);
-  *(out + 27)  = base + ((tmp >> 19) & 9);
+  *(out + 25)  = base + ((tmp >> 1) & 511);
+  *(out + 26)  = base + ((tmp >> 10) & 511);
+  *(out + 27)  = base + ((tmp >> 19) & 511);
   *(out + 28)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 28) |= (tmp % (1U << 5)) << (9 - 5);
   *(out + 28) += base;
-  *(out + 29)  = base + ((tmp >> 5) & 9);
-  *(out + 30)  = base + ((tmp >> 14) & 9);
-  *(out + 31)  = base + ((tmp >> 23) & 9);
+  *(out + 29)  = base + ((tmp >> 5) & 511);
+  *(out + 30)  = base + ((tmp >> 14) & 511);
+  *(out + 31)  = base + ((tmp >> 23) & 511);
   /* remaining: 0 bits */
   return (36);
 }
@@ -1104,38 +1104,38 @@ pack10_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 10;
-  tmp |= (*(in + 2) - base) << 20;
-  tmp |= (*(in + 3) - base) << 30;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 10;
+  tmp |= (*(in + 18) - base) << 20;
+  tmp |= (*(in + 19) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 3) - base) >> (10 - 8);
-  tmp |= (*(in + 4) - base) << 8;
-  tmp |= (*(in + 5) - base) << 18;
-  tmp |= (*(in + 6) - base) << 28;
+  tmp  = (*(in + 19) - base) >> (10 - 8);
+  tmp |= (*(in + 20) - base) << 8;
+  tmp |= (*(in + 21) - base) << 18;
+  tmp |= (*(in + 22) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 6) - base) >> (10 - 6);
-  tmp |= (*(in + 7) - base) << 6;
-  tmp |= (*(in + 8) - base) << 16;
-  tmp |= (*(in + 9) - base) << 26;
+  tmp  = (*(in + 22) - base) >> (10 - 6);
+  tmp |= (*(in + 23) - base) << 6;
+  tmp |= (*(in + 24) - base) << 16;
+  tmp |= (*(in + 25) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 9) - base) >> (10 - 4);
-  tmp |= (*(in + 10) - base) << 4;
-  tmp |= (*(in + 11) - base) << 14;
-  tmp |= (*(in + 12) - base) << 24;
+  tmp  = (*(in + 25) - base) >> (10 - 4);
+  tmp |= (*(in + 26) - base) << 4;
+  tmp |= (*(in + 27) - base) << 14;
+  tmp |= (*(in + 28) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 12) - base) >> (10 - 2);
-  tmp |= (*(in + 13) - base) << 2;
-  tmp |= (*(in + 14) - base) << 12;
-  tmp |= (*(in + 15) - base) << 22;
+  tmp  = (*(in + 28) - base) >> (10 - 2);
+  tmp |= (*(in + 29) - base) << 2;
+  tmp |= (*(in + 30) - base) << 12;
+  tmp |= (*(in + 31) - base) << 22;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 40) */
   *(uint32_t *)out = tmp;
@@ -1147,81 +1147,81 @@ unpack10_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 10);
-  *(out + 1)  = base + ((tmp >> 10) & 10);
-  *(out + 2)  = base + ((tmp >> 20) & 10);
+  *(out + 0)  = base + ((tmp >> 0) & 1023);
+  *(out + 1)  = base + ((tmp >> 10) & 1023);
+  *(out + 2)  = base + ((tmp >> 20) & 1023);
   *(out + 3)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (10 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 10);
-  *(out + 5)  = base + ((tmp >> 18) & 10);
+  *(out + 4)  = base + ((tmp >> 8) & 1023);
+  *(out + 5)  = base + ((tmp >> 18) & 1023);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 6)) << (10 - 6);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 6) & 10);
-  *(out + 8)  = base + ((tmp >> 16) & 10);
+  *(out + 7)  = base + ((tmp >> 6) & 1023);
+  *(out + 8)  = base + ((tmp >> 16) & 1023);
   *(out + 9)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 4)) << (10 - 4);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 10);
-  *(out + 11)  = base + ((tmp >> 14) & 10);
+  *(out + 10)  = base + ((tmp >> 4) & 1023);
+  *(out + 11)  = base + ((tmp >> 14) & 1023);
   *(out + 12)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 2)) << (10 - 2);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 2) & 10);
-  *(out + 14)  = base + ((tmp >> 12) & 10);
-  *(out + 15)  = base + ((tmp >> 22) & 10);
+  *(out + 13)  = base + ((tmp >> 2) & 1023);
+  *(out + 14)  = base + ((tmp >> 12) & 1023);
+  *(out + 15)  = base + ((tmp >> 22) & 1023);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 10);
-  *(out + 1)  = base + ((tmp >> 10) & 10);
-  *(out + 2)  = base + ((tmp >> 20) & 10);
-  *(out + 3)  = tmp >> 30;
+  *(out + 16)  = base + ((tmp >> 0) & 1023);
+  *(out + 17)  = base + ((tmp >> 10) & 1023);
+  *(out + 18)  = base + ((tmp >> 20) & 1023);
+  *(out + 19)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 8)) << (10 - 8);
-  *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 10);
-  *(out + 5)  = base + ((tmp >> 18) & 10);
-  *(out + 6)  = tmp >> 28;
+  *(out + 19) |= (tmp % (1U << 8)) << (10 - 8);
+  *(out + 19) += base;
+  *(out + 20)  = base + ((tmp >> 8) & 1023);
+  *(out + 21)  = base + ((tmp >> 18) & 1023);
+  *(out + 22)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 6)) << (10 - 6);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 6) & 10);
-  *(out + 8)  = base + ((tmp >> 16) & 10);
-  *(out + 9)  = tmp >> 26;
+  *(out + 22) |= (tmp % (1U << 6)) << (10 - 6);
+  *(out + 22) += base;
+  *(out + 23)  = base + ((tmp >> 6) & 1023);
+  *(out + 24)  = base + ((tmp >> 16) & 1023);
+  *(out + 25)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 9) |= (tmp % (1U << 4)) << (10 - 4);
-  *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 10);
-  *(out + 11)  = base + ((tmp >> 14) & 10);
-  *(out + 12)  = tmp >> 24;
+  *(out + 25) |= (tmp % (1U << 4)) << (10 - 4);
+  *(out + 25) += base;
+  *(out + 26)  = base + ((tmp >> 4) & 1023);
+  *(out + 27)  = base + ((tmp >> 14) & 1023);
+  *(out + 28)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 12) |= (tmp % (1U << 2)) << (10 - 2);
-  *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 2) & 10);
-  *(out + 14)  = base + ((tmp >> 12) & 10);
-  *(out + 15)  = base + ((tmp >> 22) & 10);
+  *(out + 28) |= (tmp % (1U << 2)) << (10 - 2);
+  *(out + 28) += base;
+  *(out + 29)  = base + ((tmp >> 2) & 1023);
+  *(out + 30)  = base + ((tmp >> 12) & 1023);
+  *(out + 31)  = base + ((tmp >> 22) & 1023);
   /* remaining: 0 bits */
   return (40);
 }
@@ -1312,88 +1312,88 @@ unpack11_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 11);
-  *(out + 1)  = base + ((tmp >> 11) & 11);
+  *(out + 0)  = base + ((tmp >> 0) & 2047);
+  *(out + 1)  = base + ((tmp >> 11) & 2047);
   *(out + 2)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 1)) << (11 - 1);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 1) & 11);
-  *(out + 4)  = base + ((tmp >> 12) & 11);
+  *(out + 3)  = base + ((tmp >> 1) & 2047);
+  *(out + 4)  = base + ((tmp >> 12) & 2047);
   *(out + 5)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (11 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 11);
-  *(out + 7)  = base + ((tmp >> 13) & 11);
+  *(out + 6)  = base + ((tmp >> 2) & 2047);
+  *(out + 7)  = base + ((tmp >> 13) & 2047);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 3)) << (11 - 3);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 3) & 11);
-  *(out + 10)  = base + ((tmp >> 14) & 11);
+  *(out + 9)  = base + ((tmp >> 3) & 2047);
+  *(out + 10)  = base + ((tmp >> 14) & 2047);
   *(out + 11)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (11 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 11);
-  *(out + 13)  = base + ((tmp >> 15) & 11);
+  *(out + 12)  = base + ((tmp >> 4) & 2047);
+  *(out + 13)  = base + ((tmp >> 15) & 2047);
   *(out + 14)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 5)) << (11 - 5);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 5) & 11);
-  *(out + 16)  = base + ((tmp >> 16) & 11);
+  *(out + 15)  = base + ((tmp >> 5) & 2047);
+  *(out + 16)  = base + ((tmp >> 16) & 2047);
   *(out + 17)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 17) |= (tmp % (1U << 6)) << (11 - 6);
   *(out + 17) += base;
-  *(out + 18)  = base + ((tmp >> 6) & 11);
-  *(out + 19)  = base + ((tmp >> 17) & 11);
+  *(out + 18)  = base + ((tmp >> 6) & 2047);
+  *(out + 19)  = base + ((tmp >> 17) & 2047);
   *(out + 20)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 20) |= (tmp % (1U << 7)) << (11 - 7);
   *(out + 20) += base;
-  *(out + 21)  = base + ((tmp >> 7) & 11);
-  *(out + 22)  = base + ((tmp >> 18) & 11);
+  *(out + 21)  = base + ((tmp >> 7) & 2047);
+  *(out + 22)  = base + ((tmp >> 18) & 2047);
   *(out + 23)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 23) |= (tmp % (1U << 8)) << (11 - 8);
   *(out + 23) += base;
-  *(out + 24)  = base + ((tmp >> 8) & 11);
-  *(out + 25)  = base + ((tmp >> 19) & 11);
+  *(out + 24)  = base + ((tmp >> 8) & 2047);
+  *(out + 25)  = base + ((tmp >> 19) & 2047);
   *(out + 26)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
   *(out + 26) |= (tmp % (1U << 9)) << (11 - 9);
   *(out + 26) += base;
-  *(out + 27)  = base + ((tmp >> 9) & 11);
-  *(out + 28)  = base + ((tmp >> 20) & 11);
+  *(out + 27)  = base + ((tmp >> 9) & 2047);
+  *(out + 28)  = base + ((tmp >> 20) & 2047);
   *(out + 29)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
   *(out + 29) |= (tmp % (1U << 10)) << (11 - 10);
   *(out + 29) += base;
-  *(out + 30)  = base + ((tmp >> 10) & 11);
-  *(out + 31)  = base + ((tmp >> 21) & 11);
+  *(out + 30)  = base + ((tmp >> 10) & 2047);
+  *(out + 31)  = base + ((tmp >> 21) & 2047);
   /* remaining: 0 bits */
   return (44);
 }
@@ -1420,60 +1420,60 @@ pack12_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 12;
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 12;
+  tmp |= (*(in + 10) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 2) - base) >> (12 - 4);
-  tmp |= (*(in + 3) - base) << 4;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 28;
+  tmp  = (*(in + 10) - base) >> (12 - 4);
+  tmp |= (*(in + 11) - base) << 4;
+  tmp |= (*(in + 12) - base) << 16;
+  tmp |= (*(in + 13) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 5) - base) >> (12 - 8);
-  tmp |= (*(in + 6) - base) << 8;
-  tmp |= (*(in + 7) - base) << 20;
+  tmp  = (*(in + 13) - base) >> (12 - 8);
+  tmp |= (*(in + 14) - base) << 8;
+  tmp |= (*(in + 15) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 12;
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 12;
+  tmp |= (*(in + 18) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 2) - base) >> (12 - 4);
-  tmp |= (*(in + 3) - base) << 4;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 28;
+  tmp  = (*(in + 18) - base) >> (12 - 4);
+  tmp |= (*(in + 19) - base) << 4;
+  tmp |= (*(in + 20) - base) << 16;
+  tmp |= (*(in + 21) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 5) - base) >> (12 - 8);
-  tmp |= (*(in + 6) - base) << 8;
-  tmp |= (*(in + 7) - base) << 20;
+  tmp  = (*(in + 21) - base) >> (12 - 8);
+  tmp |= (*(in + 22) - base) << 8;
+  tmp |= (*(in + 23) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 12;
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 12;
+  tmp |= (*(in + 26) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 2) - base) >> (12 - 4);
-  tmp |= (*(in + 3) - base) << 4;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 28;
+  tmp  = (*(in + 26) - base) >> (12 - 4);
+  tmp |= (*(in + 27) - base) << 4;
+  tmp |= (*(in + 28) - base) << 16;
+  tmp |= (*(in + 29) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 5) - base) >> (12 - 8);
-  tmp |= (*(in + 6) - base) << 8;
-  tmp |= (*(in + 7) - base) << 20;
+  tmp  = (*(in + 29) - base) >> (12 - 8);
+  tmp |= (*(in + 30) - base) << 8;
+  tmp |= (*(in + 31) - base) << 20;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 48) */
   *(uint32_t *)out = tmp;
@@ -1485,87 +1485,87 @@ unpack12_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
+  *(out + 0)  = base + ((tmp >> 0) & 4095);
+  *(out + 1)  = base + ((tmp >> 12) & 4095);
   *(out + 2)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
+  *(out + 3)  = base + ((tmp >> 4) & 4095);
+  *(out + 4)  = base + ((tmp >> 16) & 4095);
   *(out + 5)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 6)  = base + ((tmp >> 8) & 4095);
+  *(out + 7)  = base + ((tmp >> 20) & 4095);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
-  *(out + 2)  = tmp >> 24;
+  *(out + 8)  = base + ((tmp >> 0) & 4095);
+  *(out + 9)  = base + ((tmp >> 12) & 4095);
+  *(out + 10)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
-  *(out + 5)  = tmp >> 28;
+  *(out + 10) |= (tmp % (1U << 4)) << (12 - 4);
+  *(out + 10) += base;
+  *(out + 11)  = base + ((tmp >> 4) & 4095);
+  *(out + 12)  = base + ((tmp >> 16) & 4095);
+  *(out + 13)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 13) |= (tmp % (1U << 8)) << (12 - 8);
+  *(out + 13) += base;
+  *(out + 14)  = base + ((tmp >> 8) & 4095);
+  *(out + 15)  = base + ((tmp >> 20) & 4095);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
-  *(out + 2)  = tmp >> 24;
+  *(out + 16)  = base + ((tmp >> 0) & 4095);
+  *(out + 17)  = base + ((tmp >> 12) & 4095);
+  *(out + 18)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
-  *(out + 5)  = tmp >> 28;
+  *(out + 18) |= (tmp % (1U << 4)) << (12 - 4);
+  *(out + 18) += base;
+  *(out + 19)  = base + ((tmp >> 4) & 4095);
+  *(out + 20)  = base + ((tmp >> 16) & 4095);
+  *(out + 21)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 21) |= (tmp % (1U << 8)) << (12 - 8);
+  *(out + 21) += base;
+  *(out + 22)  = base + ((tmp >> 8) & 4095);
+  *(out + 23)  = base + ((tmp >> 20) & 4095);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
-  *(out + 2)  = tmp >> 24;
+  *(out + 24)  = base + ((tmp >> 0) & 4095);
+  *(out + 25)  = base + ((tmp >> 12) & 4095);
+  *(out + 26)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
-  *(out + 5)  = tmp >> 28;
+  *(out + 26) |= (tmp % (1U << 4)) << (12 - 4);
+  *(out + 26) += base;
+  *(out + 27)  = base + ((tmp >> 4) & 4095);
+  *(out + 28)  = base + ((tmp >> 16) & 4095);
+  *(out + 29)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 29) |= (tmp % (1U << 8)) << (12 - 8);
+  *(out + 29) += base;
+  *(out + 30)  = base + ((tmp >> 8) & 4095);
+  *(out + 31)  = base + ((tmp >> 20) & 4095);
   /* remaining: 0 bits */
   return (48);
 }
@@ -1664,98 +1664,98 @@ unpack13_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 13);
-  *(out + 1)  = base + ((tmp >> 13) & 13);
+  *(out + 0)  = base + ((tmp >> 0) & 8191);
+  *(out + 1)  = base + ((tmp >> 13) & 8191);
   *(out + 2)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 7)) << (13 - 7);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 7) & 13);
+  *(out + 3)  = base + ((tmp >> 7) & 8191);
   *(out + 4)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 1)) << (13 - 1);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 1) & 13);
-  *(out + 6)  = base + ((tmp >> 14) & 13);
+  *(out + 5)  = base + ((tmp >> 1) & 8191);
+  *(out + 6)  = base + ((tmp >> 14) & 8191);
   *(out + 7)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (13 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 13);
+  *(out + 8)  = base + ((tmp >> 8) & 8191);
   *(out + 9)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 2)) << (13 - 2);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 2) & 13);
-  *(out + 11)  = base + ((tmp >> 15) & 13);
+  *(out + 10)  = base + ((tmp >> 2) & 8191);
+  *(out + 11)  = base + ((tmp >> 15) & 8191);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 9)) << (13 - 9);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 9) & 13);
+  *(out + 13)  = base + ((tmp >> 9) & 8191);
   *(out + 14)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 3)) << (13 - 3);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 3) & 13);
-  *(out + 16)  = base + ((tmp >> 16) & 13);
+  *(out + 15)  = base + ((tmp >> 3) & 8191);
+  *(out + 16)  = base + ((tmp >> 16) & 8191);
   *(out + 17)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 17) |= (tmp % (1U << 10)) << (13 - 10);
   *(out + 17) += base;
-  *(out + 18)  = base + ((tmp >> 10) & 13);
+  *(out + 18)  = base + ((tmp >> 10) & 8191);
   *(out + 19)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 19) |= (tmp % (1U << 4)) << (13 - 4);
   *(out + 19) += base;
-  *(out + 20)  = base + ((tmp >> 4) & 13);
-  *(out + 21)  = base + ((tmp >> 17) & 13);
+  *(out + 20)  = base + ((tmp >> 4) & 8191);
+  *(out + 21)  = base + ((tmp >> 17) & 8191);
   *(out + 22)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
   *(out + 22) |= (tmp % (1U << 11)) << (13 - 11);
   *(out + 22) += base;
-  *(out + 23)  = base + ((tmp >> 11) & 13);
+  *(out + 23)  = base + ((tmp >> 11) & 8191);
   *(out + 24)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
   *(out + 24) |= (tmp % (1U << 5)) << (13 - 5);
   *(out + 24) += base;
-  *(out + 25)  = base + ((tmp >> 5) & 13);
-  *(out + 26)  = base + ((tmp >> 18) & 13);
+  *(out + 25)  = base + ((tmp >> 5) & 8191);
+  *(out + 26)  = base + ((tmp >> 18) & 8191);
   *(out + 27)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
   *(out + 27) |= (tmp % (1U << 12)) << (13 - 12);
   *(out + 27) += base;
-  *(out + 28)  = base + ((tmp >> 12) & 13);
+  *(out + 28)  = base + ((tmp >> 12) & 8191);
   *(out + 29)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
   *(out + 29) |= (tmp % (1U << 6)) << (13 - 6);
   *(out + 29) += base;
-  *(out + 30)  = base + ((tmp >> 6) & 13);
-  *(out + 31)  = base + ((tmp >> 19) & 13);
+  *(out + 30)  = base + ((tmp >> 6) & 8191);
+  *(out + 31)  = base + ((tmp >> 19) & 8191);
   /* remaining: 0 bits */
   return (52);
 }
@@ -1806,46 +1806,46 @@ pack14_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 14;
-  tmp |= (*(in + 2) - base) << 28;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 14;
+  tmp |= (*(in + 18) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 2) - base) >> (14 - 10);
-  tmp |= (*(in + 3) - base) << 10;
-  tmp |= (*(in + 4) - base) << 24;
+  tmp  = (*(in + 18) - base) >> (14 - 10);
+  tmp |= (*(in + 19) - base) << 10;
+  tmp |= (*(in + 20) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 4) - base) >> (14 - 6);
-  tmp |= (*(in + 5) - base) << 6;
-  tmp |= (*(in + 6) - base) << 20;
+  tmp  = (*(in + 20) - base) >> (14 - 6);
+  tmp |= (*(in + 21) - base) << 6;
+  tmp |= (*(in + 22) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 6) - base) >> (14 - 2);
-  tmp |= (*(in + 7) - base) << 2;
-  tmp |= (*(in + 8) - base) << 16;
-  tmp |= (*(in + 9) - base) << 30;
+  tmp  = (*(in + 22) - base) >> (14 - 2);
+  tmp |= (*(in + 23) - base) << 2;
+  tmp |= (*(in + 24) - base) << 16;
+  tmp |= (*(in + 25) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 9) - base) >> (14 - 12);
-  tmp |= (*(in + 10) - base) << 12;
-  tmp |= (*(in + 11) - base) << 26;
+  tmp  = (*(in + 25) - base) >> (14 - 12);
+  tmp |= (*(in + 26) - base) << 12;
+  tmp |= (*(in + 27) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 11) - base) >> (14 - 8);
-  tmp |= (*(in + 12) - base) << 8;
-  tmp |= (*(in + 13) - base) << 22;
+  tmp  = (*(in + 27) - base) >> (14 - 8);
+  tmp |= (*(in + 28) - base) << 8;
+  tmp |= (*(in + 29) - base) << 22;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 13) - base) >> (14 - 4);
-  tmp |= (*(in + 14) - base) << 4;
-  tmp |= (*(in + 15) - base) << 18;
+  tmp  = (*(in + 29) - base) >> (14 - 4);
+  tmp |= (*(in + 30) - base) << 4;
+  tmp |= (*(in + 31) - base) << 18;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 56) */
   *(uint32_t *)out = tmp;
@@ -1857,101 +1857,101 @@ unpack14_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 14);
-  *(out + 1)  = base + ((tmp >> 14) & 14);
+  *(out + 0)  = base + ((tmp >> 0) & 16383);
+  *(out + 1)  = base + ((tmp >> 14) & 16383);
   *(out + 2)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 10)) << (14 - 10);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 10) & 14);
+  *(out + 3)  = base + ((tmp >> 10) & 16383);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 6)) << (14 - 6);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 6) & 14);
+  *(out + 5)  = base + ((tmp >> 6) & 16383);
   *(out + 6)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 2)) << (14 - 2);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 2) & 14);
-  *(out + 8)  = base + ((tmp >> 16) & 14);
+  *(out + 7)  = base + ((tmp >> 2) & 16383);
+  *(out + 8)  = base + ((tmp >> 16) & 16383);
   *(out + 9)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 12)) << (14 - 12);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 12) & 14);
+  *(out + 10)  = base + ((tmp >> 12) & 16383);
   *(out + 11)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 8)) << (14 - 8);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 14);
+  *(out + 12)  = base + ((tmp >> 8) & 16383);
   *(out + 13)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 4)) << (14 - 4);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 4) & 14);
-  *(out + 15)  = base + ((tmp >> 18) & 14);
+  *(out + 14)  = base + ((tmp >> 4) & 16383);
+  *(out + 15)  = base + ((tmp >> 18) & 16383);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 14);
-  *(out + 1)  = base + ((tmp >> 14) & 14);
-  *(out + 2)  = tmp >> 28;
+  *(out + 16)  = base + ((tmp >> 0) & 16383);
+  *(out + 17)  = base + ((tmp >> 14) & 16383);
+  *(out + 18)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 10)) << (14 - 10);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 10) & 14);
-  *(out + 4)  = tmp >> 24;
+  *(out + 18) |= (tmp % (1U << 10)) << (14 - 10);
+  *(out + 18) += base;
+  *(out + 19)  = base + ((tmp >> 10) & 16383);
+  *(out + 20)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 6)) << (14 - 6);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 6) & 14);
-  *(out + 6)  = tmp >> 20;
+  *(out + 20) |= (tmp % (1U << 6)) << (14 - 6);
+  *(out + 20) += base;
+  *(out + 21)  = base + ((tmp >> 6) & 16383);
+  *(out + 22)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 2)) << (14 - 2);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 2) & 14);
-  *(out + 8)  = base + ((tmp >> 16) & 14);
-  *(out + 9)  = tmp >> 30;
+  *(out + 22) |= (tmp % (1U << 2)) << (14 - 2);
+  *(out + 22) += base;
+  *(out + 23)  = base + ((tmp >> 2) & 16383);
+  *(out + 24)  = base + ((tmp >> 16) & 16383);
+  *(out + 25)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 9) |= (tmp % (1U << 12)) << (14 - 12);
-  *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 12) & 14);
-  *(out + 11)  = tmp >> 26;
+  *(out + 25) |= (tmp % (1U << 12)) << (14 - 12);
+  *(out + 25) += base;
+  *(out + 26)  = base + ((tmp >> 12) & 16383);
+  *(out + 27)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 11) |= (tmp % (1U << 8)) << (14 - 8);
-  *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 14);
-  *(out + 13)  = tmp >> 22;
+  *(out + 27) |= (tmp % (1U << 8)) << (14 - 8);
+  *(out + 27) += base;
+  *(out + 28)  = base + ((tmp >> 8) & 16383);
+  *(out + 29)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 13) |= (tmp % (1U << 4)) << (14 - 4);
-  *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 4) & 14);
-  *(out + 15)  = base + ((tmp >> 18) & 14);
+  *(out + 29) |= (tmp % (1U << 4)) << (14 - 4);
+  *(out + 29) += base;
+  *(out + 30)  = base + ((tmp >> 4) & 16383);
+  *(out + 31)  = base + ((tmp >> 18) & 16383);
   /* remaining: 0 bits */
   return (56);
 }
@@ -2058,108 +2058,108 @@ unpack15_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 15);
-  *(out + 1)  = base + ((tmp >> 15) & 15);
+  *(out + 0)  = base + ((tmp >> 0) & 32767);
+  *(out + 1)  = base + ((tmp >> 15) & 32767);
   *(out + 2)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 13)) << (15 - 13);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 13) & 15);
+  *(out + 3)  = base + ((tmp >> 13) & 32767);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 11)) << (15 - 11);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 11) & 15);
+  *(out + 5)  = base + ((tmp >> 11) & 32767);
   *(out + 6)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 9)) << (15 - 9);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 9) & 15);
+  *(out + 7)  = base + ((tmp >> 9) & 32767);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 7)) << (15 - 7);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 7) & 15);
+  *(out + 9)  = base + ((tmp >> 7) & 32767);
   *(out + 10)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 5)) << (15 - 5);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 5) & 15);
+  *(out + 11)  = base + ((tmp >> 5) & 32767);
   *(out + 12)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 3)) << (15 - 3);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 3) & 15);
+  *(out + 13)  = base + ((tmp >> 3) & 32767);
   *(out + 14)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 1)) << (15 - 1);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 1) & 15);
-  *(out + 16)  = base + ((tmp >> 16) & 15);
+  *(out + 15)  = base + ((tmp >> 1) & 32767);
+  *(out + 16)  = base + ((tmp >> 16) & 32767);
   *(out + 17)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 17) |= (tmp % (1U << 14)) << (15 - 14);
   *(out + 17) += base;
-  *(out + 18)  = base + ((tmp >> 14) & 15);
+  *(out + 18)  = base + ((tmp >> 14) & 32767);
   *(out + 19)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
   *(out + 19) |= (tmp % (1U << 12)) << (15 - 12);
   *(out + 19) += base;
-  *(out + 20)  = base + ((tmp >> 12) & 15);
+  *(out + 20)  = base + ((tmp >> 12) & 32767);
   *(out + 21)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
   *(out + 21) |= (tmp % (1U << 10)) << (15 - 10);
   *(out + 21) += base;
-  *(out + 22)  = base + ((tmp >> 10) & 15);
+  *(out + 22)  = base + ((tmp >> 10) & 32767);
   *(out + 23)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
   *(out + 23) |= (tmp % (1U << 8)) << (15 - 8);
   *(out + 23) += base;
-  *(out + 24)  = base + ((tmp >> 8) & 15);
+  *(out + 24)  = base + ((tmp >> 8) & 32767);
   *(out + 25)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
   *(out + 25) |= (tmp % (1U << 6)) << (15 - 6);
   *(out + 25) += base;
-  *(out + 26)  = base + ((tmp >> 6) & 15);
+  *(out + 26)  = base + ((tmp >> 6) & 32767);
   *(out + 27)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
   *(out + 27) |= (tmp % (1U << 4)) << (15 - 4);
   *(out + 27) += base;
-  *(out + 28)  = base + ((tmp >> 4) & 15);
+  *(out + 28)  = base + ((tmp >> 4) & 32767);
   *(out + 29)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
   *(out + 29) |= (tmp % (1U << 2)) << (15 - 2);
   *(out + 29) += base;
-  *(out + 30)  = base + ((tmp >> 2) & 15);
-  *(out + 31)  = base + ((tmp >> 17) & 15);
+  *(out + 30)  = base + ((tmp >> 2) & 32767);
+  *(out + 31)  = base + ((tmp >> 17) & 32767);
   /* remaining: 0 bits */
   return (60);
 }
@@ -2172,78 +2172,78 @@ pack16_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 2) - base) << 0;
+  tmp |= (*(in + 3) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 6) - base) << 0;
+  tmp |= (*(in + 7) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 10) - base) << 0;
+  tmp |= (*(in + 11) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 14) - base) << 0;
+  tmp |= (*(in + 15) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 18) - base) << 0;
+  tmp |= (*(in + 19) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 20) - base) << 0;
+  tmp |= (*(in + 21) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 22) - base) << 0;
+  tmp |= (*(in + 23) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 26) - base) << 0;
+  tmp |= (*(in + 27) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 28) - base) << 0;
+  tmp |= (*(in + 29) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 30) - base) << 0;
+  tmp |= (*(in + 31) - base) << 16;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 64) */
   *(uint32_t *)out = tmp;
@@ -2255,83 +2255,83 @@ unpack16_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 0)  = base + ((tmp >> 0) & 65535);
+  *(out + 1)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 2)  = base + ((tmp >> 0) & 65535);
+  *(out + 3)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 4)  = base + ((tmp >> 0) & 65535);
+  *(out + 5)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 6)  = base + ((tmp >> 0) & 65535);
+  *(out + 7)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 8)  = base + ((tmp >> 0) & 65535);
+  *(out + 9)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 10)  = base + ((tmp >> 0) & 65535);
+  *(out + 11)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 12)  = base + ((tmp >> 0) & 65535);
+  *(out + 13)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 14)  = base + ((tmp >> 0) & 65535);
+  *(out + 15)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 36) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 16)  = base + ((tmp >> 0) & 65535);
+  *(out + 17)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 18)  = base + ((tmp >> 0) & 65535);
+  *(out + 19)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 44) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 20)  = base + ((tmp >> 0) & 65535);
+  *(out + 21)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 48) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 22)  = base + ((tmp >> 0) & 65535);
+  *(out + 23)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 52) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 24)  = base + ((tmp >> 0) & 65535);
+  *(out + 25)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 56) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 26)  = base + ((tmp >> 0) & 65535);
+  *(out + 27)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 60) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 28)  = base + ((tmp >> 0) & 65535);
+  *(out + 29)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 30)  = base + ((tmp >> 0) & 65535);
+  *(out + 31)  = base + ((tmp >> 16) & 65535);
   /* remaining: 0 bits */
   return (64);
 }
@@ -2446,56 +2446,56 @@ unpack17_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 17);
+  *(out + 0)  = base + ((tmp >> 0) & 131071);
   *(out + 1)  = tmp >> 17;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 2)) << (17 - 2);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 2) & 17);
+  *(out + 2)  = base + ((tmp >> 2) & 131071);
   *(out + 3)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (17 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 17);
+  *(out + 4)  = base + ((tmp >> 4) & 131071);
   *(out + 5)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 6)) << (17 - 6);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 6) & 17);
+  *(out + 6)  = base + ((tmp >> 6) & 131071);
   *(out + 7)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (17 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 17);
+  *(out + 8)  = base + ((tmp >> 8) & 131071);
   *(out + 9)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 10)) << (17 - 10);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 10) & 17);
+  *(out + 10)  = base + ((tmp >> 10) & 131071);
   *(out + 11)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 12)) << (17 - 12);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 12) & 17);
+  *(out + 12)  = base + ((tmp >> 12) & 131071);
   *(out + 13)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 14)) << (17 - 14);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 14) & 17);
+  *(out + 14)  = base + ((tmp >> 14) & 131071);
   *(out + 15)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -2508,56 +2508,56 @@ unpack17_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 16) |= (tmp % (1U << 1)) << (17 - 1);
   *(out + 16) += base;
-  *(out + 17)  = base + ((tmp >> 1) & 17);
+  *(out + 17)  = base + ((tmp >> 1) & 131071);
   *(out + 18)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
   *(out + 18) |= (tmp % (1U << 3)) << (17 - 3);
   *(out + 18) += base;
-  *(out + 19)  = base + ((tmp >> 3) & 17);
+  *(out + 19)  = base + ((tmp >> 3) & 131071);
   *(out + 20)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
   *(out + 20) |= (tmp % (1U << 5)) << (17 - 5);
   *(out + 20) += base;
-  *(out + 21)  = base + ((tmp >> 5) & 17);
+  *(out + 21)  = base + ((tmp >> 5) & 131071);
   *(out + 22)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
   *(out + 22) |= (tmp % (1U << 7)) << (17 - 7);
   *(out + 22) += base;
-  *(out + 23)  = base + ((tmp >> 7) & 17);
+  *(out + 23)  = base + ((tmp >> 7) & 131071);
   *(out + 24)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
   *(out + 24) |= (tmp % (1U << 9)) << (17 - 9);
   *(out + 24) += base;
-  *(out + 25)  = base + ((tmp >> 9) & 17);
+  *(out + 25)  = base + ((tmp >> 9) & 131071);
   *(out + 26)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
   *(out + 26) |= (tmp % (1U << 11)) << (17 - 11);
   *(out + 26) += base;
-  *(out + 27)  = base + ((tmp >> 11) & 17);
+  *(out + 27)  = base + ((tmp >> 11) & 131071);
   *(out + 28)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
   tmp = *(uint32_t *)in;
   *(out + 28) |= (tmp % (1U << 13)) << (17 - 13);
   *(out + 28) += base;
-  *(out + 29)  = base + ((tmp >> 13) & 17);
+  *(out + 29)  = base + ((tmp >> 13) & 131071);
   *(out + 30)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 15)) << (17 - 15);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 15) & 17);
+  *(out + 31)  = base + ((tmp >> 15) & 131071);
   /* remaining: 0 bits */
   return (68);
 }
@@ -2616,54 +2616,54 @@ pack18_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 18;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 18;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 1) - base) >> (18 - 4);
-  tmp |= (*(in + 2) - base) << 4;
-  tmp |= (*(in + 3) - base) << 22;
+  tmp  = (*(in + 17) - base) >> (18 - 4);
+  tmp |= (*(in + 18) - base) << 4;
+  tmp |= (*(in + 19) - base) << 22;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 3) - base) >> (18 - 8);
-  tmp |= (*(in + 4) - base) << 8;
-  tmp |= (*(in + 5) - base) << 26;
+  tmp  = (*(in + 19) - base) >> (18 - 8);
+  tmp |= (*(in + 20) - base) << 8;
+  tmp |= (*(in + 21) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 5) - base) >> (18 - 12);
-  tmp |= (*(in + 6) - base) << 12;
-  tmp |= (*(in + 7) - base) << 30;
+  tmp  = (*(in + 21) - base) >> (18 - 12);
+  tmp |= (*(in + 22) - base) << 12;
+  tmp |= (*(in + 23) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 7) - base) >> (18 - 16);
-  tmp |= (*(in + 8) - base) << 16;
+  tmp  = (*(in + 23) - base) >> (18 - 16);
+  tmp |= (*(in + 24) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 8) - base) >> (18 - 2);
-  tmp |= (*(in + 9) - base) << 2;
-  tmp |= (*(in + 10) - base) << 20;
+  tmp  = (*(in + 24) - base) >> (18 - 2);
+  tmp |= (*(in + 25) - base) << 2;
+  tmp |= (*(in + 26) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 10) - base) >> (18 - 6);
-  tmp |= (*(in + 11) - base) << 6;
-  tmp |= (*(in + 12) - base) << 24;
+  tmp  = (*(in + 26) - base) >> (18 - 6);
+  tmp |= (*(in + 27) - base) << 6;
+  tmp |= (*(in + 28) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 12) - base) >> (18 - 10);
-  tmp |= (*(in + 13) - base) << 10;
-  tmp |= (*(in + 14) - base) << 28;
+  tmp  = (*(in + 28) - base) >> (18 - 10);
+  tmp |= (*(in + 29) - base) << 10;
+  tmp |= (*(in + 30) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 14) - base) >> (18 - 14);
-  tmp |= (*(in + 15) - base) << 14;
+  tmp  = (*(in + 30) - base) >> (18 - 14);
+  tmp |= (*(in + 31) - base) << 14;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 72) */
   *(uint32_t *)out = tmp;
@@ -2675,28 +2675,28 @@ unpack18_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 18);
+  *(out + 0)  = base + ((tmp >> 0) & 262143);
   *(out + 1)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 4)) << (18 - 4);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 4) & 18);
+  *(out + 2)  = base + ((tmp >> 4) & 262143);
   *(out + 3)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (18 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 18);
+  *(out + 4)  = base + ((tmp >> 8) & 262143);
   *(out + 5)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 12)) << (18 - 12);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 12) & 18);
+  *(out + 6)  = base + ((tmp >> 12) & 262143);
   *(out + 7)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -2709,87 +2709,87 @@ unpack18_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 2)) << (18 - 2);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 2) & 18);
+  *(out + 9)  = base + ((tmp >> 2) & 262143);
   *(out + 10)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 6)) << (18 - 6);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 6) & 18);
+  *(out + 11)  = base + ((tmp >> 6) & 262143);
   *(out + 12)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 10)) << (18 - 10);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 10) & 18);
+  *(out + 13)  = base + ((tmp >> 10) & 262143);
   *(out + 14)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 14)) << (18 - 14);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 14) & 18);
+  *(out + 15)  = base + ((tmp >> 14) & 262143);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 18);
-  *(out + 1)  = tmp >> 18;
+  *(out + 16)  = base + ((tmp >> 0) & 262143);
+  *(out + 17)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 4)) << (18 - 4);
-  *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 4) & 18);
-  *(out + 3)  = tmp >> 22;
+  *(out + 17) |= (tmp % (1U << 4)) << (18 - 4);
+  *(out + 17) += base;
+  *(out + 18)  = base + ((tmp >> 4) & 262143);
+  *(out + 19)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 8)) << (18 - 8);
-  *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 18);
-  *(out + 5)  = tmp >> 26;
+  *(out + 19) |= (tmp % (1U << 8)) << (18 - 8);
+  *(out + 19) += base;
+  *(out + 20)  = base + ((tmp >> 8) & 262143);
+  *(out + 21)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 12)) << (18 - 12);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 12) & 18);
-  *(out + 7)  = tmp >> 30;
+  *(out + 21) |= (tmp % (1U << 12)) << (18 - 12);
+  *(out + 21) += base;
+  *(out + 22)  = base + ((tmp >> 12) & 262143);
+  *(out + 23)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 7) |= (tmp % (1U << 16)) << (18 - 16);
-  *(out + 7) += base;
-  *(out + 8)  = tmp >> 16;
+  *(out + 23) |= (tmp % (1U << 16)) << (18 - 16);
+  *(out + 23) += base;
+  *(out + 24)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
-  *(out + 8) |= (tmp % (1U << 2)) << (18 - 2);
-  *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 2) & 18);
-  *(out + 10)  = tmp >> 20;
+  *(out + 24) |= (tmp % (1U << 2)) << (18 - 2);
+  *(out + 24) += base;
+  *(out + 25)  = base + ((tmp >> 2) & 262143);
+  *(out + 26)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
   tmp = *(uint32_t *)in;
-  *(out + 10) |= (tmp % (1U << 6)) << (18 - 6);
-  *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 6) & 18);
-  *(out + 12)  = tmp >> 24;
+  *(out + 26) |= (tmp % (1U << 6)) << (18 - 6);
+  *(out + 26) += base;
+  *(out + 27)  = base + ((tmp >> 6) & 262143);
+  *(out + 28)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 12) |= (tmp % (1U << 10)) << (18 - 10);
-  *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 10) & 18);
-  *(out + 14)  = tmp >> 28;
+  *(out + 28) |= (tmp % (1U << 10)) << (18 - 10);
+  *(out + 28) += base;
+  *(out + 29)  = base + ((tmp >> 10) & 262143);
+  *(out + 30)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 14) |= (tmp % (1U << 14)) << (18 - 14);
-  *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 14) & 18);
+  *(out + 30) |= (tmp % (1U << 14)) << (18 - 14);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 14) & 262143);
   /* remaining: 0 bits */
   return (72);
 }
@@ -2912,21 +2912,21 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 19);
+  *(out + 0)  = base + ((tmp >> 0) & 524287);
   *(out + 1)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 6)) << (19 - 6);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 6) & 19);
+  *(out + 2)  = base + ((tmp >> 6) & 524287);
   *(out + 3)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 12)) << (19 - 12);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 12) & 19);
+  *(out + 4)  = base + ((tmp >> 12) & 524287);
   *(out + 5)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -2939,14 +2939,14 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 5)) << (19 - 5);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 5) & 19);
+  *(out + 7)  = base + ((tmp >> 5) & 524287);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 11)) << (19 - 11);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 11) & 19);
+  *(out + 9)  = base + ((tmp >> 11) & 524287);
   *(out + 10)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -2959,14 +2959,14 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (19 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 19);
+  *(out + 12)  = base + ((tmp >> 4) & 524287);
   *(out + 13)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 10)) << (19 - 10);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 10) & 19);
+  *(out + 14)  = base + ((tmp >> 10) & 524287);
   *(out + 15)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -2979,14 +2979,14 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 16) |= (tmp % (1U << 3)) << (19 - 3);
   *(out + 16) += base;
-  *(out + 17)  = base + ((tmp >> 3) & 19);
+  *(out + 17)  = base + ((tmp >> 3) & 524287);
   *(out + 18)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
   *(out + 18) |= (tmp % (1U << 9)) << (19 - 9);
   *(out + 18) += base;
-  *(out + 19)  = base + ((tmp >> 9) & 19);
+  *(out + 19)  = base + ((tmp >> 9) & 524287);
   *(out + 20)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
@@ -2999,14 +2999,14 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 21) |= (tmp % (1U << 2)) << (19 - 2);
   *(out + 21) += base;
-  *(out + 22)  = base + ((tmp >> 2) & 19);
+  *(out + 22)  = base + ((tmp >> 2) & 524287);
   *(out + 23)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
   *(out + 23) |= (tmp % (1U << 8)) << (19 - 8);
   *(out + 23) += base;
-  *(out + 24)  = base + ((tmp >> 8) & 19);
+  *(out + 24)  = base + ((tmp >> 8) & 524287);
   *(out + 25)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
@@ -3019,21 +3019,21 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 26) |= (tmp % (1U << 1)) << (19 - 1);
   *(out + 26) += base;
-  *(out + 27)  = base + ((tmp >> 1) & 19);
+  *(out + 27)  = base + ((tmp >> 1) & 524287);
   *(out + 28)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
   *(out + 28) |= (tmp % (1U << 7)) << (19 - 7);
   *(out + 28) += base;
-  *(out + 29)  = base + ((tmp >> 7) & 19);
+  *(out + 29)  = base + ((tmp >> 7) & 524287);
   *(out + 30)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 13)) << (19 - 13);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 13) & 19);
+  *(out + 31)  = base + ((tmp >> 13) & 524287);
   /* remaining: 0 bits */
   return (76);
 }
@@ -3068,84 +3068,84 @@ pack20_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 20;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 1) - base) >> (20 - 8);
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 28;
+  tmp  = (*(in + 9) - base) >> (20 - 8);
+  tmp |= (*(in + 10) - base) << 8;
+  tmp |= (*(in + 11) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 3) - base) >> (20 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 11) - base) >> (20 - 16);
+  tmp |= (*(in + 12) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 4) - base) >> (20 - 4);
-  tmp |= (*(in + 5) - base) << 4;
-  tmp |= (*(in + 6) - base) << 24;
+  tmp  = (*(in + 12) - base) >> (20 - 4);
+  tmp |= (*(in + 13) - base) << 4;
+  tmp |= (*(in + 14) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 6) - base) >> (20 - 12);
-  tmp |= (*(in + 7) - base) << 12;
+  tmp  = (*(in + 14) - base) >> (20 - 12);
+  tmp |= (*(in + 15) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 20;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 1) - base) >> (20 - 8);
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 28;
+  tmp  = (*(in + 17) - base) >> (20 - 8);
+  tmp |= (*(in + 18) - base) << 8;
+  tmp |= (*(in + 19) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 3) - base) >> (20 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 19) - base) >> (20 - 16);
+  tmp |= (*(in + 20) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 4) - base) >> (20 - 4);
-  tmp |= (*(in + 5) - base) << 4;
-  tmp |= (*(in + 6) - base) << 24;
+  tmp  = (*(in + 20) - base) >> (20 - 4);
+  tmp |= (*(in + 21) - base) << 4;
+  tmp |= (*(in + 22) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 6) - base) >> (20 - 12);
-  tmp |= (*(in + 7) - base) << 12;
+  tmp  = (*(in + 22) - base) >> (20 - 12);
+  tmp |= (*(in + 23) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 20;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 1) - base) >> (20 - 8);
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 28;
+  tmp  = (*(in + 25) - base) >> (20 - 8);
+  tmp |= (*(in + 26) - base) << 8;
+  tmp |= (*(in + 27) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 3) - base) >> (20 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 27) - base) >> (20 - 16);
+  tmp |= (*(in + 28) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 4) - base) >> (20 - 4);
-  tmp |= (*(in + 5) - base) << 4;
-  tmp |= (*(in + 6) - base) << 24;
+  tmp  = (*(in + 28) - base) >> (20 - 4);
+  tmp |= (*(in + 29) - base) << 4;
+  tmp |= (*(in + 30) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 6) - base) >> (20 - 12);
-  tmp |= (*(in + 7) - base) << 12;
+  tmp  = (*(in + 30) - base) >> (20 - 12);
+  tmp |= (*(in + 31) - base) << 12;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 80) */
   *(uint32_t *)out = tmp;
@@ -3157,14 +3157,14 @@ unpack20_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
+  *(out + 0)  = base + ((tmp >> 0) & 1048575);
   *(out + 1)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
+  *(out + 2)  = base + ((tmp >> 8) & 1048575);
   *(out + 3)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -3177,107 +3177,107 @@ unpack20_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
+  *(out + 5)  = base + ((tmp >> 4) & 1048575);
   *(out + 6)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 7)  = base + ((tmp >> 12) & 1048575);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
-  *(out + 1)  = tmp >> 20;
+  *(out + 8)  = base + ((tmp >> 0) & 1048575);
+  *(out + 9)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
-  *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
-  *(out + 3)  = tmp >> 28;
+  *(out + 9) |= (tmp % (1U << 8)) << (20 - 8);
+  *(out + 9) += base;
+  *(out + 10)  = base + ((tmp >> 8) & 1048575);
+  *(out + 11)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (20 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 11) |= (tmp % (1U << 16)) << (20 - 16);
+  *(out + 11) += base;
+  *(out + 12)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
-  *(out + 6)  = tmp >> 24;
+  *(out + 12) |= (tmp % (1U << 4)) << (20 - 4);
+  *(out + 12) += base;
+  *(out + 13)  = base + ((tmp >> 4) & 1048575);
+  *(out + 14)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 14) |= (tmp % (1U << 12)) << (20 - 12);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 12) & 1048575);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 44) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
-  *(out + 1)  = tmp >> 20;
+  *(out + 16)  = base + ((tmp >> 0) & 1048575);
+  *(out + 17)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
-  *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
-  *(out + 3)  = tmp >> 28;
+  *(out + 17) |= (tmp % (1U << 8)) << (20 - 8);
+  *(out + 17) += base;
+  *(out + 18)  = base + ((tmp >> 8) & 1048575);
+  *(out + 19)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (20 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 19) |= (tmp % (1U << 16)) << (20 - 16);
+  *(out + 19) += base;
+  *(out + 20)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
-  *(out + 6)  = tmp >> 24;
+  *(out + 20) |= (tmp % (1U << 4)) << (20 - 4);
+  *(out + 20) += base;
+  *(out + 21)  = base + ((tmp >> 4) & 1048575);
+  *(out + 22)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 22) |= (tmp % (1U << 12)) << (20 - 12);
+  *(out + 22) += base;
+  *(out + 23)  = base + ((tmp >> 12) & 1048575);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
-  *(out + 1)  = tmp >> 20;
+  *(out + 24)  = base + ((tmp >> 0) & 1048575);
+  *(out + 25)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
-  *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
-  *(out + 3)  = tmp >> 28;
+  *(out + 25) |= (tmp % (1U << 8)) << (20 - 8);
+  *(out + 25) += base;
+  *(out + 26)  = base + ((tmp >> 8) & 1048575);
+  *(out + 27)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (20 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 27) |= (tmp % (1U << 16)) << (20 - 16);
+  *(out + 27) += base;
+  *(out + 28)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
-  *(out + 6)  = tmp >> 24;
+  *(out + 28) |= (tmp % (1U << 4)) << (20 - 4);
+  *(out + 28) += base;
+  *(out + 29)  = base + ((tmp >> 4) & 1048575);
+  *(out + 30)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 30) |= (tmp % (1U << 12)) << (20 - 12);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 12) & 1048575);
   /* remaining: 0 bits */
   return (80);
 }
@@ -3408,14 +3408,14 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 21);
+  *(out + 0)  = base + ((tmp >> 0) & 2097151);
   *(out + 1)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 10)) << (21 - 10);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 10) & 21);
+  *(out + 2)  = base + ((tmp >> 10) & 2097151);
   *(out + 3)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -3428,7 +3428,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 9)) << (21 - 9);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 9) & 21);
+  *(out + 5)  = base + ((tmp >> 9) & 2097151);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -3441,7 +3441,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (21 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 21);
+  *(out + 8)  = base + ((tmp >> 8) & 2097151);
   *(out + 9)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -3454,7 +3454,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 7)) << (21 - 7);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 7) & 21);
+  *(out + 11)  = base + ((tmp >> 7) & 2097151);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -3467,7 +3467,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 6)) << (21 - 6);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 6) & 21);
+  *(out + 14)  = base + ((tmp >> 6) & 2097151);
   *(out + 15)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
@@ -3480,7 +3480,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 16) |= (tmp % (1U << 5)) << (21 - 5);
   *(out + 16) += base;
-  *(out + 17)  = base + ((tmp >> 5) & 21);
+  *(out + 17)  = base + ((tmp >> 5) & 2097151);
   *(out + 18)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
@@ -3493,7 +3493,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 19) |= (tmp % (1U << 4)) << (21 - 4);
   *(out + 19) += base;
-  *(out + 20)  = base + ((tmp >> 4) & 21);
+  *(out + 20)  = base + ((tmp >> 4) & 2097151);
   *(out + 21)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
@@ -3506,7 +3506,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 22) |= (tmp % (1U << 3)) << (21 - 3);
   *(out + 22) += base;
-  *(out + 23)  = base + ((tmp >> 3) & 21);
+  *(out + 23)  = base + ((tmp >> 3) & 2097151);
   *(out + 24)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
@@ -3519,7 +3519,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 25) |= (tmp % (1U << 2)) << (21 - 2);
   *(out + 25) += base;
-  *(out + 26)  = base + ((tmp >> 2) & 21);
+  *(out + 26)  = base + ((tmp >> 2) & 2097151);
   *(out + 27)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
@@ -3532,14 +3532,14 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 28) |= (tmp % (1U << 1)) << (21 - 1);
   *(out + 28) += base;
-  *(out + 29)  = base + ((tmp >> 1) & 21);
+  *(out + 29)  = base + ((tmp >> 1) & 2097151);
   *(out + 30)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 11)) << (21 - 11);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 11) & 21);
+  *(out + 31)  = base + ((tmp >> 11) & 2097151);
   /* remaining: 0 bits */
   return (84);
 }
@@ -3606,62 +3606,62 @@ pack22_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 22;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 22;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 1) - base) >> (22 - 12);
-  tmp |= (*(in + 2) - base) << 12;
+  tmp  = (*(in + 17) - base) >> (22 - 12);
+  tmp |= (*(in + 18) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 2) - base) >> (22 - 2);
-  tmp |= (*(in + 3) - base) << 2;
-  tmp |= (*(in + 4) - base) << 24;
+  tmp  = (*(in + 18) - base) >> (22 - 2);
+  tmp |= (*(in + 19) - base) << 2;
+  tmp |= (*(in + 20) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 4) - base) >> (22 - 14);
-  tmp |= (*(in + 5) - base) << 14;
+  tmp  = (*(in + 20) - base) >> (22 - 14);
+  tmp |= (*(in + 21) - base) << 14;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 5) - base) >> (22 - 4);
-  tmp |= (*(in + 6) - base) << 4;
-  tmp |= (*(in + 7) - base) << 26;
+  tmp  = (*(in + 21) - base) >> (22 - 4);
+  tmp |= (*(in + 22) - base) << 4;
+  tmp |= (*(in + 23) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 7) - base) >> (22 - 16);
-  tmp |= (*(in + 8) - base) << 16;
+  tmp  = (*(in + 23) - base) >> (22 - 16);
+  tmp |= (*(in + 24) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 8) - base) >> (22 - 6);
-  tmp |= (*(in + 9) - base) << 6;
-  tmp |= (*(in + 10) - base) << 28;
+  tmp  = (*(in + 24) - base) >> (22 - 6);
+  tmp |= (*(in + 25) - base) << 6;
+  tmp |= (*(in + 26) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 10) - base) >> (22 - 18);
-  tmp |= (*(in + 11) - base) << 18;
+  tmp  = (*(in + 26) - base) >> (22 - 18);
+  tmp |= (*(in + 27) - base) << 18;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 11) - base) >> (22 - 8);
-  tmp |= (*(in + 12) - base) << 8;
-  tmp |= (*(in + 13) - base) << 30;
+  tmp  = (*(in + 27) - base) >> (22 - 8);
+  tmp |= (*(in + 28) - base) << 8;
+  tmp |= (*(in + 29) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 13) - base) >> (22 - 20);
-  tmp |= (*(in + 14) - base) << 20;
+  tmp  = (*(in + 29) - base) >> (22 - 20);
+  tmp |= (*(in + 30) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 14) - base) >> (22 - 10);
-  tmp |= (*(in + 15) - base) << 10;
+  tmp  = (*(in + 30) - base) >> (22 - 10);
+  tmp |= (*(in + 31) - base) << 10;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 88) */
   *(uint32_t *)out = tmp;
@@ -3673,7 +3673,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 22);
+  *(out + 0)  = base + ((tmp >> 0) & 4194303);
   *(out + 1)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -3686,7 +3686,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 2)) << (22 - 2);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 2) & 22);
+  *(out + 3)  = base + ((tmp >> 2) & 4194303);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -3699,7 +3699,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (22 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 22);
+  *(out + 6)  = base + ((tmp >> 4) & 4194303);
   *(out + 7)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -3712,7 +3712,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 6)) << (22 - 6);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 6) & 22);
+  *(out + 9)  = base + ((tmp >> 6) & 4194303);
   *(out + 10)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
@@ -3725,7 +3725,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 8)) << (22 - 8);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 22);
+  *(out + 12)  = base + ((tmp >> 8) & 4194303);
   *(out + 13)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -3738,76 +3738,76 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 10)) << (22 - 10);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 10) & 22);
+  *(out + 15)  = base + ((tmp >> 10) & 4194303);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 48) */
-  *(out + 0)  = base + ((tmp >> 0) & 22);
-  *(out + 1)  = tmp >> 22;
+  *(out + 16)  = base + ((tmp >> 0) & 4194303);
+  *(out + 17)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 12)) << (22 - 12);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 12;
+  *(out + 17) |= (tmp % (1U << 12)) << (22 - 12);
+  *(out + 17) += base;
+  *(out + 18)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 2)) << (22 - 2);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 2) & 22);
-  *(out + 4)  = tmp >> 24;
+  *(out + 18) |= (tmp % (1U << 2)) << (22 - 2);
+  *(out + 18) += base;
+  *(out + 19)  = base + ((tmp >> 2) & 4194303);
+  *(out + 20)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 14)) << (22 - 14);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 14;
+  *(out + 20) |= (tmp % (1U << 14)) << (22 - 14);
+  *(out + 20) += base;
+  *(out + 21)  = tmp >> 14;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 4)) << (22 - 4);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 22);
-  *(out + 7)  = tmp >> 26;
+  *(out + 21) |= (tmp % (1U << 4)) << (22 - 4);
+  *(out + 21) += base;
+  *(out + 22)  = base + ((tmp >> 4) & 4194303);
+  *(out + 23)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 7) |= (tmp % (1U << 16)) << (22 - 16);
-  *(out + 7) += base;
-  *(out + 8)  = tmp >> 16;
+  *(out + 23) |= (tmp % (1U << 16)) << (22 - 16);
+  *(out + 23) += base;
+  *(out + 24)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 8) |= (tmp % (1U << 6)) << (22 - 6);
-  *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 6) & 22);
-  *(out + 10)  = tmp >> 28;
+  *(out + 24) |= (tmp % (1U << 6)) << (22 - 6);
+  *(out + 24) += base;
+  *(out + 25)  = base + ((tmp >> 6) & 4194303);
+  *(out + 26)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
-  *(out + 10) |= (tmp % (1U << 18)) << (22 - 18);
-  *(out + 10) += base;
-  *(out + 11)  = tmp >> 18;
+  *(out + 26) |= (tmp % (1U << 18)) << (22 - 18);
+  *(out + 26) += base;
+  *(out + 27)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 11) |= (tmp % (1U << 8)) << (22 - 8);
-  *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 22);
-  *(out + 13)  = tmp >> 30;
+  *(out + 27) |= (tmp % (1U << 8)) << (22 - 8);
+  *(out + 27) += base;
+  *(out + 28)  = base + ((tmp >> 8) & 4194303);
+  *(out + 29)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
-  *(out + 13) |= (tmp % (1U << 20)) << (22 - 20);
-  *(out + 13) += base;
-  *(out + 14)  = tmp >> 20;
+  *(out + 29) |= (tmp % (1U << 20)) << (22 - 20);
+  *(out + 29) += base;
+  *(out + 30)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
   tmp = *(uint32_t *)in;
-  *(out + 14) |= (tmp % (1U << 10)) << (22 - 10);
-  *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 10) & 22);
+  *(out + 30) |= (tmp % (1U << 10)) << (22 - 10);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 10) & 4194303);
   /* remaining: 0 bits */
   return (88);
 }
@@ -3946,7 +3946,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 23);
+  *(out + 0)  = base + ((tmp >> 0) & 8388607);
   *(out + 1)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -3959,7 +3959,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 5)) << (23 - 5);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 5) & 23);
+  *(out + 3)  = base + ((tmp >> 5) & 8388607);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -3978,7 +3978,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 1)) << (23 - 1);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 1) & 23);
+  *(out + 7)  = base + ((tmp >> 1) & 8388607);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -3991,7 +3991,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 6)) << (23 - 6);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 6) & 23);
+  *(out + 10)  = base + ((tmp >> 6) & 8388607);
   *(out + 11)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -4010,7 +4010,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 2)) << (23 - 2);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 2) & 23);
+  *(out + 14)  = base + ((tmp >> 2) & 8388607);
   *(out + 15)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -4023,7 +4023,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 16) |= (tmp % (1U << 7)) << (23 - 7);
   *(out + 16) += base;
-  *(out + 17)  = base + ((tmp >> 7) & 23);
+  *(out + 17)  = base + ((tmp >> 7) & 8388607);
   *(out + 18)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
@@ -4042,7 +4042,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 20) |= (tmp % (1U << 3)) << (23 - 3);
   *(out + 20) += base;
-  *(out + 21)  = base + ((tmp >> 3) & 23);
+  *(out + 21)  = base + ((tmp >> 3) & 8388607);
   *(out + 22)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
@@ -4055,7 +4055,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 23) |= (tmp % (1U << 8)) << (23 - 8);
   *(out + 23) += base;
-  *(out + 24)  = base + ((tmp >> 8) & 23);
+  *(out + 24)  = base + ((tmp >> 8) & 8388607);
   *(out + 25)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
@@ -4074,7 +4074,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 27) |= (tmp % (1U << 4)) << (23 - 4);
   *(out + 27) += base;
-  *(out + 28)  = base + ((tmp >> 4) & 23);
+  *(out + 28)  = base + ((tmp >> 4) & 8388607);
   *(out + 29)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
@@ -4087,7 +4087,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 9)) << (23 - 9);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 9) & 23);
+  *(out + 31)  = base + ((tmp >> 9) & 8388607);
   /* remaining: 0 bits */
   return (92);
 }
@@ -4110,108 +4110,108 @@ pack24_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 5) - base) >> (24 - 16);
+  tmp |= (*(in + 6) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 6) - base) >> (24 - 8);
+  tmp |= (*(in + 7) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 9) - base) >> (24 - 16);
+  tmp |= (*(in + 10) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 10) - base) >> (24 - 8);
+  tmp |= (*(in + 11) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 13) - base) >> (24 - 16);
+  tmp |= (*(in + 14) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 14) - base) >> (24 - 8);
+  tmp |= (*(in + 15) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 17) - base) >> (24 - 16);
+  tmp |= (*(in + 18) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 18) - base) >> (24 - 8);
+  tmp |= (*(in + 19) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 20) - base) << 0;
+  tmp |= (*(in + 21) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 21) - base) >> (24 - 16);
+  tmp |= (*(in + 22) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 22) - base) >> (24 - 8);
+  tmp |= (*(in + 23) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 25) - base) >> (24 - 16);
+  tmp |= (*(in + 26) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 26) - base) >> (24 - 8);
+  tmp |= (*(in + 27) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 28) - base) << 0;
+  tmp |= (*(in + 29) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 29) - base) >> (24 - 16);
+  tmp |= (*(in + 30) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 30) - base) >> (24 - 8);
+  tmp |= (*(in + 31) - base) << 8;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 96) */
   *(uint32_t *)out = tmp;
@@ -4223,7 +4223,7 @@ unpack24_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
+  *(out + 0)  = base + ((tmp >> 0) & 16777215);
   *(out + 1)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -4236,126 +4236,126 @@ unpack24_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 3)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 4)  = base + ((tmp >> 0) & 16777215);
+  *(out + 5)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 5) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 5) += base;
+  *(out + 6)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 6) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 6) += base;
+  *(out + 7)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 8)  = base + ((tmp >> 0) & 16777215);
+  *(out + 9)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 9) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 9) += base;
+  *(out + 10)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 10) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 10) += base;
+  *(out + 11)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 12)  = base + ((tmp >> 0) & 16777215);
+  *(out + 13)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 13) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 13) += base;
+  *(out + 14)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 14) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 52) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 16)  = base + ((tmp >> 0) & 16777215);
+  *(out + 17)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 17) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 17) += base;
+  *(out + 18)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 18) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 18) += base;
+  *(out + 19)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 20)  = base + ((tmp >> 0) & 16777215);
+  *(out + 21)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 21) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 21) += base;
+  *(out + 22)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 22) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 22) += base;
+  *(out + 23)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 76) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 24)  = base + ((tmp >> 0) & 16777215);
+  *(out + 25)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 25) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 25) += base;
+  *(out + 26)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 26) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 26) += base;
+  *(out + 27)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 88) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 28)  = base + ((tmp >> 0) & 16777215);
+  *(out + 29)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 29) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 29) += base;
+  *(out + 30)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 30) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 8) & 16777215);
   /* remaining: 0 bits */
   return (96);
 }
@@ -4502,7 +4502,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 25);
+  *(out + 0)  = base + ((tmp >> 0) & 33554431);
   *(out + 1)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -4521,7 +4521,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (25 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 25);
+  *(out + 4)  = base + ((tmp >> 4) & 33554431);
   *(out + 5)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -4546,7 +4546,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 1)) << (25 - 1);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 1) & 25);
+  *(out + 9)  = base + ((tmp >> 1) & 33554431);
   *(out + 10)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -4565,7 +4565,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 5)) << (25 - 5);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 5) & 25);
+  *(out + 13)  = base + ((tmp >> 5) & 33554431);
   *(out + 14)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -4590,7 +4590,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 17) |= (tmp % (1U << 2)) << (25 - 2);
   *(out + 17) += base;
-  *(out + 18)  = base + ((tmp >> 2) & 25);
+  *(out + 18)  = base + ((tmp >> 2) & 33554431);
   *(out + 19)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
@@ -4609,7 +4609,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 21) |= (tmp % (1U << 6)) << (25 - 6);
   *(out + 21) += base;
-  *(out + 22)  = base + ((tmp >> 6) & 25);
+  *(out + 22)  = base + ((tmp >> 6) & 33554431);
   *(out + 23)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
@@ -4634,7 +4634,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 26) |= (tmp % (1U << 3)) << (25 - 3);
   *(out + 26) += base;
-  *(out + 27)  = base + ((tmp >> 3) & 25);
+  *(out + 27)  = base + ((tmp >> 3) & 33554431);
   *(out + 28)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
@@ -4653,7 +4653,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 7)) << (25 - 7);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 7) & 25);
+  *(out + 31)  = base + ((tmp >> 7) & 33554431);
   /* remaining: 0 bits */
   return (100);
 }
@@ -4728,70 +4728,70 @@ pack26_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 26;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 1) - base) >> (26 - 20);
-  tmp |= (*(in + 2) - base) << 20;
+  tmp  = (*(in + 17) - base) >> (26 - 20);
+  tmp |= (*(in + 18) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 2) - base) >> (26 - 14);
-  tmp |= (*(in + 3) - base) << 14;
+  tmp  = (*(in + 18) - base) >> (26 - 14);
+  tmp |= (*(in + 19) - base) << 14;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 3) - base) >> (26 - 8);
-  tmp |= (*(in + 4) - base) << 8;
+  tmp  = (*(in + 19) - base) >> (26 - 8);
+  tmp |= (*(in + 20) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 4) - base) >> (26 - 2);
-  tmp |= (*(in + 5) - base) << 2;
-  tmp |= (*(in + 6) - base) << 28;
+  tmp  = (*(in + 20) - base) >> (26 - 2);
+  tmp |= (*(in + 21) - base) << 2;
+  tmp |= (*(in + 22) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 6) - base) >> (26 - 22);
-  tmp |= (*(in + 7) - base) << 22;
+  tmp  = (*(in + 22) - base) >> (26 - 22);
+  tmp |= (*(in + 23) - base) << 22;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 7) - base) >> (26 - 16);
-  tmp |= (*(in + 8) - base) << 16;
+  tmp  = (*(in + 23) - base) >> (26 - 16);
+  tmp |= (*(in + 24) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 8) - base) >> (26 - 10);
-  tmp |= (*(in + 9) - base) << 10;
+  tmp  = (*(in + 24) - base) >> (26 - 10);
+  tmp |= (*(in + 25) - base) << 10;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 9) - base) >> (26 - 4);
-  tmp |= (*(in + 10) - base) << 4;
-  tmp |= (*(in + 11) - base) << 30;
+  tmp  = (*(in + 25) - base) >> (26 - 4);
+  tmp |= (*(in + 26) - base) << 4;
+  tmp |= (*(in + 27) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
-  tmp  = (*(in + 11) - base) >> (26 - 24);
-  tmp |= (*(in + 12) - base) << 24;
+  tmp  = (*(in + 27) - base) >> (26 - 24);
+  tmp |= (*(in + 28) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
-  tmp  = (*(in + 12) - base) >> (26 - 18);
-  tmp |= (*(in + 13) - base) << 18;
+  tmp  = (*(in + 28) - base) >> (26 - 18);
+  tmp |= (*(in + 29) - base) << 18;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
-  tmp  = (*(in + 13) - base) >> (26 - 12);
-  tmp |= (*(in + 14) - base) << 12;
+  tmp  = (*(in + 29) - base) >> (26 - 12);
+  tmp |= (*(in + 30) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
-  tmp  = (*(in + 14) - base) >> (26 - 6);
-  tmp |= (*(in + 15) - base) << 6;
+  tmp  = (*(in + 30) - base) >> (26 - 6);
+  tmp |= (*(in + 31) - base) << 6;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 104) */
   *(uint32_t *)out = tmp;
@@ -4803,7 +4803,7 @@ unpack26_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 26);
+  *(out + 0)  = base + ((tmp >> 0) & 67108863);
   *(out + 1)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -4828,7 +4828,7 @@ unpack26_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 2)) << (26 - 2);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 2) & 26);
+  *(out + 5)  = base + ((tmp >> 2) & 67108863);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -4853,7 +4853,7 @@ unpack26_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 4)) << (26 - 4);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 26);
+  *(out + 10)  = base + ((tmp >> 4) & 67108863);
   *(out + 11)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -4878,86 +4878,86 @@ unpack26_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 6)) << (26 - 6);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 6) & 26);
+  *(out + 15)  = base + ((tmp >> 6) & 67108863);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 56) */
-  *(out + 0)  = base + ((tmp >> 0) & 26);
-  *(out + 1)  = tmp >> 26;
+  *(out + 16)  = base + ((tmp >> 0) & 67108863);
+  *(out + 17)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 20)) << (26 - 20);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 20;
+  *(out + 17) |= (tmp % (1U << 20)) << (26 - 20);
+  *(out + 17) += base;
+  *(out + 18)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 14)) << (26 - 14);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 14;
+  *(out + 18) |= (tmp % (1U << 14)) << (26 - 14);
+  *(out + 18) += base;
+  *(out + 19)  = tmp >> 14;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 8)) << (26 - 8);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 8;
+  *(out + 19) |= (tmp % (1U << 8)) << (26 - 8);
+  *(out + 19) += base;
+  *(out + 20)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 2)) << (26 - 2);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 2) & 26);
-  *(out + 6)  = tmp >> 28;
+  *(out + 20) |= (tmp % (1U << 2)) << (26 - 2);
+  *(out + 20) += base;
+  *(out + 21)  = base + ((tmp >> 2) & 67108863);
+  *(out + 22)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 22)) << (26 - 22);
-  *(out + 6) += base;
-  *(out + 7)  = tmp >> 22;
+  *(out + 22) |= (tmp % (1U << 22)) << (26 - 22);
+  *(out + 22) += base;
+  *(out + 23)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 7) |= (tmp % (1U << 16)) << (26 - 16);
-  *(out + 7) += base;
-  *(out + 8)  = tmp >> 16;
+  *(out + 23) |= (tmp % (1U << 16)) << (26 - 16);
+  *(out + 23) += base;
+  *(out + 24)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
-  *(out + 8) |= (tmp % (1U << 10)) << (26 - 10);
-  *(out + 8) += base;
-  *(out + 9)  = tmp >> 10;
+  *(out + 24) |= (tmp % (1U << 10)) << (26 - 10);
+  *(out + 24) += base;
+  *(out + 25)  = tmp >> 10;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
   tmp = *(uint32_t *)in;
-  *(out + 9) |= (tmp % (1U << 4)) << (26 - 4);
-  *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 26);
-  *(out + 11)  = tmp >> 30;
+  *(out + 25) |= (tmp % (1U << 4)) << (26 - 4);
+  *(out + 25) += base;
+  *(out + 26)  = base + ((tmp >> 4) & 67108863);
+  *(out + 27)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
   tmp = *(uint32_t *)in;
-  *(out + 11) |= (tmp % (1U << 24)) << (26 - 24);
-  *(out + 11) += base;
-  *(out + 12)  = tmp >> 24;
+  *(out + 27) |= (tmp % (1U << 24)) << (26 - 24);
+  *(out + 27) += base;
+  *(out + 28)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
   tmp = *(uint32_t *)in;
-  *(out + 12) |= (tmp % (1U << 18)) << (26 - 18);
-  *(out + 12) += base;
-  *(out + 13)  = tmp >> 18;
+  *(out + 28) |= (tmp % (1U << 18)) << (26 - 18);
+  *(out + 28) += base;
+  *(out + 29)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
   tmp = *(uint32_t *)in;
-  *(out + 13) |= (tmp % (1U << 12)) << (26 - 12);
-  *(out + 13) += base;
-  *(out + 14)  = tmp >> 12;
+  *(out + 29) |= (tmp % (1U << 12)) << (26 - 12);
+  *(out + 29) += base;
+  *(out + 30)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 104) */
   tmp = *(uint32_t *)in;
-  *(out + 14) |= (tmp % (1U << 6)) << (26 - 6);
-  *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 6) & 26);
+  *(out + 30) |= (tmp % (1U << 6)) << (26 - 6);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 6) & 67108863);
   /* remaining: 0 bits */
   return (104);
 }
@@ -5112,7 +5112,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 27);
+  *(out + 0)  = base + ((tmp >> 0) & 134217727);
   *(out + 1)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -5143,7 +5143,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (27 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 27);
+  *(out + 6)  = base + ((tmp >> 2) & 134217727);
   *(out + 7)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -5174,7 +5174,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (27 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 27);
+  *(out + 12)  = base + ((tmp >> 4) & 134217727);
   *(out + 13)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -5211,7 +5211,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 18) |= (tmp % (1U << 1)) << (27 - 1);
   *(out + 18) += base;
-  *(out + 19)  = base + ((tmp >> 1) & 27);
+  *(out + 19)  = base + ((tmp >> 1) & 134217727);
   *(out + 20)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
@@ -5242,7 +5242,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 24) |= (tmp % (1U << 3)) << (27 - 3);
   *(out + 24) += base;
-  *(out + 25)  = base + ((tmp >> 3) & 27);
+  *(out + 25)  = base + ((tmp >> 3) & 134217727);
   *(out + 26)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
@@ -5273,7 +5273,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 5)) << (27 - 5);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 5) & 27);
+  *(out + 31)  = base + ((tmp >> 5) & 134217727);
   /* remaining: 0 bits */
   return (108);
 }
@@ -5316,108 +5316,108 @@ pack28_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 28;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 1) - base) >> (28 - 24);
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 9) - base) >> (28 - 24);
+  tmp |= (*(in + 10) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 2) - base) >> (28 - 20);
-  tmp |= (*(in + 3) - base) << 20;
+  tmp  = (*(in + 10) - base) >> (28 - 20);
+  tmp |= (*(in + 11) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 3) - base) >> (28 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 11) - base) >> (28 - 16);
+  tmp |= (*(in + 12) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 4) - base) >> (28 - 12);
-  tmp |= (*(in + 5) - base) << 12;
+  tmp  = (*(in + 12) - base) >> (28 - 12);
+  tmp |= (*(in + 13) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 5) - base) >> (28 - 8);
-  tmp |= (*(in + 6) - base) << 8;
+  tmp  = (*(in + 13) - base) >> (28 - 8);
+  tmp |= (*(in + 14) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 6) - base) >> (28 - 4);
-  tmp |= (*(in + 7) - base) << 4;
+  tmp  = (*(in + 14) - base) >> (28 - 4);
+  tmp |= (*(in + 15) - base) << 4;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 28;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 1) - base) >> (28 - 24);
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 17) - base) >> (28 - 24);
+  tmp |= (*(in + 18) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 2) - base) >> (28 - 20);
-  tmp |= (*(in + 3) - base) << 20;
+  tmp  = (*(in + 18) - base) >> (28 - 20);
+  tmp |= (*(in + 19) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 3) - base) >> (28 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 19) - base) >> (28 - 16);
+  tmp |= (*(in + 20) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 4) - base) >> (28 - 12);
-  tmp |= (*(in + 5) - base) << 12;
+  tmp  = (*(in + 20) - base) >> (28 - 12);
+  tmp |= (*(in + 21) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 5) - base) >> (28 - 8);
-  tmp |= (*(in + 6) - base) << 8;
+  tmp  = (*(in + 21) - base) >> (28 - 8);
+  tmp |= (*(in + 22) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 6) - base) >> (28 - 4);
-  tmp |= (*(in + 7) - base) << 4;
+  tmp  = (*(in + 22) - base) >> (28 - 4);
+  tmp |= (*(in + 23) - base) << 4;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 28;
+  tmp  = (*(in + 24) - base) << 0;
+  tmp |= (*(in + 25) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
-  tmp  = (*(in + 1) - base) >> (28 - 24);
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 25) - base) >> (28 - 24);
+  tmp |= (*(in + 26) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
-  tmp  = (*(in + 2) - base) >> (28 - 20);
-  tmp |= (*(in + 3) - base) << 20;
+  tmp  = (*(in + 26) - base) >> (28 - 20);
+  tmp |= (*(in + 27) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
-  tmp  = (*(in + 3) - base) >> (28 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 27) - base) >> (28 - 16);
+  tmp |= (*(in + 28) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
-  tmp  = (*(in + 4) - base) >> (28 - 12);
-  tmp |= (*(in + 5) - base) << 12;
+  tmp  = (*(in + 28) - base) >> (28 - 12);
+  tmp |= (*(in + 29) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 104) */
-  tmp  = (*(in + 5) - base) >> (28 - 8);
-  tmp |= (*(in + 6) - base) << 8;
+  tmp  = (*(in + 29) - base) >> (28 - 8);
+  tmp |= (*(in + 30) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 108) */
-  tmp  = (*(in + 6) - base) >> (28 - 4);
-  tmp |= (*(in + 7) - base) << 4;
+  tmp  = (*(in + 30) - base) >> (28 - 4);
+  tmp |= (*(in + 31) - base) << 4;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 112) */
   *(uint32_t *)out = tmp;
@@ -5429,7 +5429,7 @@ unpack28_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
+  *(out + 0)  = base + ((tmp >> 0) & 268435455);
   *(out + 1)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -5466,130 +5466,130 @@ unpack28_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 7)  = base + ((tmp >> 4) & 268435455);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
-  *(out + 1)  = tmp >> 28;
+  *(out + 8)  = base + ((tmp >> 0) & 268435455);
+  *(out + 9)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 24)) << (28 - 24);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 24;
+  *(out + 9) |= (tmp % (1U << 24)) << (28 - 24);
+  *(out + 9) += base;
+  *(out + 10)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 20)) << (28 - 20);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 20;
+  *(out + 10) |= (tmp % (1U << 20)) << (28 - 20);
+  *(out + 10) += base;
+  *(out + 11)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (28 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 11) |= (tmp % (1U << 16)) << (28 - 16);
+  *(out + 11) += base;
+  *(out + 12)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 12)) << (28 - 12);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 12;
+  *(out + 12) |= (tmp % (1U << 12)) << (28 - 12);
+  *(out + 12) += base;
+  *(out + 13)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (28 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = tmp >> 8;
+  *(out + 13) |= (tmp % (1U << 8)) << (28 - 8);
+  *(out + 13) += base;
+  *(out + 14)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 14) |= (tmp % (1U << 4)) << (28 - 4);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 4) & 268435455);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 60) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
-  *(out + 1)  = tmp >> 28;
+  *(out + 16)  = base + ((tmp >> 0) & 268435455);
+  *(out + 17)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 24)) << (28 - 24);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 24;
+  *(out + 17) |= (tmp % (1U << 24)) << (28 - 24);
+  *(out + 17) += base;
+  *(out + 18)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 20)) << (28 - 20);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 20;
+  *(out + 18) |= (tmp % (1U << 20)) << (28 - 20);
+  *(out + 18) += base;
+  *(out + 19)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (28 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 19) |= (tmp % (1U << 16)) << (28 - 16);
+  *(out + 19) += base;
+  *(out + 20)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 12)) << (28 - 12);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 12;
+  *(out + 20) |= (tmp % (1U << 12)) << (28 - 12);
+  *(out + 20) += base;
+  *(out + 21)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (28 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = tmp >> 8;
+  *(out + 21) |= (tmp % (1U << 8)) << (28 - 8);
+  *(out + 21) += base;
+  *(out + 22)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 22) |= (tmp % (1U << 4)) << (28 - 4);
+  *(out + 22) += base;
+  *(out + 23)  = base + ((tmp >> 4) & 268435455);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 88) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
-  *(out + 1)  = tmp >> 28;
+  *(out + 24)  = base + ((tmp >> 0) & 268435455);
+  *(out + 25)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 24)) << (28 - 24);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 24;
+  *(out + 25) |= (tmp % (1U << 24)) << (28 - 24);
+  *(out + 25) += base;
+  *(out + 26)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 20)) << (28 - 20);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 20;
+  *(out + 26) |= (tmp % (1U << 20)) << (28 - 20);
+  *(out + 26) += base;
+  *(out + 27)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (28 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 27) |= (tmp % (1U << 16)) << (28 - 16);
+  *(out + 27) += base;
+  *(out + 28)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 104) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 12)) << (28 - 12);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 12;
+  *(out + 28) |= (tmp % (1U << 12)) << (28 - 12);
+  *(out + 28) += base;
+  *(out + 29)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 108) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (28 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = tmp >> 8;
+  *(out + 29) |= (tmp % (1U << 8)) << (28 - 8);
+  *(out + 29) += base;
+  *(out + 30)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 112) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 30) |= (tmp % (1U << 4)) << (28 - 4);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 4) & 268435455);
   /* remaining: 0 bits */
   return (112);
 }
@@ -5752,7 +5752,7 @@ unpack29_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 29);
+  *(out + 0)  = base + ((tmp >> 0) & 536870911);
   *(out + 1)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -5807,7 +5807,7 @@ unpack29_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 2)) << (29 - 2);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 2) & 29);
+  *(out + 10)  = base + ((tmp >> 2) & 536870911);
   *(out + 11)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
@@ -5868,7 +5868,7 @@ unpack29_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 20) |= (tmp % (1U << 1)) << (29 - 1);
   *(out + 20) += base;
-  *(out + 21)  = base + ((tmp >> 1) & 29);
+  *(out + 21)  = base + ((tmp >> 1) & 536870911);
   *(out + 22)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
@@ -5923,7 +5923,7 @@ unpack29_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 3)) << (29 - 3);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 3) & 29);
+  *(out + 31)  = base + ((tmp >> 3) & 536870911);
   /* remaining: 0 bits */
   return (116);
 }
@@ -6006,78 +6006,78 @@ pack30_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 30;
+  tmp  = (*(in + 16) - base) << 0;
+  tmp |= (*(in + 17) - base) << 30;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 1) - base) >> (30 - 28);
-  tmp |= (*(in + 2) - base) << 28;
+  tmp  = (*(in + 17) - base) >> (30 - 28);
+  tmp |= (*(in + 18) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 2) - base) >> (30 - 26);
-  tmp |= (*(in + 3) - base) << 26;
+  tmp  = (*(in + 18) - base) >> (30 - 26);
+  tmp |= (*(in + 19) - base) << 26;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 3) - base) >> (30 - 24);
-  tmp |= (*(in + 4) - base) << 24;
+  tmp  = (*(in + 19) - base) >> (30 - 24);
+  tmp |= (*(in + 20) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 4) - base) >> (30 - 22);
-  tmp |= (*(in + 5) - base) << 22;
+  tmp  = (*(in + 20) - base) >> (30 - 22);
+  tmp |= (*(in + 21) - base) << 22;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 5) - base) >> (30 - 20);
-  tmp |= (*(in + 6) - base) << 20;
+  tmp  = (*(in + 21) - base) >> (30 - 20);
+  tmp |= (*(in + 22) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 6) - base) >> (30 - 18);
-  tmp |= (*(in + 7) - base) << 18;
+  tmp  = (*(in + 22) - base) >> (30 - 18);
+  tmp |= (*(in + 23) - base) << 18;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
-  tmp  = (*(in + 7) - base) >> (30 - 16);
-  tmp |= (*(in + 8) - base) << 16;
+  tmp  = (*(in + 23) - base) >> (30 - 16);
+  tmp |= (*(in + 24) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
-  tmp  = (*(in + 8) - base) >> (30 - 14);
-  tmp |= (*(in + 9) - base) << 14;
+  tmp  = (*(in + 24) - base) >> (30 - 14);
+  tmp |= (*(in + 25) - base) << 14;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
-  tmp  = (*(in + 9) - base) >> (30 - 12);
-  tmp |= (*(in + 10) - base) << 12;
+  tmp  = (*(in + 25) - base) >> (30 - 12);
+  tmp |= (*(in + 26) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
-  tmp  = (*(in + 10) - base) >> (30 - 10);
-  tmp |= (*(in + 11) - base) << 10;
+  tmp  = (*(in + 26) - base) >> (30 - 10);
+  tmp |= (*(in + 27) - base) << 10;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 104) */
-  tmp  = (*(in + 11) - base) >> (30 - 8);
-  tmp |= (*(in + 12) - base) << 8;
+  tmp  = (*(in + 27) - base) >> (30 - 8);
+  tmp |= (*(in + 28) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 108) */
-  tmp  = (*(in + 12) - base) >> (30 - 6);
-  tmp |= (*(in + 13) - base) << 6;
+  tmp  = (*(in + 28) - base) >> (30 - 6);
+  tmp |= (*(in + 29) - base) << 6;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 112) */
-  tmp  = (*(in + 13) - base) >> (30 - 4);
-  tmp |= (*(in + 14) - base) << 4;
+  tmp  = (*(in + 29) - base) >> (30 - 4);
+  tmp |= (*(in + 30) - base) << 4;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 116) */
-  tmp  = (*(in + 14) - base) >> (30 - 2);
-  tmp |= (*(in + 15) - base) << 2;
+  tmp  = (*(in + 30) - base) >> (30 - 2);
+  tmp |= (*(in + 31) - base) << 2;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 120) */
   *(uint32_t *)out = tmp;
@@ -6089,7 +6089,7 @@ unpack30_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 30);
+  *(out + 0)  = base + ((tmp >> 0) & 1073741823);
   *(out + 1)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -6174,96 +6174,96 @@ unpack30_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 2)) << (30 - 2);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 2) & 30);
+  *(out + 15)  = base + ((tmp >> 2) & 1073741823);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 30);
-  *(out + 1)  = tmp >> 30;
+  *(out + 16)  = base + ((tmp >> 0) & 1073741823);
+  *(out + 17)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 68) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 28)) << (30 - 28);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 28;
+  *(out + 17) |= (tmp % (1U << 28)) << (30 - 28);
+  *(out + 17) += base;
+  *(out + 18)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 72) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 26)) << (30 - 26);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 26;
+  *(out + 18) |= (tmp % (1U << 26)) << (30 - 26);
+  *(out + 18) += base;
+  *(out + 19)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 76) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 24)) << (30 - 24);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 24;
+  *(out + 19) |= (tmp % (1U << 24)) << (30 - 24);
+  *(out + 19) += base;
+  *(out + 20)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 80) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 22)) << (30 - 22);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 22;
+  *(out + 20) |= (tmp % (1U << 22)) << (30 - 22);
+  *(out + 20) += base;
+  *(out + 21)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 84) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 20)) << (30 - 20);
-  *(out + 5) += base;
-  *(out + 6)  = tmp >> 20;
+  *(out + 21) |= (tmp % (1U << 20)) << (30 - 20);
+  *(out + 21) += base;
+  *(out + 22)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 88) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 18)) << (30 - 18);
-  *(out + 6) += base;
-  *(out + 7)  = tmp >> 18;
+  *(out + 22) |= (tmp % (1U << 18)) << (30 - 18);
+  *(out + 22) += base;
+  *(out + 23)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 92) */
   tmp = *(uint32_t *)in;
-  *(out + 7) |= (tmp % (1U << 16)) << (30 - 16);
-  *(out + 7) += base;
-  *(out + 8)  = tmp >> 16;
+  *(out + 23) |= (tmp % (1U << 16)) << (30 - 16);
+  *(out + 23) += base;
+  *(out + 24)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 96) */
   tmp = *(uint32_t *)in;
-  *(out + 8) |= (tmp % (1U << 14)) << (30 - 14);
-  *(out + 8) += base;
-  *(out + 9)  = tmp >> 14;
+  *(out + 24) |= (tmp % (1U << 14)) << (30 - 14);
+  *(out + 24) += base;
+  *(out + 25)  = tmp >> 14;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 100) */
   tmp = *(uint32_t *)in;
-  *(out + 9) |= (tmp % (1U << 12)) << (30 - 12);
-  *(out + 9) += base;
-  *(out + 10)  = tmp >> 12;
+  *(out + 25) |= (tmp % (1U << 12)) << (30 - 12);
+  *(out + 25) += base;
+  *(out + 26)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 104) */
   tmp = *(uint32_t *)in;
-  *(out + 10) |= (tmp % (1U << 10)) << (30 - 10);
-  *(out + 10) += base;
-  *(out + 11)  = tmp >> 10;
+  *(out + 26) |= (tmp % (1U << 10)) << (30 - 10);
+  *(out + 26) += base;
+  *(out + 27)  = tmp >> 10;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 108) */
   tmp = *(uint32_t *)in;
-  *(out + 11) |= (tmp % (1U << 8)) << (30 - 8);
-  *(out + 11) += base;
-  *(out + 12)  = tmp >> 8;
+  *(out + 27) |= (tmp % (1U << 8)) << (30 - 8);
+  *(out + 27) += base;
+  *(out + 28)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 112) */
   tmp = *(uint32_t *)in;
-  *(out + 12) |= (tmp % (1U << 6)) << (30 - 6);
-  *(out + 12) += base;
-  *(out + 13)  = tmp >> 6;
+  *(out + 28) |= (tmp % (1U << 6)) << (30 - 6);
+  *(out + 28) += base;
+  *(out + 29)  = tmp >> 6;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 116) */
   tmp = *(uint32_t *)in;
-  *(out + 13) |= (tmp % (1U << 4)) << (30 - 4);
-  *(out + 13) += base;
-  *(out + 14)  = tmp >> 4;
+  *(out + 29) |= (tmp % (1U << 4)) << (30 - 4);
+  *(out + 29) += base;
+  *(out + 30)  = tmp >> 4;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 120) */
   tmp = *(uint32_t *)in;
-  *(out + 14) |= (tmp % (1U << 2)) << (30 - 2);
-  *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 2) & 30);
+  *(out + 30) |= (tmp % (1U << 2)) << (30 - 2);
+  *(out + 30) += base;
+  *(out + 31)  = base + ((tmp >> 2) & 1073741823);
   /* remaining: 0 bits */
   return (120);
 }
@@ -6434,7 +6434,7 @@ unpack31_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 0)  = base + ((tmp >> 0) & 2147483647);
   *(out + 1)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -6615,277 +6615,23 @@ unpack31_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 30) |= (tmp % (1U << 1)) << (31 - 1);
   *(out + 30) += base;
-  *(out + 31)  = base + ((tmp >> 1) & 31);
+  *(out + 31)  = base + ((tmp >> 1) & 2147483647);
   /* remaining: 0 bits */
   return (124);
 }
 
 static uint32_t
 pack32_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 64) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 68) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 72) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 76) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 80) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 84) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 88) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 92) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 96) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 100) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 104) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 108) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 112) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 116) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 120) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 124) */
-  tmp  = (*(in + 0) - base) << 0;
-  /* remaining: 0 bits */
-  /* consumed: 4 bytes (total: 128) */
-  *(uint32_t *)out = tmp;
-  return (128);
+  (void)base;
+  memcpy(out, in, 32 * sizeof(uint32_t));
+  return 32 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_32(uint32_t base, const uint8_t *in, uint32_t *out) {
-  uint32_t tmp;
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 36) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 44) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 48) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 52) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 56) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 60) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 68) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 72) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 76) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 80) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 84) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 88) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 92) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 96) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 100) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 104) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 108) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 112) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 116) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 120) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 124) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 128) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  /* remaining: 0 bits */
-  return (128);
+  (void)base;
+  memcpy(out, in, 32 * sizeof(uint32_t));
+  return 32 * sizeof(uint32_t);
 }
 
 for_packfunc_t for_pack32[33] = {
@@ -7040,22 +6786,22 @@ unpack2_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 2);
-  *(out + 1)  = base + ((tmp >> 2) & 2);
-  *(out + 2)  = base + ((tmp >> 4) & 2);
-  *(out + 3)  = base + ((tmp >> 6) & 2);
-  *(out + 4)  = base + ((tmp >> 8) & 2);
-  *(out + 5)  = base + ((tmp >> 10) & 2);
-  *(out + 6)  = base + ((tmp >> 12) & 2);
-  *(out + 7)  = base + ((tmp >> 14) & 2);
-  *(out + 8)  = base + ((tmp >> 16) & 2);
-  *(out + 9)  = base + ((tmp >> 18) & 2);
-  *(out + 10)  = base + ((tmp >> 20) & 2);
-  *(out + 11)  = base + ((tmp >> 22) & 2);
-  *(out + 12)  = base + ((tmp >> 24) & 2);
-  *(out + 13)  = base + ((tmp >> 26) & 2);
-  *(out + 14)  = base + ((tmp >> 28) & 2);
-  *(out + 15)  = base + ((tmp >> 30) & 2);
+  *(out + 0)  = base + ((tmp >> 0) & 3);
+  *(out + 1)  = base + ((tmp >> 2) & 3);
+  *(out + 2)  = base + ((tmp >> 4) & 3);
+  *(out + 3)  = base + ((tmp >> 6) & 3);
+  *(out + 4)  = base + ((tmp >> 8) & 3);
+  *(out + 5)  = base + ((tmp >> 10) & 3);
+  *(out + 6)  = base + ((tmp >> 12) & 3);
+  *(out + 7)  = base + ((tmp >> 14) & 3);
+  *(out + 8)  = base + ((tmp >> 16) & 3);
+  *(out + 9)  = base + ((tmp >> 18) & 3);
+  *(out + 10)  = base + ((tmp >> 20) & 3);
+  *(out + 11)  = base + ((tmp >> 22) & 3);
+  *(out + 12)  = base + ((tmp >> 24) & 3);
+  *(out + 13)  = base + ((tmp >> 26) & 3);
+  *(out + 14)  = base + ((tmp >> 28) & 3);
+  *(out + 15)  = base + ((tmp >> 30) & 3);
   /* remaining: 0 bits */
   return (4);
 }
@@ -7094,27 +6840,27 @@ unpack3_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 3);
-  *(out + 1)  = base + ((tmp >> 3) & 3);
-  *(out + 2)  = base + ((tmp >> 6) & 3);
-  *(out + 3)  = base + ((tmp >> 9) & 3);
-  *(out + 4)  = base + ((tmp >> 12) & 3);
-  *(out + 5)  = base + ((tmp >> 15) & 3);
-  *(out + 6)  = base + ((tmp >> 18) & 3);
-  *(out + 7)  = base + ((tmp >> 21) & 3);
-  *(out + 8)  = base + ((tmp >> 24) & 3);
-  *(out + 9)  = base + ((tmp >> 27) & 3);
+  *(out + 0)  = base + ((tmp >> 0) & 7);
+  *(out + 1)  = base + ((tmp >> 3) & 7);
+  *(out + 2)  = base + ((tmp >> 6) & 7);
+  *(out + 3)  = base + ((tmp >> 9) & 7);
+  *(out + 4)  = base + ((tmp >> 12) & 7);
+  *(out + 5)  = base + ((tmp >> 15) & 7);
+  *(out + 6)  = base + ((tmp >> 18) & 7);
+  *(out + 7)  = base + ((tmp >> 21) & 7);
+  *(out + 8)  = base + ((tmp >> 24) & 7);
+  *(out + 9)  = base + ((tmp >> 27) & 7);
   *(out + 10)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 1)) << (3 - 1);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 1) & 3);
-  *(out + 12)  = base + ((tmp >> 4) & 3);
-  *(out + 13)  = base + ((tmp >> 7) & 3);
-  *(out + 14)  = base + ((tmp >> 10) & 3);
-  *(out + 15)  = base + ((tmp >> 13) & 3);
+  *(out + 11)  = base + ((tmp >> 1) & 7);
+  *(out + 12)  = base + ((tmp >> 4) & 7);
+  *(out + 13)  = base + ((tmp >> 7) & 7);
+  *(out + 14)  = base + ((tmp >> 10) & 7);
+  *(out + 15)  = base + ((tmp >> 13) & 7);
   /* remaining: 16 bits */
   return (6);
 }
@@ -7133,14 +6879,14 @@ pack4_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 4;
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 12;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 20;
-  tmp |= (*(in + 6) - base) << 24;
-  tmp |= (*(in + 7) - base) << 28;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 4;
+  tmp |= (*(in + 10) - base) << 8;
+  tmp |= (*(in + 11) - base) << 12;
+  tmp |= (*(in + 12) - base) << 16;
+  tmp |= (*(in + 13) - base) << 20;
+  tmp |= (*(in + 14) - base) << 24;
+  tmp |= (*(in + 15) - base) << 28;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 8) */
   *(uint32_t *)out = tmp;
@@ -7152,25 +6898,25 @@ unpack4_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 0)  = base + ((tmp >> 0) & 15);
+  *(out + 1)  = base + ((tmp >> 4) & 15);
+  *(out + 2)  = base + ((tmp >> 8) & 15);
+  *(out + 3)  = base + ((tmp >> 12) & 15);
+  *(out + 4)  = base + ((tmp >> 16) & 15);
+  *(out + 5)  = base + ((tmp >> 20) & 15);
+  *(out + 6)  = base + ((tmp >> 24) & 15);
+  *(out + 7)  = base + ((tmp >> 28) & 15);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 8)  = base + ((tmp >> 0) & 15);
+  *(out + 9)  = base + ((tmp >> 4) & 15);
+  *(out + 10)  = base + ((tmp >> 8) & 15);
+  *(out + 11)  = base + ((tmp >> 12) & 15);
+  *(out + 12)  = base + ((tmp >> 16) & 15);
+  *(out + 13)  = base + ((tmp >> 20) & 15);
+  *(out + 14)  = base + ((tmp >> 24) & 15);
+  *(out + 15)  = base + ((tmp >> 28) & 15);
   /* remaining: 0 bits */
   return (8);
 }
@@ -7213,32 +6959,32 @@ unpack5_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 5);
-  *(out + 1)  = base + ((tmp >> 5) & 5);
-  *(out + 2)  = base + ((tmp >> 10) & 5);
-  *(out + 3)  = base + ((tmp >> 15) & 5);
-  *(out + 4)  = base + ((tmp >> 20) & 5);
-  *(out + 5)  = base + ((tmp >> 25) & 5);
+  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 1)  = base + ((tmp >> 5) & 31);
+  *(out + 2)  = base + ((tmp >> 10) & 31);
+  *(out + 3)  = base + ((tmp >> 15) & 31);
+  *(out + 4)  = base + ((tmp >> 20) & 31);
+  *(out + 5)  = base + ((tmp >> 25) & 31);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 3)) << (5 - 3);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 3) & 5);
-  *(out + 8)  = base + ((tmp >> 8) & 5);
-  *(out + 9)  = base + ((tmp >> 13) & 5);
-  *(out + 10)  = base + ((tmp >> 18) & 5);
-  *(out + 11)  = base + ((tmp >> 23) & 5);
+  *(out + 7)  = base + ((tmp >> 3) & 31);
+  *(out + 8)  = base + ((tmp >> 8) & 31);
+  *(out + 9)  = base + ((tmp >> 13) & 31);
+  *(out + 10)  = base + ((tmp >> 18) & 31);
+  *(out + 11)  = base + ((tmp >> 23) & 31);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 1)) << (5 - 1);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 1) & 5);
-  *(out + 14)  = base + ((tmp >> 6) & 5);
-  *(out + 15)  = base + ((tmp >> 11) & 5);
+  *(out + 13)  = base + ((tmp >> 1) & 31);
+  *(out + 14)  = base + ((tmp >> 6) & 31);
+  *(out + 15)  = base + ((tmp >> 11) & 31);
   /* remaining: 16 bits */
   return (10);
 }
@@ -7281,32 +7027,32 @@ unpack6_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 6);
-  *(out + 1)  = base + ((tmp >> 6) & 6);
-  *(out + 2)  = base + ((tmp >> 12) & 6);
-  *(out + 3)  = base + ((tmp >> 18) & 6);
-  *(out + 4)  = base + ((tmp >> 24) & 6);
+  *(out + 0)  = base + ((tmp >> 0) & 63);
+  *(out + 1)  = base + ((tmp >> 6) & 63);
+  *(out + 2)  = base + ((tmp >> 12) & 63);
+  *(out + 3)  = base + ((tmp >> 18) & 63);
+  *(out + 4)  = base + ((tmp >> 24) & 63);
   *(out + 5)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (6 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 6);
-  *(out + 7)  = base + ((tmp >> 10) & 6);
-  *(out + 8)  = base + ((tmp >> 16) & 6);
-  *(out + 9)  = base + ((tmp >> 22) & 6);
+  *(out + 6)  = base + ((tmp >> 4) & 63);
+  *(out + 7)  = base + ((tmp >> 10) & 63);
+  *(out + 8)  = base + ((tmp >> 16) & 63);
+  *(out + 9)  = base + ((tmp >> 22) & 63);
   *(out + 10)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 2)) << (6 - 2);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 2) & 6);
-  *(out + 12)  = base + ((tmp >> 8) & 6);
-  *(out + 13)  = base + ((tmp >> 14) & 6);
-  *(out + 14)  = base + ((tmp >> 20) & 6);
-  *(out + 15)  = base + ((tmp >> 26) & 6);
+  *(out + 11)  = base + ((tmp >> 2) & 63);
+  *(out + 12)  = base + ((tmp >> 8) & 63);
+  *(out + 13)  = base + ((tmp >> 14) & 63);
+  *(out + 14)  = base + ((tmp >> 20) & 63);
+  *(out + 15)  = base + ((tmp >> 26) & 63);
   /* remaining: 0 bits */
   return (12);
 }
@@ -7353,37 +7099,37 @@ unpack7_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 7);
-  *(out + 1)  = base + ((tmp >> 7) & 7);
-  *(out + 2)  = base + ((tmp >> 14) & 7);
-  *(out + 3)  = base + ((tmp >> 21) & 7);
+  *(out + 0)  = base + ((tmp >> 0) & 127);
+  *(out + 1)  = base + ((tmp >> 7) & 127);
+  *(out + 2)  = base + ((tmp >> 14) & 127);
+  *(out + 3)  = base + ((tmp >> 21) & 127);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 3)) << (7 - 3);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 3) & 7);
-  *(out + 6)  = base + ((tmp >> 10) & 7);
-  *(out + 7)  = base + ((tmp >> 17) & 7);
-  *(out + 8)  = base + ((tmp >> 24) & 7);
+  *(out + 5)  = base + ((tmp >> 3) & 127);
+  *(out + 6)  = base + ((tmp >> 10) & 127);
+  *(out + 7)  = base + ((tmp >> 17) & 127);
+  *(out + 8)  = base + ((tmp >> 24) & 127);
   *(out + 9)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 6)) << (7 - 6);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 6) & 7);
-  *(out + 11)  = base + ((tmp >> 13) & 7);
-  *(out + 12)  = base + ((tmp >> 20) & 7);
+  *(out + 10)  = base + ((tmp >> 6) & 127);
+  *(out + 11)  = base + ((tmp >> 13) & 127);
+  *(out + 12)  = base + ((tmp >> 20) & 127);
   *(out + 13)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 2)) << (7 - 2);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 2) & 7);
-  *(out + 15)  = base + ((tmp >> 9) & 7);
+  *(out + 14)  = base + ((tmp >> 2) & 127);
+  *(out + 15)  = base + ((tmp >> 9) & 127);
   /* remaining: 16 bits */
   return (14);
 }
@@ -7398,24 +7144,24 @@ pack8_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 8;
+  tmp |= (*(in + 6) - base) << 16;
+  tmp |= (*(in + 7) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 8;
+  tmp |= (*(in + 10) - base) << 16;
+  tmp |= (*(in + 11) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 8;
+  tmp |= (*(in + 14) - base) << 16;
+  tmp |= (*(in + 15) - base) << 24;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 16) */
   *(uint32_t *)out = tmp;
@@ -7427,31 +7173,31 @@ unpack8_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 0)  = base + ((tmp >> 0) & 255);
+  *(out + 1)  = base + ((tmp >> 8) & 255);
+  *(out + 2)  = base + ((tmp >> 16) & 255);
+  *(out + 3)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 4)  = base + ((tmp >> 0) & 255);
+  *(out + 5)  = base + ((tmp >> 8) & 255);
+  *(out + 6)  = base + ((tmp >> 16) & 255);
+  *(out + 7)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 8)  = base + ((tmp >> 0) & 255);
+  *(out + 9)  = base + ((tmp >> 8) & 255);
+  *(out + 10)  = base + ((tmp >> 16) & 255);
+  *(out + 11)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 12)  = base + ((tmp >> 0) & 255);
+  *(out + 13)  = base + ((tmp >> 8) & 255);
+  *(out + 14)  = base + ((tmp >> 16) & 255);
+  *(out + 15)  = base + ((tmp >> 24) & 255);
   /* remaining: 0 bits */
   return (16);
 }
@@ -7502,42 +7248,42 @@ unpack9_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 9);
-  *(out + 1)  = base + ((tmp >> 9) & 9);
-  *(out + 2)  = base + ((tmp >> 18) & 9);
+  *(out + 0)  = base + ((tmp >> 0) & 511);
+  *(out + 1)  = base + ((tmp >> 9) & 511);
+  *(out + 2)  = base + ((tmp >> 18) & 511);
   *(out + 3)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (9 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 9);
-  *(out + 5)  = base + ((tmp >> 13) & 9);
-  *(out + 6)  = base + ((tmp >> 22) & 9);
+  *(out + 4)  = base + ((tmp >> 4) & 511);
+  *(out + 5)  = base + ((tmp >> 13) & 511);
+  *(out + 6)  = base + ((tmp >> 22) & 511);
   *(out + 7)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (9 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 9);
-  *(out + 9)  = base + ((tmp >> 17) & 9);
+  *(out + 8)  = base + ((tmp >> 8) & 511);
+  *(out + 9)  = base + ((tmp >> 17) & 511);
   *(out + 10)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 3)) << (9 - 3);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 3) & 9);
-  *(out + 12)  = base + ((tmp >> 12) & 9);
-  *(out + 13)  = base + ((tmp >> 21) & 9);
+  *(out + 11)  = base + ((tmp >> 3) & 511);
+  *(out + 12)  = base + ((tmp >> 12) & 511);
+  *(out + 13)  = base + ((tmp >> 21) & 511);
   *(out + 14)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 7)) << (9 - 7);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 7) & 9);
+  *(out + 15)  = base + ((tmp >> 7) & 511);
   /* remaining: 16 bits */
   return (18);
 }
@@ -7588,42 +7334,42 @@ unpack10_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 10);
-  *(out + 1)  = base + ((tmp >> 10) & 10);
-  *(out + 2)  = base + ((tmp >> 20) & 10);
+  *(out + 0)  = base + ((tmp >> 0) & 1023);
+  *(out + 1)  = base + ((tmp >> 10) & 1023);
+  *(out + 2)  = base + ((tmp >> 20) & 1023);
   *(out + 3)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (10 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 10);
-  *(out + 5)  = base + ((tmp >> 18) & 10);
+  *(out + 4)  = base + ((tmp >> 8) & 1023);
+  *(out + 5)  = base + ((tmp >> 18) & 1023);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 6)) << (10 - 6);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 6) & 10);
-  *(out + 8)  = base + ((tmp >> 16) & 10);
+  *(out + 7)  = base + ((tmp >> 6) & 1023);
+  *(out + 8)  = base + ((tmp >> 16) & 1023);
   *(out + 9)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 4)) << (10 - 4);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 10);
-  *(out + 11)  = base + ((tmp >> 14) & 10);
+  *(out + 10)  = base + ((tmp >> 4) & 1023);
+  *(out + 11)  = base + ((tmp >> 14) & 1023);
   *(out + 12)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 2)) << (10 - 2);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 2) & 10);
-  *(out + 14)  = base + ((tmp >> 12) & 10);
-  *(out + 15)  = base + ((tmp >> 22) & 10);
+  *(out + 13)  = base + ((tmp >> 2) & 1023);
+  *(out + 14)  = base + ((tmp >> 12) & 1023);
+  *(out + 15)  = base + ((tmp >> 22) & 1023);
   /* remaining: 0 bits */
   return (20);
 }
@@ -7678,47 +7424,47 @@ unpack11_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 11);
-  *(out + 1)  = base + ((tmp >> 11) & 11);
+  *(out + 0)  = base + ((tmp >> 0) & 2047);
+  *(out + 1)  = base + ((tmp >> 11) & 2047);
   *(out + 2)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 1)) << (11 - 1);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 1) & 11);
-  *(out + 4)  = base + ((tmp >> 12) & 11);
+  *(out + 3)  = base + ((tmp >> 1) & 2047);
+  *(out + 4)  = base + ((tmp >> 12) & 2047);
   *(out + 5)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (11 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 11);
-  *(out + 7)  = base + ((tmp >> 13) & 11);
+  *(out + 6)  = base + ((tmp >> 2) & 2047);
+  *(out + 7)  = base + ((tmp >> 13) & 2047);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 3)) << (11 - 3);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 3) & 11);
-  *(out + 10)  = base + ((tmp >> 14) & 11);
+  *(out + 9)  = base + ((tmp >> 3) & 2047);
+  *(out + 10)  = base + ((tmp >> 14) & 2047);
   *(out + 11)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (11 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 11);
-  *(out + 13)  = base + ((tmp >> 15) & 11);
+  *(out + 12)  = base + ((tmp >> 4) & 2047);
+  *(out + 13)  = base + ((tmp >> 15) & 2047);
   *(out + 14)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 5)) << (11 - 5);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 5) & 11);
+  *(out + 15)  = base + ((tmp >> 5) & 2047);
   /* remaining: 16 bits */
   return (22);
 }
@@ -7745,22 +7491,22 @@ pack12_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 12;
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 12;
+  tmp |= (*(in + 10) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 2) - base) >> (12 - 4);
-  tmp |= (*(in + 3) - base) << 4;
-  tmp |= (*(in + 4) - base) << 16;
-  tmp |= (*(in + 5) - base) << 28;
+  tmp  = (*(in + 10) - base) >> (12 - 4);
+  tmp |= (*(in + 11) - base) << 4;
+  tmp |= (*(in + 12) - base) << 16;
+  tmp |= (*(in + 13) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 5) - base) >> (12 - 8);
-  tmp |= (*(in + 6) - base) << 8;
-  tmp |= (*(in + 7) - base) << 20;
+  tmp  = (*(in + 13) - base) >> (12 - 8);
+  tmp |= (*(in + 14) - base) << 8;
+  tmp |= (*(in + 15) - base) << 20;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 24) */
   *(uint32_t *)out = tmp;
@@ -7772,45 +7518,45 @@ unpack12_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
+  *(out + 0)  = base + ((tmp >> 0) & 4095);
+  *(out + 1)  = base + ((tmp >> 12) & 4095);
   *(out + 2)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
+  *(out + 3)  = base + ((tmp >> 4) & 4095);
+  *(out + 4)  = base + ((tmp >> 16) & 4095);
   *(out + 5)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 6)  = base + ((tmp >> 8) & 4095);
+  *(out + 7)  = base + ((tmp >> 20) & 4095);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
-  *(out + 2)  = tmp >> 24;
+  *(out + 8)  = base + ((tmp >> 0) & 4095);
+  *(out + 9)  = base + ((tmp >> 12) & 4095);
+  *(out + 10)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
-  *(out + 5)  = tmp >> 28;
+  *(out + 10) |= (tmp % (1U << 4)) << (12 - 4);
+  *(out + 10) += base;
+  *(out + 11)  = base + ((tmp >> 4) & 4095);
+  *(out + 12)  = base + ((tmp >> 16) & 4095);
+  *(out + 13)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 13) |= (tmp % (1U << 8)) << (12 - 8);
+  *(out + 13) += base;
+  *(out + 14)  = base + ((tmp >> 8) & 4095);
+  *(out + 15)  = base + ((tmp >> 20) & 4095);
   /* remaining: 0 bits */
   return (24);
 }
@@ -7869,52 +7615,52 @@ unpack13_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 13);
-  *(out + 1)  = base + ((tmp >> 13) & 13);
+  *(out + 0)  = base + ((tmp >> 0) & 8191);
+  *(out + 1)  = base + ((tmp >> 13) & 8191);
   *(out + 2)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 7)) << (13 - 7);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 7) & 13);
+  *(out + 3)  = base + ((tmp >> 7) & 8191);
   *(out + 4)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 1)) << (13 - 1);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 1) & 13);
-  *(out + 6)  = base + ((tmp >> 14) & 13);
+  *(out + 5)  = base + ((tmp >> 1) & 8191);
+  *(out + 6)  = base + ((tmp >> 14) & 8191);
   *(out + 7)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (13 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 13);
+  *(out + 8)  = base + ((tmp >> 8) & 8191);
   *(out + 9)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 2)) << (13 - 2);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 2) & 13);
-  *(out + 11)  = base + ((tmp >> 15) & 13);
+  *(out + 10)  = base + ((tmp >> 2) & 8191);
+  *(out + 11)  = base + ((tmp >> 15) & 8191);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 9)) << (13 - 9);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 9) & 13);
+  *(out + 13)  = base + ((tmp >> 9) & 8191);
   *(out + 14)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 3)) << (13 - 3);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 3) & 13);
+  *(out + 15)  = base + ((tmp >> 3) & 8191);
   /* remaining: 16 bits */
   return (26);
 }
@@ -7973,52 +7719,52 @@ unpack14_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 14);
-  *(out + 1)  = base + ((tmp >> 14) & 14);
+  *(out + 0)  = base + ((tmp >> 0) & 16383);
+  *(out + 1)  = base + ((tmp >> 14) & 16383);
   *(out + 2)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 10)) << (14 - 10);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 10) & 14);
+  *(out + 3)  = base + ((tmp >> 10) & 16383);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 6)) << (14 - 6);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 6) & 14);
+  *(out + 5)  = base + ((tmp >> 6) & 16383);
   *(out + 6)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 2)) << (14 - 2);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 2) & 14);
-  *(out + 8)  = base + ((tmp >> 16) & 14);
+  *(out + 7)  = base + ((tmp >> 2) & 16383);
+  *(out + 8)  = base + ((tmp >> 16) & 16383);
   *(out + 9)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 12)) << (14 - 12);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 12) & 14);
+  *(out + 10)  = base + ((tmp >> 12) & 16383);
   *(out + 11)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 8)) << (14 - 8);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 14);
+  *(out + 12)  = base + ((tmp >> 8) & 16383);
   *(out + 13)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 4)) << (14 - 4);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 4) & 14);
-  *(out + 15)  = base + ((tmp >> 18) & 14);
+  *(out + 14)  = base + ((tmp >> 4) & 16383);
+  *(out + 15)  = base + ((tmp >> 18) & 16383);
   /* remaining: 0 bits */
   return (28);
 }
@@ -8081,57 +7827,57 @@ unpack15_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 15);
-  *(out + 1)  = base + ((tmp >> 15) & 15);
+  *(out + 0)  = base + ((tmp >> 0) & 32767);
+  *(out + 1)  = base + ((tmp >> 15) & 32767);
   *(out + 2)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 13)) << (15 - 13);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 13) & 15);
+  *(out + 3)  = base + ((tmp >> 13) & 32767);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 11)) << (15 - 11);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 11) & 15);
+  *(out + 5)  = base + ((tmp >> 11) & 32767);
   *(out + 6)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 9)) << (15 - 9);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 9) & 15);
+  *(out + 7)  = base + ((tmp >> 9) & 32767);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 7)) << (15 - 7);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 7) & 15);
+  *(out + 9)  = base + ((tmp >> 7) & 32767);
   *(out + 10)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 5)) << (15 - 5);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 5) & 15);
+  *(out + 11)  = base + ((tmp >> 5) & 32767);
   *(out + 12)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 3)) << (15 - 3);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 3) & 15);
+  *(out + 13)  = base + ((tmp >> 3) & 32767);
   *(out + 14)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 1)) << (15 - 1);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 1) & 15);
+  *(out + 15)  = base + ((tmp >> 1) & 32767);
   /* remaining: 16 bits */
   return (30);
 }
@@ -8144,38 +7890,38 @@ pack16_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 2) - base) << 0;
+  tmp |= (*(in + 3) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 6) - base) << 0;
+  tmp |= (*(in + 7) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 10) - base) << 0;
+  tmp |= (*(in + 11) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 14) - base) << 0;
+  tmp |= (*(in + 15) - base) << 16;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 32) */
   *(uint32_t *)out = tmp;
@@ -8187,43 +7933,43 @@ unpack16_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 0)  = base + ((tmp >> 0) & 65535);
+  *(out + 1)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 2)  = base + ((tmp >> 0) & 65535);
+  *(out + 3)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 4)  = base + ((tmp >> 0) & 65535);
+  *(out + 5)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 6)  = base + ((tmp >> 0) & 65535);
+  *(out + 7)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 8)  = base + ((tmp >> 0) & 65535);
+  *(out + 9)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 10)  = base + ((tmp >> 0) & 65535);
+  *(out + 11)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 12)  = base + ((tmp >> 0) & 65535);
+  *(out + 13)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 14)  = base + ((tmp >> 0) & 65535);
+  *(out + 15)  = base + ((tmp >> 16) & 65535);
   /* remaining: 0 bits */
   return (32);
 }
@@ -8290,56 +8036,56 @@ unpack17_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 17);
+  *(out + 0)  = base + ((tmp >> 0) & 131071);
   *(out + 1)  = tmp >> 17;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 2)) << (17 - 2);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 2) & 17);
+  *(out + 2)  = base + ((tmp >> 2) & 131071);
   *(out + 3)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (17 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 17);
+  *(out + 4)  = base + ((tmp >> 4) & 131071);
   *(out + 5)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 6)) << (17 - 6);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 6) & 17);
+  *(out + 6)  = base + ((tmp >> 6) & 131071);
   *(out + 7)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (17 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 17);
+  *(out + 8)  = base + ((tmp >> 8) & 131071);
   *(out + 9)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 10)) << (17 - 10);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 10) & 17);
+  *(out + 10)  = base + ((tmp >> 10) & 131071);
   *(out + 11)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 12)) << (17 - 12);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 12) & 17);
+  *(out + 12)  = base + ((tmp >> 12) & 131071);
   *(out + 13)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 14)) << (17 - 14);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 14) & 17);
+  *(out + 14)  = base + ((tmp >> 14) & 131071);
   *(out + 15)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -8412,28 +8158,28 @@ unpack18_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 18);
+  *(out + 0)  = base + ((tmp >> 0) & 262143);
   *(out + 1)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 4)) << (18 - 4);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 4) & 18);
+  *(out + 2)  = base + ((tmp >> 4) & 262143);
   *(out + 3)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (18 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 18);
+  *(out + 4)  = base + ((tmp >> 8) & 262143);
   *(out + 5)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 12)) << (18 - 12);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 12) & 18);
+  *(out + 6)  = base + ((tmp >> 12) & 262143);
   *(out + 7)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -8446,28 +8192,28 @@ unpack18_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 2)) << (18 - 2);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 2) & 18);
+  *(out + 9)  = base + ((tmp >> 2) & 262143);
   *(out + 10)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 6)) << (18 - 6);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 6) & 18);
+  *(out + 11)  = base + ((tmp >> 6) & 262143);
   *(out + 12)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 10)) << (18 - 10);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 10) & 18);
+  *(out + 13)  = base + ((tmp >> 10) & 262143);
   *(out + 14)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 14)) << (18 - 14);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 14) & 18);
+  *(out + 15)  = base + ((tmp >> 14) & 262143);
   /* remaining: 0 bits */
   return (36);
 }
@@ -8538,21 +8284,21 @@ unpack19_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 19);
+  *(out + 0)  = base + ((tmp >> 0) & 524287);
   *(out + 1)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 6)) << (19 - 6);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 6) & 19);
+  *(out + 2)  = base + ((tmp >> 6) & 524287);
   *(out + 3)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 12)) << (19 - 12);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 12) & 19);
+  *(out + 4)  = base + ((tmp >> 12) & 524287);
   *(out + 5)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -8565,14 +8311,14 @@ unpack19_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 5)) << (19 - 5);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 5) & 19);
+  *(out + 7)  = base + ((tmp >> 5) & 524287);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 11)) << (19 - 11);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 11) & 19);
+  *(out + 9)  = base + ((tmp >> 11) & 524287);
   *(out + 10)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -8585,14 +8331,14 @@ unpack19_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (19 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 19);
+  *(out + 12)  = base + ((tmp >> 4) & 524287);
   *(out + 13)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 10)) << (19 - 10);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 10) & 19);
+  *(out + 14)  = base + ((tmp >> 10) & 524287);
   *(out + 15)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -8633,30 +8379,30 @@ pack20_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 20;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 1) - base) >> (20 - 8);
-  tmp |= (*(in + 2) - base) << 8;
-  tmp |= (*(in + 3) - base) << 28;
+  tmp  = (*(in + 9) - base) >> (20 - 8);
+  tmp |= (*(in + 10) - base) << 8;
+  tmp |= (*(in + 11) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 3) - base) >> (20 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 11) - base) >> (20 - 16);
+  tmp |= (*(in + 12) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 4) - base) >> (20 - 4);
-  tmp |= (*(in + 5) - base) << 4;
-  tmp |= (*(in + 6) - base) << 24;
+  tmp  = (*(in + 12) - base) >> (20 - 4);
+  tmp |= (*(in + 13) - base) << 4;
+  tmp |= (*(in + 14) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 6) - base) >> (20 - 12);
-  tmp |= (*(in + 7) - base) << 12;
+  tmp  = (*(in + 14) - base) >> (20 - 12);
+  tmp |= (*(in + 15) - base) << 12;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 40) */
   *(uint32_t *)out = tmp;
@@ -8668,14 +8414,14 @@ unpack20_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
+  *(out + 0)  = base + ((tmp >> 0) & 1048575);
   *(out + 1)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
+  *(out + 2)  = base + ((tmp >> 8) & 1048575);
   *(out + 3)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -8688,45 +8434,45 @@ unpack20_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
+  *(out + 5)  = base + ((tmp >> 4) & 1048575);
   *(out + 6)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 7)  = base + ((tmp >> 12) & 1048575);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
-  *(out + 1)  = tmp >> 20;
+  *(out + 8)  = base + ((tmp >> 0) & 1048575);
+  *(out + 9)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
-  *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
-  *(out + 3)  = tmp >> 28;
+  *(out + 9) |= (tmp % (1U << 8)) << (20 - 8);
+  *(out + 9) += base;
+  *(out + 10)  = base + ((tmp >> 8) & 1048575);
+  *(out + 11)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (20 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 11) |= (tmp % (1U << 16)) << (20 - 16);
+  *(out + 11) += base;
+  *(out + 12)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
-  *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
-  *(out + 6)  = tmp >> 24;
+  *(out + 12) |= (tmp % (1U << 4)) << (20 - 4);
+  *(out + 12) += base;
+  *(out + 13)  = base + ((tmp >> 4) & 1048575);
+  *(out + 14)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 14) |= (tmp % (1U << 12)) << (20 - 12);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 12) & 1048575);
   /* remaining: 0 bits */
   return (40);
 }
@@ -8801,14 +8547,14 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 21);
+  *(out + 0)  = base + ((tmp >> 0) & 2097151);
   *(out + 1)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 10)) << (21 - 10);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 10) & 21);
+  *(out + 2)  = base + ((tmp >> 10) & 2097151);
   *(out + 3)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -8821,7 +8567,7 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 9)) << (21 - 9);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 9) & 21);
+  *(out + 5)  = base + ((tmp >> 9) & 2097151);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -8834,7 +8580,7 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 7) |= (tmp % (1U << 8)) << (21 - 8);
   *(out + 7) += base;
-  *(out + 8)  = base + ((tmp >> 8) & 21);
+  *(out + 8)  = base + ((tmp >> 8) & 2097151);
   *(out + 9)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -8847,7 +8593,7 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 10) |= (tmp % (1U << 7)) << (21 - 7);
   *(out + 10) += base;
-  *(out + 11)  = base + ((tmp >> 7) & 21);
+  *(out + 11)  = base + ((tmp >> 7) & 2097151);
   *(out + 12)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -8860,7 +8606,7 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 6)) << (21 - 6);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 6) & 21);
+  *(out + 14)  = base + ((tmp >> 6) & 2097151);
   *(out + 15)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
@@ -8941,7 +8687,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 22);
+  *(out + 0)  = base + ((tmp >> 0) & 4194303);
   *(out + 1)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -8954,7 +8700,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 2)) << (22 - 2);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 2) & 22);
+  *(out + 3)  = base + ((tmp >> 2) & 4194303);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -8967,7 +8713,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (22 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 22);
+  *(out + 6)  = base + ((tmp >> 4) & 4194303);
   *(out + 7)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -8980,7 +8726,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 6)) << (22 - 6);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 6) & 22);
+  *(out + 9)  = base + ((tmp >> 6) & 4194303);
   *(out + 10)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
@@ -8993,7 +8739,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 8)) << (22 - 8);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 8) & 22);
+  *(out + 12)  = base + ((tmp >> 8) & 4194303);
   *(out + 13)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -9006,7 +8752,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 10)) << (22 - 10);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 10) & 22);
+  *(out + 15)  = base + ((tmp >> 10) & 4194303);
   /* remaining: 0 bits */
   return (44);
 }
@@ -9085,7 +8831,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 23);
+  *(out + 0)  = base + ((tmp >> 0) & 8388607);
   *(out + 1)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9098,7 +8844,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 5)) << (23 - 5);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 5) & 23);
+  *(out + 3)  = base + ((tmp >> 5) & 8388607);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -9117,7 +8863,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 1)) << (23 - 1);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 1) & 23);
+  *(out + 7)  = base + ((tmp >> 1) & 8388607);
   *(out + 8)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -9130,7 +8876,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 6)) << (23 - 6);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 6) & 23);
+  *(out + 10)  = base + ((tmp >> 6) & 8388607);
   *(out + 11)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -9149,7 +8895,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 13) |= (tmp % (1U << 2)) << (23 - 2);
   *(out + 13) += base;
-  *(out + 14)  = base + ((tmp >> 2) & 23);
+  *(out + 14)  = base + ((tmp >> 2) & 8388607);
   *(out + 15)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -9178,48 +8924,48 @@ pack24_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 5) - base) >> (24 - 16);
+  tmp |= (*(in + 6) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 6) - base) >> (24 - 8);
+  tmp |= (*(in + 7) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 9) - base) >> (24 - 16);
+  tmp |= (*(in + 10) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 10) - base) >> (24 - 8);
+  tmp |= (*(in + 11) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 12) - base) << 0;
+  tmp |= (*(in + 13) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 13) - base) >> (24 - 16);
+  tmp |= (*(in + 14) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 14) - base) >> (24 - 8);
+  tmp |= (*(in + 15) - base) << 8;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 48) */
   *(uint32_t *)out = tmp;
@@ -9231,7 +8977,7 @@ unpack24_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
+  *(out + 0)  = base + ((tmp >> 0) & 16777215);
   *(out + 1)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9244,58 +8990,58 @@ unpack24_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 3)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 4)  = base + ((tmp >> 0) & 16777215);
+  *(out + 5)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 5) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 5) += base;
+  *(out + 6)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 6) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 6) += base;
+  *(out + 7)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 8)  = base + ((tmp >> 0) & 16777215);
+  *(out + 9)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 9) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 9) += base;
+  *(out + 10)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 10) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 10) += base;
+  *(out + 11)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 12)  = base + ((tmp >> 0) & 16777215);
+  *(out + 13)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 13) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 13) += base;
+  *(out + 14)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 14) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 8) & 16777215);
   /* remaining: 0 bits */
   return (48);
 }
@@ -9378,7 +9124,7 @@ unpack25_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 25);
+  *(out + 0)  = base + ((tmp >> 0) & 33554431);
   *(out + 1)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9397,7 +9143,7 @@ unpack25_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (25 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 25);
+  *(out + 4)  = base + ((tmp >> 4) & 33554431);
   *(out + 5)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -9422,7 +9168,7 @@ unpack25_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 8) |= (tmp % (1U << 1)) << (25 - 1);
   *(out + 8) += base;
-  *(out + 9)  = base + ((tmp >> 1) & 25);
+  *(out + 9)  = base + ((tmp >> 1) & 33554431);
   *(out + 10)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
@@ -9441,7 +9187,7 @@ unpack25_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 12) |= (tmp % (1U << 5)) << (25 - 5);
   *(out + 12) += base;
-  *(out + 13)  = base + ((tmp >> 5) & 25);
+  *(out + 13)  = base + ((tmp >> 5) & 33554431);
   *(out + 14)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -9536,7 +9282,7 @@ unpack26_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 26);
+  *(out + 0)  = base + ((tmp >> 0) & 67108863);
   *(out + 1)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9561,7 +9307,7 @@ unpack26_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 2)) << (26 - 2);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 2) & 26);
+  *(out + 5)  = base + ((tmp >> 2) & 67108863);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -9586,7 +9332,7 @@ unpack26_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 4)) << (26 - 4);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 4) & 26);
+  *(out + 10)  = base + ((tmp >> 4) & 67108863);
   *(out + 11)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
@@ -9611,7 +9357,7 @@ unpack26_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 6)) << (26 - 6);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 6) & 26);
+  *(out + 15)  = base + ((tmp >> 6) & 67108863);
   /* remaining: 0 bits */
   return (52);
 }
@@ -9698,7 +9444,7 @@ unpack27_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 27);
+  *(out + 0)  = base + ((tmp >> 0) & 134217727);
   *(out + 1)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9729,7 +9475,7 @@ unpack27_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (27 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 27);
+  *(out + 6)  = base + ((tmp >> 2) & 134217727);
   *(out + 7)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -9760,7 +9506,7 @@ unpack27_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 11) |= (tmp % (1U << 4)) << (27 - 4);
   *(out + 11) += base;
-  *(out + 12)  = base + ((tmp >> 4) & 27);
+  *(out + 12)  = base + ((tmp >> 4) & 134217727);
   *(out + 13)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
@@ -9821,38 +9567,38 @@ pack28_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 28;
+  tmp  = (*(in + 8) - base) << 0;
+  tmp |= (*(in + 9) - base) << 28;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 1) - base) >> (28 - 24);
-  tmp |= (*(in + 2) - base) << 24;
+  tmp  = (*(in + 9) - base) >> (28 - 24);
+  tmp |= (*(in + 10) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 2) - base) >> (28 - 20);
-  tmp |= (*(in + 3) - base) << 20;
+  tmp  = (*(in + 10) - base) >> (28 - 20);
+  tmp |= (*(in + 11) - base) << 20;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 3) - base) >> (28 - 16);
-  tmp |= (*(in + 4) - base) << 16;
+  tmp  = (*(in + 11) - base) >> (28 - 16);
+  tmp |= (*(in + 12) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 4) - base) >> (28 - 12);
-  tmp |= (*(in + 5) - base) << 12;
+  tmp  = (*(in + 12) - base) >> (28 - 12);
+  tmp |= (*(in + 13) - base) << 12;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 5) - base) >> (28 - 8);
-  tmp |= (*(in + 6) - base) << 8;
+  tmp  = (*(in + 13) - base) >> (28 - 8);
+  tmp |= (*(in + 14) - base) << 8;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 6) - base) >> (28 - 4);
-  tmp |= (*(in + 7) - base) << 4;
+  tmp  = (*(in + 14) - base) >> (28 - 4);
+  tmp |= (*(in + 15) - base) << 4;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 56) */
   *(uint32_t *)out = tmp;
@@ -9864,7 +9610,7 @@ unpack28_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
+  *(out + 0)  = base + ((tmp >> 0) & 268435455);
   *(out + 1)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -9901,48 +9647,48 @@ unpack28_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 7)  = base + ((tmp >> 4) & 268435455);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
-  *(out + 1)  = tmp >> 28;
+  *(out + 8)  = base + ((tmp >> 0) & 268435455);
+  *(out + 9)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 36) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 24)) << (28 - 24);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 24;
+  *(out + 9) |= (tmp % (1U << 24)) << (28 - 24);
+  *(out + 9) += base;
+  *(out + 10)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 40) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 20)) << (28 - 20);
-  *(out + 2) += base;
-  *(out + 3)  = tmp >> 20;
+  *(out + 10) |= (tmp % (1U << 20)) << (28 - 20);
+  *(out + 10) += base;
+  *(out + 11)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
   tmp = *(uint32_t *)in;
-  *(out + 3) |= (tmp % (1U << 16)) << (28 - 16);
-  *(out + 3) += base;
-  *(out + 4)  = tmp >> 16;
+  *(out + 11) |= (tmp % (1U << 16)) << (28 - 16);
+  *(out + 11) += base;
+  *(out + 12)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 48) */
   tmp = *(uint32_t *)in;
-  *(out + 4) |= (tmp % (1U << 12)) << (28 - 12);
-  *(out + 4) += base;
-  *(out + 5)  = tmp >> 12;
+  *(out + 12) |= (tmp % (1U << 12)) << (28 - 12);
+  *(out + 12) += base;
+  *(out + 13)  = tmp >> 12;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 52) */
   tmp = *(uint32_t *)in;
-  *(out + 5) |= (tmp % (1U << 8)) << (28 - 8);
-  *(out + 5) += base;
-  *(out + 6)  = tmp >> 8;
+  *(out + 13) |= (tmp % (1U << 8)) << (28 - 8);
+  *(out + 13) += base;
+  *(out + 14)  = tmp >> 8;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 56) */
   tmp = *(uint32_t *)in;
-  *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
-  *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 14) |= (tmp % (1U << 4)) << (28 - 4);
+  *(out + 14) += base;
+  *(out + 15)  = base + ((tmp >> 4) & 268435455);
   /* remaining: 0 bits */
   return (56);
 }
@@ -10033,7 +9779,7 @@ unpack29_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 29);
+  *(out + 0)  = base + ((tmp >> 0) & 536870911);
   *(out + 1)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -10088,7 +9834,7 @@ unpack29_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 9) |= (tmp % (1U << 2)) << (29 - 2);
   *(out + 9) += base;
-  *(out + 10)  = base + ((tmp >> 2) & 29);
+  *(out + 10)  = base + ((tmp >> 2) & 536870911);
   *(out + 11)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 44) */
@@ -10209,7 +9955,7 @@ unpack30_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 30);
+  *(out + 0)  = base + ((tmp >> 0) & 1073741823);
   *(out + 1)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -10294,7 +10040,7 @@ unpack30_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 14) |= (tmp % (1U << 2)) << (30 - 2);
   *(out + 14) += base;
-  *(out + 15)  = base + ((tmp >> 2) & 30);
+  *(out + 15)  = base + ((tmp >> 2) & 1073741823);
   /* remaining: 0 bits */
   return (60);
 }
@@ -10389,7 +10135,7 @@ unpack31_16(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 0)  = base + ((tmp >> 0) & 2147483647);
   *(out + 1)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -10486,142 +10232,16 @@ unpack31_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack32_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 32) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 36) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 40) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 44) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 48) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 52) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 56) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 60) */
-  tmp  = (*(in + 0) - base) << 0;
-  /* remaining: 0 bits */
-  /* consumed: 4 bytes (total: 64) */
-  *(uint32_t *)out = tmp;
-  return (64);
+  (void)base;
+  memcpy(out, in, 16 * sizeof(uint32_t));
+  return 16 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_16(uint32_t base, const uint8_t *in, uint32_t *out) {
-  uint32_t tmp;
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 36) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 40) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 44) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 48) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 52) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 56) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 60) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 64) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  /* remaining: 0 bits */
-  return (64);
+  (void)base;
+  memcpy(out, in, 16 * sizeof(uint32_t));
+  return 16 * sizeof(uint32_t);
 }
 
 for_packfunc_t for_pack16[33] = {
@@ -10752,14 +10372,14 @@ unpack2_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 2);
-  *(out + 1)  = base + ((tmp >> 2) & 2);
-  *(out + 2)  = base + ((tmp >> 4) & 2);
-  *(out + 3)  = base + ((tmp >> 6) & 2);
-  *(out + 4)  = base + ((tmp >> 8) & 2);
-  *(out + 5)  = base + ((tmp >> 10) & 2);
-  *(out + 6)  = base + ((tmp >> 12) & 2);
-  *(out + 7)  = base + ((tmp >> 14) & 2);
+  *(out + 0)  = base + ((tmp >> 0) & 3);
+  *(out + 1)  = base + ((tmp >> 2) & 3);
+  *(out + 2)  = base + ((tmp >> 4) & 3);
+  *(out + 3)  = base + ((tmp >> 6) & 3);
+  *(out + 4)  = base + ((tmp >> 8) & 3);
+  *(out + 5)  = base + ((tmp >> 10) & 3);
+  *(out + 6)  = base + ((tmp >> 12) & 3);
+  *(out + 7)  = base + ((tmp >> 14) & 3);
   /* remaining: 16 bits */
   return (2);
 }
@@ -10786,14 +10406,14 @@ unpack3_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 3);
-  *(out + 1)  = base + ((tmp >> 3) & 3);
-  *(out + 2)  = base + ((tmp >> 6) & 3);
-  *(out + 3)  = base + ((tmp >> 9) & 3);
-  *(out + 4)  = base + ((tmp >> 12) & 3);
-  *(out + 5)  = base + ((tmp >> 15) & 3);
-  *(out + 6)  = base + ((tmp >> 18) & 3);
-  *(out + 7)  = base + ((tmp >> 21) & 3);
+  *(out + 0)  = base + ((tmp >> 0) & 7);
+  *(out + 1)  = base + ((tmp >> 3) & 7);
+  *(out + 2)  = base + ((tmp >> 6) & 7);
+  *(out + 3)  = base + ((tmp >> 9) & 7);
+  *(out + 4)  = base + ((tmp >> 12) & 7);
+  *(out + 5)  = base + ((tmp >> 15) & 7);
+  *(out + 6)  = base + ((tmp >> 18) & 7);
+  *(out + 7)  = base + ((tmp >> 21) & 7);
   /* remaining: 8 bits */
   return (3);
 }
@@ -10820,14 +10440,14 @@ unpack4_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 4);
-  *(out + 1)  = base + ((tmp >> 4) & 4);
-  *(out + 2)  = base + ((tmp >> 8) & 4);
-  *(out + 3)  = base + ((tmp >> 12) & 4);
-  *(out + 4)  = base + ((tmp >> 16) & 4);
-  *(out + 5)  = base + ((tmp >> 20) & 4);
-  *(out + 6)  = base + ((tmp >> 24) & 4);
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 0)  = base + ((tmp >> 0) & 15);
+  *(out + 1)  = base + ((tmp >> 4) & 15);
+  *(out + 2)  = base + ((tmp >> 8) & 15);
+  *(out + 3)  = base + ((tmp >> 12) & 15);
+  *(out + 4)  = base + ((tmp >> 16) & 15);
+  *(out + 5)  = base + ((tmp >> 20) & 15);
+  *(out + 6)  = base + ((tmp >> 24) & 15);
+  *(out + 7)  = base + ((tmp >> 28) & 15);
   /* remaining: 0 bits */
   return (4);
 }
@@ -10858,19 +10478,19 @@ unpack5_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 5);
-  *(out + 1)  = base + ((tmp >> 5) & 5);
-  *(out + 2)  = base + ((tmp >> 10) & 5);
-  *(out + 3)  = base + ((tmp >> 15) & 5);
-  *(out + 4)  = base + ((tmp >> 20) & 5);
-  *(out + 5)  = base + ((tmp >> 25) & 5);
+  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 1)  = base + ((tmp >> 5) & 31);
+  *(out + 2)  = base + ((tmp >> 10) & 31);
+  *(out + 3)  = base + ((tmp >> 15) & 31);
+  *(out + 4)  = base + ((tmp >> 20) & 31);
+  *(out + 5)  = base + ((tmp >> 25) & 31);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 3)) << (5 - 3);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 3) & 5);
+  *(out + 7)  = base + ((tmp >> 3) & 31);
   /* remaining: 24 bits */
   return (5);
 }
@@ -10901,19 +10521,19 @@ unpack6_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 6);
-  *(out + 1)  = base + ((tmp >> 6) & 6);
-  *(out + 2)  = base + ((tmp >> 12) & 6);
-  *(out + 3)  = base + ((tmp >> 18) & 6);
-  *(out + 4)  = base + ((tmp >> 24) & 6);
+  *(out + 0)  = base + ((tmp >> 0) & 63);
+  *(out + 1)  = base + ((tmp >> 6) & 63);
+  *(out + 2)  = base + ((tmp >> 12) & 63);
+  *(out + 3)  = base + ((tmp >> 18) & 63);
+  *(out + 4)  = base + ((tmp >> 24) & 63);
   *(out + 5)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (6 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 6);
-  *(out + 7)  = base + ((tmp >> 10) & 6);
+  *(out + 6)  = base + ((tmp >> 4) & 63);
+  *(out + 7)  = base + ((tmp >> 10) & 63);
   /* remaining: 16 bits */
   return (6);
 }
@@ -10944,19 +10564,19 @@ unpack7_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 7);
-  *(out + 1)  = base + ((tmp >> 7) & 7);
-  *(out + 2)  = base + ((tmp >> 14) & 7);
-  *(out + 3)  = base + ((tmp >> 21) & 7);
+  *(out + 0)  = base + ((tmp >> 0) & 127);
+  *(out + 1)  = base + ((tmp >> 7) & 127);
+  *(out + 2)  = base + ((tmp >> 14) & 127);
+  *(out + 3)  = base + ((tmp >> 21) & 127);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 3)) << (7 - 3);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 3) & 7);
-  *(out + 6)  = base + ((tmp >> 10) & 7);
-  *(out + 7)  = base + ((tmp >> 17) & 7);
+  *(out + 5)  = base + ((tmp >> 3) & 127);
+  *(out + 6)  = base + ((tmp >> 10) & 127);
+  *(out + 7)  = base + ((tmp >> 17) & 127);
   /* remaining: 8 bits */
   return (7);
 }
@@ -10971,10 +10591,10 @@ pack8_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 8;
-  tmp |= (*(in + 2) - base) << 16;
-  tmp |= (*(in + 3) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 8;
+  tmp |= (*(in + 6) - base) << 16;
+  tmp |= (*(in + 7) - base) << 24;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 8) */
   *(uint32_t *)out = tmp;
@@ -10986,17 +10606,17 @@ unpack8_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 0)  = base + ((tmp >> 0) & 255);
+  *(out + 1)  = base + ((tmp >> 8) & 255);
+  *(out + 2)  = base + ((tmp >> 16) & 255);
+  *(out + 3)  = base + ((tmp >> 24) & 255);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 8);
-  *(out + 1)  = base + ((tmp >> 8) & 8);
-  *(out + 2)  = base + ((tmp >> 16) & 8);
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 4)  = base + ((tmp >> 0) & 255);
+  *(out + 5)  = base + ((tmp >> 8) & 255);
+  *(out + 6)  = base + ((tmp >> 16) & 255);
+  *(out + 7)  = base + ((tmp >> 24) & 255);
   /* remaining: 0 bits */
   return (8);
 }
@@ -11031,18 +10651,18 @@ unpack9_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 9);
-  *(out + 1)  = base + ((tmp >> 9) & 9);
-  *(out + 2)  = base + ((tmp >> 18) & 9);
+  *(out + 0)  = base + ((tmp >> 0) & 511);
+  *(out + 1)  = base + ((tmp >> 9) & 511);
+  *(out + 2)  = base + ((tmp >> 18) & 511);
   *(out + 3)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (9 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 9);
-  *(out + 5)  = base + ((tmp >> 13) & 9);
-  *(out + 6)  = base + ((tmp >> 22) & 9);
+  *(out + 4)  = base + ((tmp >> 4) & 511);
+  *(out + 5)  = base + ((tmp >> 13) & 511);
+  *(out + 6)  = base + ((tmp >> 22) & 511);
   *(out + 7)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -11083,24 +10703,24 @@ unpack10_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 10);
-  *(out + 1)  = base + ((tmp >> 10) & 10);
-  *(out + 2)  = base + ((tmp >> 20) & 10);
+  *(out + 0)  = base + ((tmp >> 0) & 1023);
+  *(out + 1)  = base + ((tmp >> 10) & 1023);
+  *(out + 2)  = base + ((tmp >> 20) & 1023);
   *(out + 3)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (10 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 10);
-  *(out + 5)  = base + ((tmp >> 18) & 10);
+  *(out + 4)  = base + ((tmp >> 8) & 1023);
+  *(out + 5)  = base + ((tmp >> 18) & 1023);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 6)) << (10 - 6);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 6) & 10);
+  *(out + 7)  = base + ((tmp >> 6) & 1023);
   /* remaining: 16 bits */
   return (10);
 }
@@ -11135,24 +10755,24 @@ unpack11_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 11);
-  *(out + 1)  = base + ((tmp >> 11) & 11);
+  *(out + 0)  = base + ((tmp >> 0) & 2047);
+  *(out + 1)  = base + ((tmp >> 11) & 2047);
   *(out + 2)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 1)) << (11 - 1);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 1) & 11);
-  *(out + 4)  = base + ((tmp >> 12) & 11);
+  *(out + 3)  = base + ((tmp >> 1) & 2047);
+  *(out + 4)  = base + ((tmp >> 12) & 2047);
   *(out + 5)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (11 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 11);
-  *(out + 7)  = base + ((tmp >> 13) & 11);
+  *(out + 6)  = base + ((tmp >> 2) & 2047);
+  *(out + 7)  = base + ((tmp >> 13) & 2047);
   /* remaining: 8 bits */
   return (11);
 }
@@ -11187,24 +10807,24 @@ unpack12_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 12);
-  *(out + 1)  = base + ((tmp >> 12) & 12);
+  *(out + 0)  = base + ((tmp >> 0) & 4095);
+  *(out + 1)  = base + ((tmp >> 12) & 4095);
   *(out + 2)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 4)) << (12 - 4);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
-  *(out + 4)  = base + ((tmp >> 16) & 12);
+  *(out + 3)  = base + ((tmp >> 4) & 4095);
+  *(out + 4)  = base + ((tmp >> 16) & 4095);
   *(out + 5)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 8)) << (12 - 8);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 6)  = base + ((tmp >> 8) & 4095);
+  *(out + 7)  = base + ((tmp >> 20) & 4095);
   /* remaining: 0 bits */
   return (12);
 }
@@ -11243,23 +10863,23 @@ unpack13_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 13);
-  *(out + 1)  = base + ((tmp >> 13) & 13);
+  *(out + 0)  = base + ((tmp >> 0) & 8191);
+  *(out + 1)  = base + ((tmp >> 13) & 8191);
   *(out + 2)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 7)) << (13 - 7);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 7) & 13);
+  *(out + 3)  = base + ((tmp >> 7) & 8191);
   *(out + 4)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 1)) << (13 - 1);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 1) & 13);
-  *(out + 6)  = base + ((tmp >> 14) & 13);
+  *(out + 5)  = base + ((tmp >> 1) & 8191);
+  *(out + 6)  = base + ((tmp >> 14) & 8191);
   *(out + 7)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -11304,29 +10924,29 @@ unpack14_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 14);
-  *(out + 1)  = base + ((tmp >> 14) & 14);
+  *(out + 0)  = base + ((tmp >> 0) & 16383);
+  *(out + 1)  = base + ((tmp >> 14) & 16383);
   *(out + 2)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 10)) << (14 - 10);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 10) & 14);
+  *(out + 3)  = base + ((tmp >> 10) & 16383);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 6)) << (14 - 6);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 6) & 14);
+  *(out + 5)  = base + ((tmp >> 6) & 16383);
   *(out + 6)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 2)) << (14 - 2);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 2) & 14);
+  *(out + 7)  = base + ((tmp >> 2) & 16383);
   /* remaining: 16 bits */
   return (14);
 }
@@ -11365,29 +10985,29 @@ unpack15_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 15);
-  *(out + 1)  = base + ((tmp >> 15) & 15);
+  *(out + 0)  = base + ((tmp >> 0) & 32767);
+  *(out + 1)  = base + ((tmp >> 15) & 32767);
   *(out + 2)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 13)) << (15 - 13);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 13) & 15);
+  *(out + 3)  = base + ((tmp >> 13) & 32767);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 11)) << (15 - 11);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 11) & 15);
+  *(out + 5)  = base + ((tmp >> 11) & 32767);
   *(out + 6)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 9)) << (15 - 9);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 9) & 15);
+  *(out + 7)  = base + ((tmp >> 9) & 32767);
   /* remaining: 8 bits */
   return (15);
 }
@@ -11400,18 +11020,18 @@ pack16_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 2) - base) << 0;
+  tmp |= (*(in + 3) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 16;
+  tmp  = (*(in + 6) - base) << 0;
+  tmp |= (*(in + 7) - base) << 16;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 16) */
   *(uint32_t *)out = tmp;
@@ -11423,23 +11043,23 @@ unpack16_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 0)  = base + ((tmp >> 0) & 65535);
+  *(out + 1)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 2)  = base + ((tmp >> 0) & 65535);
+  *(out + 3)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 4)  = base + ((tmp >> 0) & 65535);
+  *(out + 5)  = base + ((tmp >> 16) & 65535);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 16);
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 6)  = base + ((tmp >> 0) & 65535);
+  *(out + 7)  = base + ((tmp >> 16) & 65535);
   /* remaining: 0 bits */
   return (16);
 }
@@ -11482,28 +11102,28 @@ unpack17_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 17);
+  *(out + 0)  = base + ((tmp >> 0) & 131071);
   *(out + 1)  = tmp >> 17;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 2)) << (17 - 2);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 2) & 17);
+  *(out + 2)  = base + ((tmp >> 2) & 131071);
   *(out + 3)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (17 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 17);
+  *(out + 4)  = base + ((tmp >> 4) & 131071);
   *(out + 5)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 6)) << (17 - 6);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 6) & 17);
+  *(out + 6)  = base + ((tmp >> 6) & 131071);
   *(out + 7)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -11552,28 +11172,28 @@ unpack18_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 18);
+  *(out + 0)  = base + ((tmp >> 0) & 262143);
   *(out + 1)  = tmp >> 18;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 4)) << (18 - 4);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 4) & 18);
+  *(out + 2)  = base + ((tmp >> 4) & 262143);
   *(out + 3)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 8)) << (18 - 8);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 8) & 18);
+  *(out + 4)  = base + ((tmp >> 8) & 262143);
   *(out + 5)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 12)) << (18 - 12);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 12) & 18);
+  *(out + 6)  = base + ((tmp >> 12) & 262143);
   *(out + 7)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -11622,21 +11242,21 @@ unpack19_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 19);
+  *(out + 0)  = base + ((tmp >> 0) & 524287);
   *(out + 1)  = tmp >> 19;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 6)) << (19 - 6);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 6) & 19);
+  *(out + 2)  = base + ((tmp >> 6) & 524287);
   *(out + 3)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 12)) << (19 - 12);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 12) & 19);
+  *(out + 4)  = base + ((tmp >> 12) & 524287);
   *(out + 5)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -11649,7 +11269,7 @@ unpack19_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 5)) << (19 - 5);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 5) & 19);
+  *(out + 7)  = base + ((tmp >> 5) & 524287);
   /* remaining: 8 bits */
   return (19);
 }
@@ -11692,14 +11312,14 @@ unpack20_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 20);
+  *(out + 0)  = base + ((tmp >> 0) & 1048575);
   *(out + 1)  = tmp >> 20;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 8)) << (20 - 8);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
+  *(out + 2)  = base + ((tmp >> 8) & 1048575);
   *(out + 3)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -11712,14 +11332,14 @@ unpack20_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 4)) << (20 - 4);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
+  *(out + 5)  = base + ((tmp >> 4) & 1048575);
   *(out + 6)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 12)) << (20 - 12);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 7)  = base + ((tmp >> 12) & 1048575);
   /* remaining: 0 bits */
   return (20);
 }
@@ -11766,14 +11386,14 @@ unpack21_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 21);
+  *(out + 0)  = base + ((tmp >> 0) & 2097151);
   *(out + 1)  = tmp >> 21;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
   tmp = *(uint32_t *)in;
   *(out + 1) |= (tmp % (1U << 10)) << (21 - 10);
   *(out + 1) += base;
-  *(out + 2)  = base + ((tmp >> 10) & 21);
+  *(out + 2)  = base + ((tmp >> 10) & 2097151);
   *(out + 3)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
@@ -11786,7 +11406,7 @@ unpack21_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 9)) << (21 - 9);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 9) & 21);
+  *(out + 5)  = base + ((tmp >> 9) & 2097151);
   *(out + 6)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -11845,7 +11465,7 @@ unpack22_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 22);
+  *(out + 0)  = base + ((tmp >> 0) & 4194303);
   *(out + 1)  = tmp >> 22;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -11858,7 +11478,7 @@ unpack22_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 2)) << (22 - 2);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 2) & 22);
+  *(out + 3)  = base + ((tmp >> 2) & 4194303);
   *(out + 4)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -11871,7 +11491,7 @@ unpack22_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 4)) << (22 - 4);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 4) & 22);
+  *(out + 6)  = base + ((tmp >> 4) & 4194303);
   *(out + 7)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -11924,7 +11544,7 @@ unpack23_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 23);
+  *(out + 0)  = base + ((tmp >> 0) & 8388607);
   *(out + 1)  = tmp >> 23;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -11937,7 +11557,7 @@ unpack23_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 5)) << (23 - 5);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 5) & 23);
+  *(out + 3)  = base + ((tmp >> 5) & 8388607);
   *(out + 4)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
@@ -11956,7 +11576,7 @@ unpack23_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 1)) << (23 - 1);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 1) & 23);
+  *(out + 7)  = base + ((tmp >> 1) & 8388607);
   /* remaining: 8 bits */
   return (23);
 }
@@ -11979,18 +11599,18 @@ pack24_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  tmp |= (*(in + 1) - base) << 24;
+  tmp  = (*(in + 4) - base) << 0;
+  tmp |= (*(in + 5) - base) << 24;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 1) - base) >> (24 - 16);
-  tmp |= (*(in + 2) - base) << 16;
+  tmp  = (*(in + 5) - base) >> (24 - 16);
+  tmp |= (*(in + 6) - base) << 16;
   *(uint32_t *)out = tmp;
   out += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 2) - base) >> (24 - 8);
-  tmp |= (*(in + 3) - base) << 8;
+  tmp  = (*(in + 6) - base) >> (24 - 8);
+  tmp |= (*(in + 7) - base) << 8;
   /* remaining: 0 bits */
   /* consumed: 4 bytes (total: 24) */
   *(uint32_t *)out = tmp;
@@ -12002,7 +11622,7 @@ unpack24_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
+  *(out + 0)  = base + ((tmp >> 0) & 16777215);
   *(out + 1)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12015,24 +11635,24 @@ unpack24_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
   *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 3)  = base + ((tmp >> 8) & 16777215);
   in += sizeof(uint32_t);
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 24);
-  *(out + 1)  = tmp >> 24;
+  *(out + 4)  = base + ((tmp >> 0) & 16777215);
+  *(out + 5)  = tmp >> 24;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
   tmp = *(uint32_t *)in;
-  *(out + 1) |= (tmp % (1U << 16)) << (24 - 16);
-  *(out + 1) += base;
-  *(out + 2)  = tmp >> 16;
+  *(out + 5) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 5) += base;
+  *(out + 6)  = tmp >> 16;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
   tmp = *(uint32_t *)in;
-  *(out + 2) |= (tmp % (1U << 8)) << (24 - 8);
-  *(out + 2) += base;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 6) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 6) += base;
+  *(out + 7)  = base + ((tmp >> 8) & 16777215);
   /* remaining: 0 bits */
   return (24);
 }
@@ -12083,7 +11703,7 @@ unpack25_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 25);
+  *(out + 0)  = base + ((tmp >> 0) & 33554431);
   *(out + 1)  = tmp >> 25;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12102,7 +11722,7 @@ unpack25_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 3) |= (tmp % (1U << 4)) << (25 - 4);
   *(out + 3) += base;
-  *(out + 4)  = base + ((tmp >> 4) & 25);
+  *(out + 4)  = base + ((tmp >> 4) & 33554431);
   *(out + 5)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 20) */
@@ -12171,7 +11791,7 @@ unpack26_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 26);
+  *(out + 0)  = base + ((tmp >> 0) & 67108863);
   *(out + 1)  = tmp >> 26;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12196,7 +11816,7 @@ unpack26_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 4) |= (tmp % (1U << 2)) << (26 - 2);
   *(out + 4) += base;
-  *(out + 5)  = base + ((tmp >> 2) & 26);
+  *(out + 5)  = base + ((tmp >> 2) & 67108863);
   *(out + 6)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 24) */
@@ -12259,7 +11879,7 @@ unpack27_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 27);
+  *(out + 0)  = base + ((tmp >> 0) & 134217727);
   *(out + 1)  = tmp >> 27;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12290,7 +11910,7 @@ unpack27_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 5) |= (tmp % (1U << 2)) << (27 - 2);
   *(out + 5) += base;
-  *(out + 6)  = base + ((tmp >> 2) & 27);
+  *(out + 6)  = base + ((tmp >> 2) & 134217727);
   *(out + 7)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 28) */
@@ -12347,7 +11967,7 @@ unpack28_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 28);
+  *(out + 0)  = base + ((tmp >> 0) & 268435455);
   *(out + 1)  = tmp >> 28;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12384,7 +12004,7 @@ unpack28_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   tmp = *(uint32_t *)in;
   *(out + 6) |= (tmp % (1U << 4)) << (28 - 4);
   *(out + 6) += base;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 7)  = base + ((tmp >> 4) & 268435455);
   /* remaining: 0 bits */
   return (28);
 }
@@ -12439,7 +12059,7 @@ unpack29_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 29);
+  *(out + 0)  = base + ((tmp >> 0) & 536870911);
   *(out + 1)  = tmp >> 29;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12536,7 +12156,7 @@ unpack30_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 30);
+  *(out + 0)  = base + ((tmp >> 0) & 1073741823);
   *(out + 1)  = tmp >> 30;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12633,7 +12253,7 @@ unpack31_8(uint32_t base, const uint8_t *in, uint32_t *out) {
   uint32_t tmp;
   tmp = *(uint32_t *)in;
   /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 0)  = base + ((tmp >> 0) & 2147483647);
   *(out + 1)  = tmp >> 31;
   in += sizeof(uint32_t);
   /* consumed: 4 bytes (total: 8) */
@@ -12682,78 +12302,16 @@ unpack31_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack32_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 4) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 8) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 12) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 16) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 20) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 24) */
-  tmp  = (*(in + 0) - base) << 0;
-  *(uint32_t *)out = tmp;
-  out += sizeof(uint32_t);
-  /* consumed: 4 bytes (total: 28) */
-  tmp  = (*(in + 0) - base) << 0;
-  /* remaining: 0 bits */
-  /* consumed: 4 bytes (total: 32) */
-  *(uint32_t *)out = tmp;
-  return (32);
+  (void)base;
+  memcpy(out, in, 8 * sizeof(uint32_t));
+  return 8 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_8(uint32_t base, const uint8_t *in, uint32_t *out) {
-  uint32_t tmp;
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 4) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 8) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 12) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 16) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 20) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 24) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 28) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  in += sizeof(uint32_t);
-  tmp = *(uint32_t *)in;
-  /* consumed: 4 bytes (total: 32) */
-  *(out + 0)  = base + ((tmp >> 0) & 32);
-  /* remaining: 0 bits */
-  return (32);
+  (void)base;
+  memcpy(out, in, 8 * sizeof(uint32_t));
+  return 8 * sizeof(uint32_t);
 }
 
 for_packfunc_t for_pack8[33] = {
@@ -12893,7 +12451,6 @@ unpack1_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 1) + 7) / 8;
 }
 
@@ -12937,32 +12494,31 @@ unpack2_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 2);
+  *(out + 0)  = base + ((tmp >> 0) & 3);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 2) & 2);
+  *(out + 1)  = base + ((tmp >> 2) & 3);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 4) & 2);
+  *(out + 2)  = base + ((tmp >> 4) & 3);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 6) & 2);
+  *(out + 3)  = base + ((tmp >> 6) & 3);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 8) & 2);
+  *(out + 4)  = base + ((tmp >> 8) & 3);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 10) & 2);
+  *(out + 5)  = base + ((tmp >> 10) & 3);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 12) & 2);
+  *(out + 6)  = base + ((tmp >> 12) & 3);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 14) & 2);
+  *(out + 7)  = base + ((tmp >> 14) & 3);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 2) + 7) / 8;
 }
 
@@ -13006,32 +12562,31 @@ unpack3_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 3);
+  *(out + 0)  = base + ((tmp >> 0) & 7);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 3) & 3);
+  *(out + 1)  = base + ((tmp >> 3) & 7);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 6) & 3);
+  *(out + 2)  = base + ((tmp >> 6) & 7);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 9) & 3);
+  *(out + 3)  = base + ((tmp >> 9) & 7);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 12) & 3);
+  *(out + 4)  = base + ((tmp >> 12) & 7);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 15) & 3);
+  *(out + 5)  = base + ((tmp >> 15) & 7);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 18) & 3);
+  *(out + 6)  = base + ((tmp >> 18) & 7);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 21) & 3);
+  *(out + 7)  = base + ((tmp >> 21) & 7);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 3) + 7) / 8;
 }
 
@@ -13075,32 +12630,31 @@ unpack4_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 4);
+  *(out + 0)  = base + ((tmp >> 0) & 15);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 4) & 4);
+  *(out + 1)  = base + ((tmp >> 4) & 15);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 8) & 4);
+  *(out + 2)  = base + ((tmp >> 8) & 15);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 12) & 4);
+  *(out + 3)  = base + ((tmp >> 12) & 15);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 16) & 4);
+  *(out + 4)  = base + ((tmp >> 16) & 15);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 20) & 4);
+  *(out + 5)  = base + ((tmp >> 20) & 15);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 24) & 4);
+  *(out + 6)  = base + ((tmp >> 24) & 15);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 28) & 4);
+  *(out + 7)  = base + ((tmp >> 28) & 15);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 4) + 7) / 8;
 }
 
@@ -13147,22 +12701,22 @@ unpack5_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 5);
+  *(out + 0)  = base + ((tmp >> 0) & 31);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 5) & 5);
+  *(out + 1)  = base + ((tmp >> 5) & 31);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 10) & 5);
+  *(out + 2)  = base + ((tmp >> 10) & 31);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 15) & 5);
+  *(out + 3)  = base + ((tmp >> 15) & 31);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 20) & 5);
+  *(out + 4)  = base + ((tmp >> 20) & 31);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 25) & 5);
+  *(out + 5)  = base + ((tmp >> 25) & 31);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 30;
@@ -13172,11 +12726,10 @@ unpack5_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 3) & 5);
+  *(out + 7)  = base + ((tmp >> 3) & 31);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 5) + 7) / 8;
 }
 
@@ -13223,19 +12776,19 @@ unpack6_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 6);
+  *(out + 0)  = base + ((tmp >> 0) & 63);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 6) & 6);
+  *(out + 1)  = base + ((tmp >> 6) & 63);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 12) & 6);
+  *(out + 2)  = base + ((tmp >> 12) & 63);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 18) & 6);
+  *(out + 3)  = base + ((tmp >> 18) & 63);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 24) & 6);
+  *(out + 4)  = base + ((tmp >> 24) & 63);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 30;
@@ -13245,14 +12798,13 @@ unpack6_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 4) & 6);
+  *(out + 6)  = base + ((tmp >> 4) & 63);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 10) & 6);
+  *(out + 7)  = base + ((tmp >> 10) & 63);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 6) + 7) / 8;
 }
 
@@ -13299,16 +12851,16 @@ unpack7_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 7);
+  *(out + 0)  = base + ((tmp >> 0) & 127);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 7) & 7);
+  *(out + 1)  = base + ((tmp >> 7) & 127);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 14) & 7);
+  *(out + 2)  = base + ((tmp >> 14) & 127);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 21) & 7);
+  *(out + 3)  = base + ((tmp >> 21) & 127);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 28;
@@ -13318,17 +12870,16 @@ unpack7_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 3) & 7);
+  *(out + 5)  = base + ((tmp >> 3) & 127);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 10) & 7);
+  *(out + 6)  = base + ((tmp >> 10) & 127);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 17) & 7);
+  *(out + 7)  = base + ((tmp >> 17) & 127);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 7) + 7) / 8;
 }
 
@@ -13360,20 +12911,19 @@ unpack8_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 8);
+  *(out + 0)  = base + ((tmp >> 0) & 255);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 8) & 8);
+  *(out + 1)  = base + ((tmp >> 8) & 255);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 16) & 8);
+  *(out + 2)  = base + ((tmp >> 16) & 255);
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 24) & 8);
+  *(out + 3)  = base + ((tmp >> 24) & 255);
   if (length == 4)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 8) + 7) / 8;
 }
 
@@ -13423,13 +12973,13 @@ unpack9_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 9);
+  *(out + 0)  = base + ((tmp >> 0) & 511);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 9) & 9);
+  *(out + 1)  = base + ((tmp >> 9) & 511);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 18) & 9);
+  *(out + 2)  = base + ((tmp >> 18) & 511);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 27;
@@ -13439,13 +12989,13 @@ unpack9_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 4) & 9);
+  *(out + 4)  = base + ((tmp >> 4) & 511);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 13) & 9);
+  *(out + 5)  = base + ((tmp >> 13) & 511);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 22) & 9);
+  *(out + 6)  = base + ((tmp >> 22) & 511);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 31;
@@ -13456,7 +13006,6 @@ unpack9_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 9) + 7) / 8;
 }
 
@@ -13506,13 +13055,13 @@ unpack10_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 10);
+  *(out + 0)  = base + ((tmp >> 0) & 1023);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 10) & 10);
+  *(out + 1)  = base + ((tmp >> 10) & 1023);
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 20) & 10);
+  *(out + 2)  = base + ((tmp >> 20) & 1023);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 30;
@@ -13522,10 +13071,10 @@ unpack10_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 8) & 10);
+  *(out + 4)  = base + ((tmp >> 8) & 1023);
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 18) & 10);
+  *(out + 5)  = base + ((tmp >> 18) & 1023);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 28;
@@ -13535,11 +13084,10 @@ unpack10_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 6) & 10);
+  *(out + 7)  = base + ((tmp >> 6) & 1023);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 10) + 7) / 8;
 }
 
@@ -13589,10 +13137,10 @@ unpack11_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 11);
+  *(out + 0)  = base + ((tmp >> 0) & 2047);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 11) & 11);
+  *(out + 1)  = base + ((tmp >> 11) & 2047);
   if (length == 2)
     goto bail;
   *(out + 2)  = tmp >> 22;
@@ -13602,10 +13150,10 @@ unpack11_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 1) & 11);
+  *(out + 3)  = base + ((tmp >> 1) & 2047);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 12) & 11);
+  *(out + 4)  = base + ((tmp >> 12) & 2047);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 23;
@@ -13615,14 +13163,13 @@ unpack11_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 2) & 11);
+  *(out + 6)  = base + ((tmp >> 2) & 2047);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 13) & 11);
+  *(out + 7)  = base + ((tmp >> 13) & 2047);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 11) + 7) / 8;
 }
 
@@ -13672,10 +13219,10 @@ unpack12_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 12);
+  *(out + 0)  = base + ((tmp >> 0) & 4095);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 12) & 12);
+  *(out + 1)  = base + ((tmp >> 12) & 4095);
   if (length == 2)
     goto bail;
   *(out + 2)  = tmp >> 24;
@@ -13685,10 +13232,10 @@ unpack12_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 4) & 12);
+  *(out + 3)  = base + ((tmp >> 4) & 4095);
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 16) & 12);
+  *(out + 4)  = base + ((tmp >> 16) & 4095);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 28;
@@ -13698,14 +13245,13 @@ unpack12_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 8) & 12);
+  *(out + 6)  = base + ((tmp >> 8) & 4095);
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 20) & 12);
+  *(out + 7)  = base + ((tmp >> 20) & 4095);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 12) + 7) / 8;
 }
 
@@ -13758,10 +13304,10 @@ unpack13_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 13);
+  *(out + 0)  = base + ((tmp >> 0) & 8191);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 13) & 13);
+  *(out + 1)  = base + ((tmp >> 13) & 8191);
   if (length == 2)
     goto bail;
   *(out + 2)  = tmp >> 26;
@@ -13771,7 +13317,7 @@ unpack13_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 7) & 13);
+  *(out + 3)  = base + ((tmp >> 7) & 8191);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 20;
@@ -13781,10 +13327,10 @@ unpack13_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 1) & 13);
+  *(out + 5)  = base + ((tmp >> 1) & 8191);
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 14) & 13);
+  *(out + 6)  = base + ((tmp >> 14) & 8191);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 27;
@@ -13795,7 +13341,6 @@ unpack13_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 13) + 7) / 8;
 }
 
@@ -13848,10 +13393,10 @@ unpack14_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 14);
+  *(out + 0)  = base + ((tmp >> 0) & 16383);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 14) & 14);
+  *(out + 1)  = base + ((tmp >> 14) & 16383);
   if (length == 2)
     goto bail;
   *(out + 2)  = tmp >> 28;
@@ -13861,7 +13406,7 @@ unpack14_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 10) & 14);
+  *(out + 3)  = base + ((tmp >> 10) & 16383);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 24;
@@ -13871,7 +13416,7 @@ unpack14_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 6) & 14);
+  *(out + 5)  = base + ((tmp >> 6) & 16383);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 20;
@@ -13881,11 +13426,10 @@ unpack14_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 2) & 14);
+  *(out + 7)  = base + ((tmp >> 2) & 16383);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 14) + 7) / 8;
 }
 
@@ -13938,10 +13482,10 @@ unpack15_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 15);
+  *(out + 0)  = base + ((tmp >> 0) & 32767);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 15) & 15);
+  *(out + 1)  = base + ((tmp >> 15) & 32767);
   if (length == 2)
     goto bail;
   *(out + 2)  = tmp >> 30;
@@ -13951,7 +13495,7 @@ unpack15_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 13) & 15);
+  *(out + 3)  = base + ((tmp >> 13) & 32767);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 28;
@@ -13961,7 +13505,7 @@ unpack15_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 11) & 15);
+  *(out + 5)  = base + ((tmp >> 11) & 32767);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 26;
@@ -13971,11 +13515,10 @@ unpack15_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 9) & 15);
+  *(out + 7)  = base + ((tmp >> 9) & 32767);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 15) + 7) / 8;
 }
 
@@ -14001,14 +13544,13 @@ unpack16_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 16);
+  *(out + 0)  = base + ((tmp >> 0) & 65535);
   if (length == 1)
     goto bail;
-  *(out + 1)  = base + ((tmp >> 16) & 16);
+  *(out + 1)  = base + ((tmp >> 16) & 65535);
   if (length == 2)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 16) + 7) / 8;
 }
 
@@ -14064,7 +13606,7 @@ unpack17_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 17);
+  *(out + 0)  = base + ((tmp >> 0) & 131071);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 17;
@@ -14074,7 +13616,7 @@ unpack17_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 1) += base;
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 2) & 17);
+  *(out + 2)  = base + ((tmp >> 2) & 131071);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 19;
@@ -14084,7 +13626,7 @@ unpack17_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 4) & 17);
+  *(out + 4)  = base + ((tmp >> 4) & 131071);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 21;
@@ -14094,7 +13636,7 @@ unpack17_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 6) & 17);
+  *(out + 6)  = base + ((tmp >> 6) & 131071);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 23;
@@ -14105,7 +13647,6 @@ unpack17_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 17) + 7) / 8;
 }
 
@@ -14161,7 +13702,7 @@ unpack18_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 18);
+  *(out + 0)  = base + ((tmp >> 0) & 262143);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 18;
@@ -14171,7 +13712,7 @@ unpack18_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 1) += base;
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 4) & 18);
+  *(out + 2)  = base + ((tmp >> 4) & 262143);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 22;
@@ -14181,7 +13722,7 @@ unpack18_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 8) & 18);
+  *(out + 4)  = base + ((tmp >> 8) & 262143);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 26;
@@ -14191,7 +13732,7 @@ unpack18_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 12) & 18);
+  *(out + 6)  = base + ((tmp >> 12) & 262143);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 30;
@@ -14202,7 +13743,6 @@ unpack18_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 18) + 7) / 8;
 }
 
@@ -14258,7 +13798,7 @@ unpack19_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 19);
+  *(out + 0)  = base + ((tmp >> 0) & 524287);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 19;
@@ -14268,7 +13808,7 @@ unpack19_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 1) += base;
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 6) & 19);
+  *(out + 2)  = base + ((tmp >> 6) & 524287);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 25;
@@ -14278,7 +13818,7 @@ unpack19_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 12) & 19);
+  *(out + 4)  = base + ((tmp >> 12) & 524287);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 31;
@@ -14295,11 +13835,10 @@ unpack19_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 5) & 19);
+  *(out + 7)  = base + ((tmp >> 5) & 524287);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 19) + 7) / 8;
 }
 
@@ -14355,7 +13894,7 @@ unpack20_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 20);
+  *(out + 0)  = base + ((tmp >> 0) & 1048575);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 20;
@@ -14365,7 +13904,7 @@ unpack20_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 1) += base;
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 8) & 20);
+  *(out + 2)  = base + ((tmp >> 8) & 1048575);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 28;
@@ -14382,7 +13921,7 @@ unpack20_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 4) & 20);
+  *(out + 5)  = base + ((tmp >> 4) & 1048575);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 24;
@@ -14392,11 +13931,10 @@ unpack20_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 12) & 20);
+  *(out + 7)  = base + ((tmp >> 12) & 1048575);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 20) + 7) / 8;
 }
 
@@ -14455,7 +13993,7 @@ unpack21_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 21);
+  *(out + 0)  = base + ((tmp >> 0) & 2097151);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 21;
@@ -14465,7 +14003,7 @@ unpack21_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 1) += base;
   if (length == 2)
     goto bail;
-  *(out + 2)  = base + ((tmp >> 10) & 21);
+  *(out + 2)  = base + ((tmp >> 10) & 2097151);
   if (length == 3)
     goto bail;
   *(out + 3)  = tmp >> 31;
@@ -14482,7 +14020,7 @@ unpack21_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 9) & 21);
+  *(out + 5)  = base + ((tmp >> 9) & 2097151);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 30;
@@ -14500,7 +14038,6 @@ unpack21_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 21) + 7) / 8;
 }
 
@@ -14559,7 +14096,7 @@ unpack22_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 22);
+  *(out + 0)  = base + ((tmp >> 0) & 4194303);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 22;
@@ -14576,7 +14113,7 @@ unpack22_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 2) & 22);
+  *(out + 3)  = base + ((tmp >> 2) & 4194303);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 24;
@@ -14593,7 +14130,7 @@ unpack22_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 4) & 22);
+  *(out + 6)  = base + ((tmp >> 4) & 4194303);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 26;
@@ -14604,7 +14141,6 @@ unpack22_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 22) + 7) / 8;
 }
 
@@ -14663,7 +14199,7 @@ unpack23_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 23);
+  *(out + 0)  = base + ((tmp >> 0) & 8388607);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 23;
@@ -14680,7 +14216,7 @@ unpack23_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 5) & 23);
+  *(out + 3)  = base + ((tmp >> 5) & 8388607);
   if (length == 4)
     goto bail;
   *(out + 4)  = tmp >> 28;
@@ -14704,11 +14240,10 @@ unpack23_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 1) & 23);
+  *(out + 7)  = base + ((tmp >> 1) & 8388607);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 23) + 7) / 8;
 }
 
@@ -14746,7 +14281,7 @@ unpack24_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 24);
+  *(out + 0)  = base + ((tmp >> 0) & 16777215);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 24;
@@ -14763,11 +14298,10 @@ unpack24_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 2) += base;
   if (length == 3)
     goto bail;
-  *(out + 3)  = base + ((tmp >> 8) & 24);
+  *(out + 3)  = base + ((tmp >> 8) & 16777215);
   if (length == 4)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 24) + 7) / 8;
 }
 
@@ -14829,7 +14363,7 @@ unpack25_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 25);
+  *(out + 0)  = base + ((tmp >> 0) & 33554431);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 25;
@@ -14853,7 +14387,7 @@ unpack25_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 3) += base;
   if (length == 4)
     goto bail;
-  *(out + 4)  = base + ((tmp >> 4) & 25);
+  *(out + 4)  = base + ((tmp >> 4) & 33554431);
   if (length == 5)
     goto bail;
   *(out + 5)  = tmp >> 29;
@@ -14878,7 +14412,6 @@ unpack25_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 25) + 7) / 8;
 }
 
@@ -14940,7 +14473,7 @@ unpack26_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 26);
+  *(out + 0)  = base + ((tmp >> 0) & 67108863);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 26;
@@ -14971,7 +14504,7 @@ unpack26_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 4) += base;
   if (length == 5)
     goto bail;
-  *(out + 5)  = base + ((tmp >> 2) & 26);
+  *(out + 5)  = base + ((tmp >> 2) & 67108863);
   if (length == 6)
     goto bail;
   *(out + 6)  = tmp >> 28;
@@ -14989,7 +14522,6 @@ unpack26_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 26) + 7) / 8;
 }
 
@@ -15051,7 +14583,7 @@ unpack27_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 27);
+  *(out + 0)  = base + ((tmp >> 0) & 134217727);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 27;
@@ -15089,7 +14621,7 @@ unpack27_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 5) += base;
   if (length == 6)
     goto bail;
-  *(out + 6)  = base + ((tmp >> 2) & 27);
+  *(out + 6)  = base + ((tmp >> 2) & 134217727);
   if (length == 7)
     goto bail;
   *(out + 7)  = tmp >> 29;
@@ -15100,7 +14632,6 @@ unpack27_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 27) + 7) / 8;
 }
 
@@ -15162,7 +14693,7 @@ unpack28_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 28);
+  *(out + 0)  = base + ((tmp >> 0) & 268435455);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 28;
@@ -15207,11 +14738,10 @@ unpack28_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   *(out + 6) += base;
   if (length == 7)
     goto bail;
-  *(out + 7)  = base + ((tmp >> 4) & 28);
+  *(out + 7)  = base + ((tmp >> 4) & 268435455);
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 28) + 7) / 8;
 }
 
@@ -15276,7 +14806,7 @@ unpack29_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 29);
+  *(out + 0)  = base + ((tmp >> 0) & 536870911);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 29;
@@ -15329,7 +14859,6 @@ unpack29_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 29) + 7) / 8;
 }
 
@@ -15394,7 +14923,7 @@ unpack30_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 30);
+  *(out + 0)  = base + ((tmp >> 0) & 1073741823);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 30;
@@ -15447,7 +14976,6 @@ unpack30_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 30) + 7) / 8;
 }
 
@@ -15512,7 +15040,7 @@ unpack31_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 31);
+  *(out + 0)  = base + ((tmp >> 0) & 2147483647);
   if (length == 1)
     goto bail;
   *(out + 1)  = tmp >> 31;
@@ -15565,7 +15093,6 @@ unpack31_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 31) + 7) / 8;
 }
 
@@ -15588,11 +15115,10 @@ unpack32_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   if (length == 0)
     return 0;
   tmp = *(uint32_t *)in;
-  *(out + 0)  = base + ((tmp >> 0) & 32);
+  *(out + 0)  = base + ((tmp >> 0) & 4294967295);
   if (length == 1)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
   return ((length * 32) + 7) / 8;
 }
 
