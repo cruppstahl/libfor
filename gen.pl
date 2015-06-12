@@ -37,10 +37,12 @@ sub generate_pack_impl
   print "static uint32_t\n";
   print "$fname(uint32_t base, const uint32_t *in, uint8_t *out) {\n";
 
-  # for 32 bits simply use memcpy and leave
+  # optimized path for 32bit
   if ($bits == 32) {
-    print "  (void)base;\n";
-    print "  memcpy(out, in, $block * sizeof(uint32_t));\n";
+    print "  uint32_t i;\n";
+    print "  uint32_t *out32 = (uint32_t *)out;\n";
+    print "  for (i = 0; i < $block; i++)\n";
+    print "    out32[i] = in[i] - base;\n";
     print "  return $block * sizeof(uint32_t);\n";
     print "}\n\n";
     return;
@@ -127,10 +129,12 @@ sub generate_unpack_impl
   print "static uint32_t\n";
   print "$fname(uint32_t base, const uint8_t *in, uint32_t *out) {\n";
 
-  # for 32 bits simply use memcpy and leave
+  # optimized path for 32bit
   if ($bits == 32) {
-    print "  (void)base;\n";
-    print "  memcpy(out, in, $block * sizeof(uint32_t));\n";
+    print "  uint32_t i;\n";
+    print "  uint32_t *in32 = (uint32_t *)in;\n";
+    print "  for (i = 0; i < $block; i++)\n";
+    print "    out[i] = base + in32[i];\n";
     print "  return $block * sizeof(uint32_t);\n";
     print "}\n\n";
     return;
@@ -204,6 +208,7 @@ sub generate_packx
   my $type = shift;
   my $bits_per_word = shift;
   my $bits = shift;
+  my $block = 8;
 
   my $inittmp = 1;
 
@@ -218,7 +223,7 @@ sub generate_packx
 
   while (1) {
     my $b = 0;
-    while ($b < $bits_per_word and $i < 8) {
+    while ($b < $bits_per_word and $i < $block) {
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
         if ($inittmp != 0) {
@@ -269,6 +274,7 @@ sub generate_unpackx
   my $type = shift;
   my $bits_per_word = shift;
   my $bits = shift;
+  my $block = 8;
 
   my $mask = bitmask($bits);
 
@@ -285,7 +291,7 @@ sub generate_unpackx
 
   while (1) {
     my $b = 0;
-    while ($b < $bits_per_word and $i < 8) {
+    while ($b < $bits_per_word and $i < $block) {
       if ($inittmp != 0) {
         print "  tmp = *($type *)in;\n";
         $inittmp = 0;

@@ -34,10 +34,10 @@ extern for_unpackfunc_t for_unpack8[33];
 extern for_packxfunc_t for_packx[33];
 extern for_unpackxfunc_t for_unpackx[33];
 
-#define VERIFY(c)     while (!c) {                                          \
+#define VERIFY(c)     while (!(c)) {                                        \
                         printf("%s:%d: expression failed\n",                \
                                         __FILE__, __LINE__);                \
-                        exit(-1);                                           \
+                        abort();                                            \
                       }
 
 #define VERIFY_ARRAY(a1, a2, len)                                           \
@@ -46,7 +46,7 @@ extern for_unpackxfunc_t for_unpackx[33];
                         for (i = 0; i < len; i++) {                         \
                           if (a1[i] != a2[i]) {                             \
                             printf("data mismatch at %u\n", i);             \
-                            exit(-1);                                       \
+                            abort();                                        \
                           }                                                 \
                         }                                                   \
                       } while (0)
@@ -54,7 +54,7 @@ extern for_unpackxfunc_t for_unpackx[33];
 static uint32_t inbuf[1024];
 
 static uint32_t *
-generate_input(uint32_t base, uint32_t length, int bits)
+generate_input(uint32_t base, uint32_t length, uint32_t bits)
 {
   uint32_t i;
   uint32_t max = (1 << bits) - 1;
@@ -115,16 +115,20 @@ highlevel_unsorted(uint32_t length)
 
   s1 = for_compress_unsorted(in, out, length);
   s2 = for_uncompress(out, tmp, length);
-  s3 = for_compressed_size_sorted(in, length);
+  s3 = for_compressed_size_unsorted(in, length);
   VERIFY(s1 == s2);
   VERIFY(s2 == s3);
   VERIFY_ARRAY(in, tmp, length);
+
+  for (i = 0; i < length; i++)
+    VERIFY(in[i] == for_select(out, i));
 }
 
 static void
-lowlevel_block_func(for_packfunc_t pack, for_unpackfunc_t unpack, uint32_t *in,
-                uint32_t base, uint32_t length)
+lowlevel_block_func(uint32_t bits, for_packfunc_t pack, for_unpackfunc_t unpack,
+                uint32_t *in, uint32_t base, uint32_t length)
 {
+  uint32_t i;
   uint8_t out[1024];
   uint32_t tmp[1024];
 
@@ -132,12 +136,17 @@ lowlevel_block_func(for_packfunc_t pack, for_unpackfunc_t unpack, uint32_t *in,
   uint32_t s2 = unpack(base, out, tmp);
   VERIFY(s1 == s2);
   VERIFY_ARRAY(in, tmp, length);
+
+  for (i = 0; i < length; i++)
+    VERIFY(in[i] == for_select_bits(out, base, bits, i));
 }
 
 static void
-lowlevel_blockx_func(for_packxfunc_t pack, for_unpackxfunc_t unpack,
-                uint32_t *in, uint32_t base, uint32_t length)
+lowlevel_blockx_func(uint32_t bits, for_packxfunc_t pack,
+                for_unpackxfunc_t unpack, uint32_t *in, uint32_t base,
+                uint32_t length)
 {
+  uint32_t i;
   uint8_t out[1024];
   uint32_t tmp[1024];
 
@@ -145,42 +154,46 @@ lowlevel_blockx_func(for_packxfunc_t pack, for_unpackxfunc_t unpack,
   uint32_t s2 = unpack(base, out, tmp, length);
   VERIFY(s1 == s2);
   VERIFY_ARRAY(in, tmp, length);
+
+  for (i = 0; i < length; i++)
+    VERIFY(in[i] == for_select_bits(out, base, bits, i));
 }
 
 static void
-lowlevel_block32(int bits)
+lowlevel_block32(uint32_t bits)
 {
   uint32_t *in = generate_input(10, 32, bits);
 
   printf("lowlevel pack/unpack 32 ints, %2d bits\n", bits);
-  lowlevel_block_func(for_pack32[bits], for_unpack32[bits], in, 10, 32);
+  lowlevel_block_func(bits, for_pack32[bits], for_unpack32[bits], in, 10, 32);
 }
 
 static void
-lowlevel_block16(int bits)
+lowlevel_block16(uint32_t bits)
 {
   uint32_t *in = generate_input(10, 16, bits);
 
   printf("lowlevel pack/unpack 16 ints, %2d bits\n", bits);
-  lowlevel_block_func(for_pack16[bits], for_unpack16[bits], in, 10, 16);
+  lowlevel_block_func(bits, for_pack16[bits], for_unpack16[bits], in, 10, 16);
 }
 
 static void
-lowlevel_block8(int bits)
+lowlevel_block8(uint32_t bits)
 {
   uint32_t *in = generate_input(10, 8, bits);
 
   printf("lowlevel pack/unpack  8 ints, %2d bits\n", bits);
-  lowlevel_block_func(for_pack8[bits], for_unpack8[bits], in, 10, 8);
+  lowlevel_block_func(bits, for_pack8[bits], for_unpack8[bits], in, 10, 8);
 }
 
 static void
-lowlevel_blockx(int length, int bits)
+lowlevel_blockx(int length, uint32_t bits)
 {
   uint32_t *in = generate_input(10, 8, bits);
 
   printf("lowlevel pack/unpack  %d ints, %2d bits\n", length, bits);
-  lowlevel_blockx_func(for_packx[bits], for_unpackx[bits], in, 10, length);
+  lowlevel_blockx_func(bits, for_packx[bits],
+                  for_unpackx[bits], in, 10, length);
 }
 
 int
@@ -238,5 +251,6 @@ main()
   highlevel_unsorted(1025);
   highlevel_unsorted(1333);
 
+  printf("\nsuccess!\n");
   return 0;
 }

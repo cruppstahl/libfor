@@ -32,9 +32,13 @@
 extern "C" {
 #endif
 
+
 /**
  * Returns the size required to compress a sequence of |length| ints,
  * each compressed with |bits| bits
+ *
+ * This function will NOT include any overhead required by
+ * for_compress_sorted() and for_compress_unsorted().
  *
  * Invariant: bits <= 32
  */
@@ -46,6 +50,9 @@ for_compressed_size_bits(uint32_t length, uint32_t bits);
  * 
  * This routine scans |in| for the min/max values and then calls
  * for_compressed_size_bits().
+ *
+ * The returned size will include the overhead required for
+ * for_compress_sorted() and for_compressed_unsorted().
  */
 extern uint32_t
 for_compressed_size_unsorted(const uint32_t *in, uint32_t length);
@@ -54,7 +61,11 @@ for_compressed_size_unsorted(const uint32_t *in, uint32_t length);
  * Returns the size required to compress a sorted sequence of |length| ints.
  * 
  * This routine extracts min/max values at the beginning and end of
- * the sequence, then calls for_compressed_size_bits().
+ * the sequence, then calls for_compressed_size_bits(). It is therefore
+ * slightly faster than for_compressed_size_unsorted().
+ *
+ * The returned size will include the overhead required for
+ * for_compress_sorted() and for_compressed_unsorted().
  */
 extern uint32_t
 for_compressed_size_sorted(const uint32_t *in, uint32_t length);
@@ -70,6 +81,10 @@ for_compressed_size_sorted(const uint32_t *in, uint32_t length);
  *
  * Returns the number of bytes used for compression.
  *
+ * This is for advanced users who opt for storing |base| and |bits| on their
+ * own. This function is called by for_compress_sorted() and
+ * for_compress_unsorted().
+ *
  * Invariant: bits <= 32
  */
 extern uint32_t
@@ -82,6 +97,8 @@ for_compress_bits(const uint32_t *in, uint8_t *out, uint32_t length,
  *
  * This routine scans |in| for the min/max values and then calls
  * for_compress_bits().
+ *
+ * The minimun value and the bits are stored as metadata in |out|.
  */
 extern uint32_t
 for_compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length);
@@ -92,6 +109,8 @@ for_compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length);
  *
  * This routine extracts min/max values at the beginning and end of
  * the sequence, then calls for_compress_bits().
+ *
+ * The minimun value and the bits are stored as metadata in |out|.
  */
 extern uint32_t
 for_compress_sorted(const uint32_t *in, uint8_t *out, uint32_t length);
@@ -107,6 +126,9 @@ for_compress_sorted(const uint32_t *in, uint8_t *out, uint32_t length);
  *
  * Returns the number of compressed bytes processed.
  *
+ * This function is for advanced users. It is the counterpart of
+ * for_compress_bits().
+ *
  * Invariant: bits <= 32
  */
 extern uint32_t
@@ -117,12 +139,41 @@ for_uncompress_bits(const uint8_t *in, uint32_t *out, uint32_t length,
  * Uncompresses a sequence of |length| ints at |in| and stores the
  * result in |out|.
  *
- * This function is a convenience wrapper for for_uncompress_bits().
+ * This function is a convenience wrapper for for_uncompress_bits(). It
+ * expects metadata at the beginning of |in|. Use in combination with
+ * for_compress_sorted() and for_compress_unsorted().
  *
  * Returns the number of compressed bytes processed.
  */
 extern uint32_t
 for_uncompress(const uint8_t *in, uint32_t *out, uint32_t length);
+
+/**
+ * Returns the value at the given |index| from a compressed sequence.
+ *
+ * Make sure that |index| does not exceed the length of the sequence.
+ *
+ * |base| is the "offset" (or common delta value) of all ints. It is usually
+ * set to the minimum value of the uncompressed sequence.
+ *
+ * Invariant: bits <= 32
+ */
+extern uint32_t
+for_select_bits(const uint8_t *in, uint32_t base, uint32_t bits,
+                uint32_t index);
+
+/**
+ * Returns the value at the given |index| from a compressed sequence.
+ *
+ * Make sure that |index| does not exceed the length of the sequence.
+ *
+ * This function is a convenience wrapper for for_select_bits(). It
+ * expects metadata at the beginning of |in|. Use in combination with
+ * for_compress_sorted() and for_compress_unsorted().
+ */
+extern uint32_t
+for_select(const uint8_t *in, uint32_t index);
+
 
 #ifdef __cplusplus
 } /* extern "C" */

@@ -40,23 +40,27 @@ uint32_t
 for_compressed_size_bits(uint32_t length, uint32_t bits)
 {
   uint32_t c = 0;
+  uint32_t b;
 
   assert(bits <= 32);
 
   /* each block is byte-aligned */
-  while (length > 32) {
-    c += (32 * bits) + 7 / 8;
-    length -= 32;
+  if (length >= 32) {
+    b = length / 32;
+    c += ((b * 32 * bits) + 7) / 8;
+    length %= 32;
   }
 
-  while (length > 16) {
-    c += (16 * bits) + 7 / 8;
-    length -= 16;
+  if (length >= 16) {
+    b = length / 16;
+    c += ((b * 16 * bits) + 7) / 8;
+    length %= 16;
   }
 
-  while (length > 8) {
-    c += (8 * bits) + 7 / 8;
-    length -= 8;
+  if (length >= 8) {
+    b = length / 8;
+    c += ((b * 8 * bits) + 7) / 8;
+    length %= 8;
   }
 
   return c + ((length * bits) + 7) / 8;
@@ -212,3 +216,69 @@ for_uncompress(const uint8_t *in, uint32_t *out, uint32_t length)
   return METADATA + for_uncompress_bits(in + METADATA, out, length, m, b);
 }
 
+uint32_t
+for_select_bits(const uint8_t *in, uint32_t base, uint32_t bits,
+                uint32_t index)
+{
+  uint32_t b, start;
+  const uint32_t *in32;
+
+  assert(bits <= 32);
+
+  if (bits == 32) {
+    in32 = (uint32_t *)in;
+    return base + in32[index];
+  }
+
+  if (index > 32) {
+    b = index / 32;
+    in += (b * 32 * bits) / 8;
+    index %= 32;
+  }
+
+  if (index > 16) {
+    b = index / 16;
+    in += (b * 16 * bits) / 8;
+    index %= 16;
+  }
+
+  if (index > 8) {
+    b = index / 8;
+    in += (b * 8 * bits) / 8;
+    index %= 8;
+  }
+
+  start = index * bits;
+
+  in += start / 8;
+  start %= 8;
+
+  /* |in| now points to the byte where the requested index is stored */
+  /* |start| is the bit position where the compressed value starts */
+
+  in32 = (uint32_t *)in;
+
+  /* easy common case: the compressed value is not split between words */
+  if (start + bits < 32) {
+    uint32_t mask = (1 << bits) - 1;
+    return base + ((*in32 >> start) & mask);
+  }
+  /* not so easy: restore value from two words */
+  else {
+    uint32_t mask1 = (1 << bits) - 1;
+    uint32_t mask2 = (1 << (bits - (32 - start))) - 1;
+    uint32_t v1 = (*(in32 + 0) >> start) & mask1;
+    uint32_t v2 =  *(in32 + 1) & mask2;
+    return base + ((v2 << start) | v1);
+  }
+}
+
+uint32_t
+for_select(const uint8_t *in, uint32_t index)
+{
+  /* load min and the bits */
+  uint32_t m = *(uint32_t *)(in + 0);
+  uint32_t b = *(in + 4);
+
+  return for_select_bits(in + METADATA, m, b, index);
+}

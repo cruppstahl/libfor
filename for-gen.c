@@ -6622,15 +6622,19 @@ unpack31_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack32_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  (void)base;
-  memcpy(out, in, 32 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *out32 = (uint32_t *)out;
+  for (i = 0; i < 32; i++)
+    out32[i] = in[i] - base;
   return 32 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_32(uint32_t base, const uint8_t *in, uint32_t *out) {
-  (void)base;
-  memcpy(out, in, 32 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  for (i = 0; i < 32; i++)
+    out[i] = base + in32[i];
   return 32 * sizeof(uint32_t);
 }
 
@@ -10232,15 +10236,19 @@ unpack31_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack32_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  (void)base;
-  memcpy(out, in, 16 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *out32 = (uint32_t *)out;
+  for (i = 0; i < 16; i++)
+    out32[i] = in[i] - base;
   return 16 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_16(uint32_t base, const uint8_t *in, uint32_t *out) {
-  (void)base;
-  memcpy(out, in, 16 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  for (i = 0; i < 16; i++)
+    out[i] = base + in32[i];
   return 16 * sizeof(uint32_t);
 }
 
@@ -12302,15 +12310,19 @@ unpack31_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack32_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  (void)base;
-  memcpy(out, in, 8 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *out32 = (uint32_t *)out;
+  for (i = 0; i < 8; i++)
+    out32[i] = in[i] - base;
   return 8 * sizeof(uint32_t);
 }
 
 static uint32_t
 unpack32_8(uint32_t base, const uint8_t *in, uint32_t *out) {
-  (void)base;
-  memcpy(out, in, 8 * sizeof(uint32_t));
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  for (i = 0; i < 8; i++)
+    out[i] = base + in32[i];
   return 8 * sizeof(uint32_t);
 }
 
@@ -12900,6 +12912,20 @@ pack8_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   tmp |= (*(in + 3) - base) << 24;
   if (length == 4)
     goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 4) - base) << 0;
+  if (length == 5)
+    goto bail;
+  tmp |= (*(in + 5) - base) << 8;
+  if (length == 6)
+    goto bail;
+  tmp |= (*(in + 6) - base) << 16;
+  if (length == 7)
+    goto bail;
+  tmp |= (*(in + 7) - base) << 24;
+  if (length == 8)
+    goto bail;
 bail:
   *(uint32_t *)out = tmp;
   return ((length * 8) + 7) / 8;
@@ -12922,6 +12948,20 @@ unpack8_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
     goto bail;
   *(out + 3)  = base + ((tmp >> 24) & 255);
   if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 4)  = base + ((tmp >> 0) & 255);
+  if (length == 5)
+    goto bail;
+  *(out + 5)  = base + ((tmp >> 8) & 255);
+  if (length == 6)
+    goto bail;
+  *(out + 6)  = base + ((tmp >> 16) & 255);
+  if (length == 7)
+    goto bail;
+  *(out + 7)  = base + ((tmp >> 24) & 255);
+  if (length == 8)
     goto bail;
 bail:
   return ((length * 8) + 7) / 8;
@@ -13533,6 +13573,30 @@ pack16_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   tmp |= (*(in + 1) - base) << 16;
   if (length == 2)
     goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 2) - base) << 0;
+  if (length == 3)
+    goto bail;
+  tmp |= (*(in + 3) - base) << 16;
+  if (length == 4)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 4) - base) << 0;
+  if (length == 5)
+    goto bail;
+  tmp |= (*(in + 5) - base) << 16;
+  if (length == 6)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 6) - base) << 0;
+  if (length == 7)
+    goto bail;
+  tmp |= (*(in + 7) - base) << 16;
+  if (length == 8)
+    goto bail;
 bail:
   *(uint32_t *)out = tmp;
   return ((length * 16) + 7) / 8;
@@ -13549,6 +13613,30 @@ unpack16_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
     goto bail;
   *(out + 1)  = base + ((tmp >> 16) & 65535);
   if (length == 2)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 2)  = base + ((tmp >> 0) & 65535);
+  if (length == 3)
+    goto bail;
+  *(out + 3)  = base + ((tmp >> 16) & 65535);
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 4)  = base + ((tmp >> 0) & 65535);
+  if (length == 5)
+    goto bail;
+  *(out + 5)  = base + ((tmp >> 16) & 65535);
+  if (length == 6)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 6)  = base + ((tmp >> 0) & 65535);
+  if (length == 7)
+    goto bail;
+  *(out + 7)  = base + ((tmp >> 16) & 65535);
+  if (length == 8)
     goto bail;
 bail:
   return ((length * 16) + 7) / 8;
@@ -14270,6 +14358,26 @@ pack24_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   tmp |= (*(in + 3) - base) << 8;
   if (length == 4)
     goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 4) - base) << 0;
+  if (length == 5)
+    goto bail;
+  tmp |= (*(in + 5) - base) << 24;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 5) - base) >> (24 - 16);
+  if (length == 6)
+    goto bail;
+  tmp |= (*(in + 6) - base) << 16;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 6) - base) >> (24 - 8);
+  if (length == 7)
+    goto bail;
+  tmp |= (*(in + 7) - base) << 8;
+  if (length == 8)
+    goto bail;
 bail:
   *(uint32_t *)out = tmp;
   return ((length * 24) + 7) / 8;
@@ -14300,6 +14408,28 @@ unpack24_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
     goto bail;
   *(out + 3)  = base + ((tmp >> 8) & 16777215);
   if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 4)  = base + ((tmp >> 0) & 16777215);
+  if (length == 5)
+    goto bail;
+  *(out + 5)  = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 5) |= (tmp % (1U << 16)) << (24 - 16);
+  *(out + 5) += base;
+  if (length == 6)
+    goto bail;
+  *(out + 6)  = tmp >> 16;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 6) |= (tmp % (1U << 8)) << (24 - 8);
+  *(out + 6) += base;
+  if (length == 7)
+    goto bail;
+  *(out + 7)  = base + ((tmp >> 8) & 16777215);
+  if (length == 8)
     goto bail;
 bail:
   return ((length * 24) + 7) / 8;
@@ -15104,6 +15234,41 @@ pack32_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   tmp  = (*(in + 0) - base) << 0;
   if (length == 1)
     goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 1) - base) << 0;
+  if (length == 2)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 2) - base) << 0;
+  if (length == 3)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 3) - base) << 0;
+  if (length == 4)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 4) - base) << 0;
+  if (length == 5)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 5) - base) << 0;
+  if (length == 6)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 6) - base) << 0;
+  if (length == 7)
+    goto bail;
+  *(uint32_t *)out = tmp;
+  out += sizeof(uint32_t);
+  tmp  = (*(in + 7) - base) << 0;
+  if (length == 8)
+    goto bail;
 bail:
   *(uint32_t *)out = tmp;
   return ((length * 32) + 7) / 8;
@@ -15117,6 +15282,41 @@ unpack32_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   tmp = *(uint32_t *)in;
   *(out + 0)  = base + ((tmp >> 0) & 4294967295);
   if (length == 1)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 1)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 2)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 2)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 3)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 3)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 4)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 5)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 5)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 6)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 6)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 7)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  *(out + 7)  = base + ((tmp >> 0) & 4294967295);
+  if (length == 8)
     goto bail;
 bail:
   return ((length * 32) + 7) / 8;
