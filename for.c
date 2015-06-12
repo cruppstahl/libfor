@@ -28,6 +28,8 @@ typedef uint32_t (*for_packxfunc_t)   (uint32_t, const uint32_t *, uint8_t *,
 /* include the generated file */
 #include "for-gen.c"
 
+#define METADATA 5
+
 static inline uint32_t
 bits(const uint32_t v)
 {
@@ -82,7 +84,7 @@ for_compressed_size_unsorted(const uint32_t *in, uint32_t length)
   /* calculate the bits */
   b = bits(M - m);
 
-  return 8 + for_compressed_size_bits(length, b);
+  return METADATA + for_compressed_size_bits(length, b);
 }
 
 uint32_t
@@ -100,7 +102,7 @@ for_compressed_size_sorted(const uint32_t *in, uint32_t length)
   /* calculate the bits */
   b = bits(M - m);
 
-  return 8 + for_compressed_size_bits(length, b);
+  return METADATA + for_compressed_size_bits(length, b);
 }
 
 uint32_t
@@ -146,10 +148,10 @@ for_compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length)
   /* calculate the bits */
   b = bits(M - m);
 
-  /* store m and M */
+  /* store m and the bits */
   *(uint32_t *)(out + 0) = m;
-  *(uint32_t *)(out + 4) = M;
-  return 8 + for_compress_bits(in, out + 8, length, m, b);
+  *(uint32_t *)(out + 4) = b;
+  return METADATA + for_compress_bits(in, out + METADATA, length, m, b);
 }
 
 uint32_t
@@ -167,10 +169,11 @@ for_compress_sorted(const uint32_t *in, uint8_t *out, uint32_t length)
   /* calculate the bits */
   b = bits(M - m);
 
-  /* store m and M */
+  /* store m and the bits */
   *(uint32_t *)(out + 0) = m;
-  *(uint32_t *)(out + 4) = M;
-  return 8 + for_compress_bits(in, out + 8, length, m, b);
+  *(uint32_t *)(out + 4) = b;
+
+  return METADATA + for_compress_bits(in, out + METADATA, length, m, b);
 }
 
 uint32_t
@@ -197,18 +200,15 @@ for_uncompress_bits(const uint8_t *in, uint32_t *out, uint32_t length,
 uint32_t
 for_uncompress(const uint8_t *in, uint32_t *out, uint32_t length)
 {
-  uint32_t m, M, b;
+  uint32_t m, b;
 
   if (length == 0)
     return 0;
 
-  /* read min/max */
+  /* load min and the bits */
   m = *(uint32_t *)(in + 0);
-  M = *(uint32_t *)(in + 4);
+  b = *(in + 4);
 
-  /* calculate the bits */
-  b = bits(M - m);
-
-  return 8 + for_uncompress_bits(in + 8, out, length, m, b);
+  return METADATA + for_uncompress_bits(in + METADATA, out, length, m, b);
 }
 
