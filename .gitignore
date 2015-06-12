@@ -1,4 +1,6 @@
 test
+benchmark
+perf.data
 
 # Object files
 *.o

@@ -108,13 +108,7 @@ sub generate_pack
 
   my $fname = "pack$bits" . '_' . $block;
 
-  # for now always use 32bit blocks
-  if (0 && $bits * $block > 128) {
-    generate_pack_impl($fname, 'uint64_t', 64, $bits, $block);
-  }
-  else {
-    generate_pack_impl($fname, 'uint32_t', 32, $bits, $block);
-  }
+  generate_pack_impl($fname, 'uint32_t', 32, $bits, $block);
 }
 
 sub generate_unpack_impl
@@ -201,13 +195,7 @@ sub generate_unpack
 
   my $fname = "unpack$bits" . '_' . $block;
 
-  # for now always use 32bit blocks
-  if (0 && $bits * $block > 128) {
-    generate_unpack_impl($fname, 'uint64_t', 64, $bits, $block);
-  }
-  else {
-    generate_unpack_impl($fname, 'uint32_t', 32, $bits, $block);
-  }
+  generate_unpack_impl($fname, 'uint32_t', 32, $bits, $block);
 }
 
 sub generate_packx

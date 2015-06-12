@@ -1,5 +1,5 @@
 
-all: lib test
+all: lib test benchmark
 	true
 
 gen:
@@ -16,5 +16,8 @@ lib: for.o
 test: test.c
 	$(CC) -g -O0 -Wall -Wextra -pedantic test.c -o test -L. -lfor 
 
+benchmark: benchmark.c
+	$(CC) -g -O3 -Wall -Wextra -pedantic benchmark.c -o benchmark -L. -lfor 
+
 for.o: for.h for.c for-gen.c
-	$(CC) -g -O0 -Wall -Wextra -pedantic for.c -c -o for.o
+	$(CC) -g -O3 -Wall -Wextra -pedantic for.c -c -o for.o
