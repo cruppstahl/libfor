@@ -174,6 +174,34 @@ for_select_bits(const uint8_t *in, uint32_t base, uint32_t bits,
 extern uint32_t
 for_select(const uint8_t *in, uint32_t index);
 
+/**
+ * Performs a linear search for |value|.
+ *
+ * Returns the index of the found element, or |length| if the key was not
+ * found.
+ *
+ * This function is a convenience wrapper for for_linear_search_bits(). It
+ * expects metadata at the beginning of |in|. Use in combination with
+ * for_compress_sorted() and for_compress_unsorted().
+ */
+extern uint32_t
+for_linear_search(const uint8_t *in, uint32_t length, uint32_t value);
+
+/**
+ * Performs a linear search for |value|.
+ *
+ * Returns the index of the found element, or |length| if the key was not
+ * found.
+ *
+ * |base| is the "offset" (or common delta value) of all ints. It is usually
+ * set to the minimum value of the uncompressed sequence.
+ *
+ * Invariant: bits <= 32
+ */
+extern uint32_t
+for_linear_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
+                uint32_t bits, uint32_t value);
+
 
 #ifdef __cplusplus
 } /* extern "C" */

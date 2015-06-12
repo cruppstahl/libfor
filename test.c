@@ -90,6 +90,12 @@ highlevel_sorted(uint32_t length)
   VERIFY(s1 == s2);
   VERIFY(s2 == s3);
   VERIFY_ARRAY(in, tmp, length);
+
+  for (i = 0; i < length; i++)
+    VERIFY(in[i] == for_select(out, i));
+
+  for (i = 0; i < length; i++)
+    VERIFY(i == for_linear_search(out, length, in[i]));
 }
 
 static uint32_t
@@ -122,6 +128,11 @@ highlevel_unsorted(uint32_t length)
 
   for (i = 0; i < length; i++)
     VERIFY(in[i] == for_select(out, i));
+
+  for (i = 0; i < length; i++) {
+    uint32_t index = for_linear_search(out, length, in[i]);
+    VERIFY(in[i] == in[index]);
+  }
 }
 
 static void
@@ -139,6 +150,11 @@ lowlevel_block_func(uint32_t bits, for_packfunc_t pack, for_unpackfunc_t unpack,
 
   for (i = 0; i < length; i++)
     VERIFY(in[i] == for_select_bits(out, base, bits, i));
+
+  for (i = 0; i < length; i++) {
+    uint32_t index = for_linear_search_bits(out, length, base, bits, in[i]);
+    VERIFY(in[i] == in[index]);
+  }
 }
 
 static void
@@ -157,6 +173,11 @@ lowlevel_blockx_func(uint32_t bits, for_packxfunc_t pack,
 
   for (i = 0; i < length; i++)
     VERIFY(in[i] == for_select_bits(out, base, bits, i));
+
+  for (i = 0; i < length; i++) {
+    uint32_t index = for_linear_search_bits(out, length, base, bits, in[i]);
+    VERIFY(in[i] == in[index]);
+  }
 }
 
 static void

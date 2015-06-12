@@ -282,3 +282,55 @@ for_select(const uint8_t *in, uint32_t index)
 
   return for_select_bits(in + METADATA, m, b, index);
 }
+
+uint32_t
+for_linear_search(const uint8_t *in, uint32_t length, uint32_t value)
+{
+  /* load min and the bits */
+  uint32_t m = *(uint32_t *)(in + 0);
+  uint32_t b = *(in + 4);
+
+  return for_linear_search_bits(in + METADATA, length, m, b, value);
+}
+
+uint32_t
+for_linear_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
+                uint32_t bits, uint32_t value)
+{
+  uint32_t i = 0, j;
+  uint32_t out[32];
+
+  assert(bits <= 32);
+  if (bits == 0)
+    return (value == base ? 0 : length);
+
+  for (; i + 32 <= length; i += 32) {
+    in += for_unpack32[bits](base, in, out);
+    for (j = 0; j < 32; j++)
+      if (out[j] == value)
+        return i + j;
+  }
+
+  for (; i + 16 <= length; i += 16) {
+    in += for_unpack16[bits](base, in, out);
+    for (j = 0; j < 16; j++)
+      if (out[j] == value)
+        return i + j;
+  }
+
+  for (; i + 8 <= length; i += 8) {
+    in += for_unpack8[bits](base, in, out);
+    for (j = 0; j < 8; j++)
+      if (out[j] == value)
+        return i + j;
+  }
+
+  for_unpackx[bits](base, in, out, length - i);
+  for (j = 0; j < length - i; j++)
+    if (out[j] == value)
+      return i + j;
+
+  /* not found */
+  return length;
+}
+
