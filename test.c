@@ -96,6 +96,13 @@ highlevel_sorted(uint32_t length)
 
   for (i = 0; i < length; i++)
     VERIFY(i == for_linear_search(out, length, in[i]));
+
+  for (i = 0; i < length; i++) {
+    uint32_t actual;
+    uint32_t index = for_lower_bound_search(out, length, in[i], &actual);
+    VERIFY(in[i] == in[index]);
+    VERIFY(actual == in[i]);
+  }
 }
 
 static uint32_t

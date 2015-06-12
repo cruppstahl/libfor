@@ -9,8 +9,8 @@ FOR can compress sorted and unsorted integer sequences.
 In addition, the library can perform operations directly on compressed data:
 
    * select: returns a value at a specified index
-   * find: lower-bound search for a value (linear search for unsorted sequences,
-            a binary search/linear search hybrid for sorted sequences)
+   * linear search: for unsorted sequences, or short sorted sequences
+   * lower bound search: based on binary search, for sorted sequences
 
 Simple demo
 ------------------------

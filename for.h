@@ -202,6 +202,37 @@ extern uint32_t
 for_linear_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
                 uint32_t bits, uint32_t value);
 
+/**
+ * Performs lower bound binary search search for |value|.
+ * 
+ * A lower bound search returns the first element in the sequence which does
+ * not compare less than |value|.
+ * The actual result is stored in |*actual|.
+ *
+ * This function is a convenience wrapper for for_lower_bound_search_bits(). It
+ * expects metadata at the beginning of |in|. Use in combination with
+ * for_compress_sorted() and for_compress_unsorted().
+ */
+extern uint32_t
+for_lower_bound_search(const uint8_t *in, uint32_t length, uint32_t value,
+                uint32_t *actual);
+
+/**
+ * Performs lower bound binary search search for |value|.
+ * 
+ * A lower bound search returns the first element in the sequence which does
+ * not compare less than |value|.
+ * The actual result is stored in |*actual|.
+ *
+ * |base| is the "offset" (or common delta value) of all ints. It is usually
+ * set to the minimum value of the uncompressed sequence.
+ *
+ * Invariant: bits <= 32
+ */
+extern uint32_t
+for_lower_bound_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
+                uint32_t bits, uint32_t value, uint32_t *actual);
+
 
 #ifdef __cplusplus
 } /* extern "C" */

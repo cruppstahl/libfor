@@ -334,3 +334,48 @@ for_linear_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
   return length;
 }
 
+uint32_t
+for_lower_bound_search(const uint8_t *in, uint32_t length, uint32_t value,
+                uint32_t *actual)
+{
+  /* load min and the bits */
+  uint32_t m = *(uint32_t *)(in + 0);
+  uint32_t b = *(in + 4);
+
+  return for_lower_bound_search_bits(in + METADATA, length, m, b,
+                  value, actual);
+}
+
+/* adapted from wikipedia */
+uint32_t
+for_lower_bound_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
+                uint32_t bits, uint32_t value, uint32_t *actual)
+{
+  uint32_t imid;
+  uint32_t imin = 0;
+  uint32_t imax = length - 1;
+  uint32_t v;
+
+  while (imin + 1 < imax) {
+    imid = imin + ((imax - imin) / 2);
+
+    v = for_select_bits(in, base, bits, imid);
+    if (v >= value) {
+      imax = imid;
+    }
+    else if (v < value) {
+      imin = imid;
+    }
+  }
+
+  v = for_select_bits(in, base, bits, imin);
+  if (v >= value) {
+    *actual = v;
+    return imin;
+  }
+
+  v = for_select_bits(in, base, bits, imax);
+  *actual = v;
+  return imax;
+}
+
