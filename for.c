@@ -24,6 +24,10 @@ typedef uint32_t (*for_unpackxfunc_t) (uint32_t, const uint8_t *, uint32_t *,
                         uint32_t);
 typedef uint32_t (*for_packxfunc_t)   (uint32_t, const uint32_t *, uint8_t *,
                         uint32_t);
+typedef uint32_t (*for_linsearchfunc_t)(uint32_t, const uint8_t *, uint32_t,
+                        int *);
+typedef uint32_t (*for_linsearchxfunc_t)(uint32_t, const uint8_t *, uint32_t,
+                        uint32_t, int *);
 
 /* include the generated file */
 #include "for-gen.c"
@@ -297,38 +301,34 @@ uint32_t
 for_linear_search_bits(const uint8_t *in, uint32_t length, uint32_t base,
                 uint32_t bits, uint32_t value)
 {
-  uint32_t i = 0, j;
-  uint32_t out[32];
+  uint32_t i = 0;
+  int found = -1;
 
   assert(bits <= 32);
   if (bits == 0)
     return (value == base ? 0 : length);
 
   for (; i + 32 <= length; i += 32) {
-    in += for_unpack32[bits](base, in, out);
-    for (j = 0; j < 32; j++)
-      if (out[j] == value)
-        return i + j;
+    in += for_linsearch32[bits](base, in, value, &found);
+    if (found >= 0)
+      return i + found;
   }
 
   for (; i + 16 <= length; i += 16) {
-    in += for_unpack16[bits](base, in, out);
-    for (j = 0; j < 16; j++)
-      if (out[j] == value)
-        return i + j;
+    in += for_linsearch16[bits](base, in, value, &found);
+    if (found >= 0)
+      return i + found;
   }
 
   for (; i + 8 <= length; i += 8) {
-    in += for_unpack8[bits](base, in, out);
-    for (j = 0; j < 8; j++)
-      if (out[j] == value)
-        return i + j;
+    in += for_linsearch8[bits](base, in, value, &found);
+    if (found >= 0)
+      return i + found;
   }
 
-  for_unpackx[bits](base, in, out, length - i);
-  for (j = 0; j < length - i; j++)
-    if (out[j] == value)
-      return i + j;
+  for_linsearchx[bits](base, in, length - i, value, &found);
+  if (found >= 0)
+    return i + found;
 
   /* not found */
   return length;

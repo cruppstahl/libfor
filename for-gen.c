@@ -8,7 +8,7 @@ pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
   (void)base;
   (void)in;
   (void)out;
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -18,7 +18,7 @@ unpack0_n(uint32_t base, const uint8_t *in, uint32_t *out) {
   for (k = 0; k < 32; ++k) {
     out[k] = base;
   }
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -27,7 +27,7 @@ pack0_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   (void)in;
   (void)out;
   (void)length;
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -37,7 +37,24 @@ unpack0_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   for (k = 0; k < length; ++k) {
     out[k] = base;
   }
-  return (0);
+  return 0;
+}
+
+static uint32_t
+linsearch0_n(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value,
+                int *found) {
+  (void)in;
+  if (base == value && length > 0)
+    *found = 0;
+  return 0;
 }
 
 static uint32_t
@@ -15392,5 +15409,13511 @@ for_unpackxfunc_t for_unpackx[33] = {
                        unpack30_x,
                        unpack31_x,
                        unpack32_x
+};
+
+static uint32_t
+linsearch1_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 1) & 1) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 1) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 3) & 1) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 1) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 5) & 1) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 1) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 7) & 1) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 1) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 9) & 1) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 10) & 1) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 11) & 1) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 1) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 13) & 1) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 14) & 1) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 15) & 1) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 1) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 17) & 1) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 18) & 1) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 19) & 1) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 20) & 1) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 21) & 1) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 22) & 1) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 23) & 1) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 24) & 1) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 25) & 1) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 26) & 1) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 27) & 1) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 28) & 1) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 29) & 1) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 30) & 1) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 31) & 1) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (4);
+}
+
+static uint32_t
+linsearch2_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 3) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 2) & 3) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 3) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 6) & 3) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 3) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 10) & 3) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 3) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 14) & 3) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 3) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 18) & 3) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 20) & 3) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 22) & 3) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 24) & 3) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 26) & 3) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 28) & 3) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 30) & 3) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 3) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 2) & 3) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 4) & 3) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 6) & 3) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 8) & 3) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 10) & 3) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 12) & 3) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 14) & 3) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 16) & 3) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 18) & 3) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 20) & 3) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 22) & 3) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 24) & 3) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 26) & 3) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 28) & 3) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 30) & 3) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (8);
+}
+
+static uint32_t
+linsearch3_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 7) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 3) & 7) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 7) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 9) & 7) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 7) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 15) & 7) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 18) & 7) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 21) & 7) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 24) & 7) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 27) & 7) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (3 - 1)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 1) & 7) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 7) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 7) & 7) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 10) & 7) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 13) & 7) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 7) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 19) & 7) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 22) & 7) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 25) & 7) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 28) & 7) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (3 - 2)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 2) & 7) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 5) & 7) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 7) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 11) & 7) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 14) & 7) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 17) & 7) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 20) & 7) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 23) & 7) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 26) & 7) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 29) & 7) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (12);
+}
+
+static uint32_t
+linsearch4_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (16);
+}
+
+static uint32_t
+linsearch5_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 31) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 5) & 31) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 31) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 15) & 31) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 20) & 31) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 25) & 31) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (5 - 3)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 3) & 31) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 31) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 13) & 31) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 18) & 31) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 23) & 31) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (5 - 1)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 1) & 31) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 6) & 31) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 11) & 31) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 31) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 21) & 31) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 26) & 31) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (5 - 4)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 4) & 31) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 9) & 31) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 14) & 31) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 19) & 31) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 24) & 31) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (5 - 2)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 2) & 31) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 7) & 31) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 12) & 31) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 17) & 31) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 22) & 31) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 27) & 31) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (20);
+}
+
+static uint32_t
+linsearch6_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 63) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 6) & 63) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 12) & 63) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 18) & 63) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 24) & 63) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (6 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 63) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 10) & 63) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 63) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 22) & 63) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (6 - 2)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 2) & 63) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 63) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 14) & 63) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 20) & 63) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 26) & 63) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 63) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 6) & 63) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 12) & 63) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 18) & 63) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 24) & 63) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (6 - 4)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 4) & 63) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 10) & 63) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 16) & 63) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 22) & 63) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (6 - 2)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 2) & 63) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 8) & 63) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 14) & 63) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 20) & 63) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 26) & 63) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (24);
+}
+
+static uint32_t
+linsearch7_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 127) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 7) & 127) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 14) & 127) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 21) & 127) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (7 - 3)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 3) & 127) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 10) & 127) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 17) & 127) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 24) & 127) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (7 - 6)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 6) & 127) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 13) & 127) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 20) & 127) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (7 - 2)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 2) & 127) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 9) & 127) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 127) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 23) & 127) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (7 - 5)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 5) & 127) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 12) & 127) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 19) & 127) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (7 - 1)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 1) & 127) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 127) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 15) & 127) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 22) & 127) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (7 - 4)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 4) & 127) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 11) & 127) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 18) & 127) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 25) & 127) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (28);
+}
+
+static uint32_t
+linsearch8_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 20) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 19;
+    return 19;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 27;
+    return 27;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (32);
+}
+
+static uint32_t
+linsearch9_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 511) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 9) & 511) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 18) & 511) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (9 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 511) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 13) & 511) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 22) & 511) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (9 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 511) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 17) & 511) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (9 - 3)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 3) & 511) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 511) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 21) & 511) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (9 - 7)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 7) & 511) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 511) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (9 - 2)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 2) & 511) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 11) & 511) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 20) & 511) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (9 - 6)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 6) & 511) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 15) & 511) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (9 - 1)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 1) & 511) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 10) & 511) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 19) & 511) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (9 - 5)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 5) & 511) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 14) & 511) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 23) & 511) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (36);
+}
+
+static uint32_t
+linsearch10_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1023) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 10) & 1023) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 20) & 1023) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (10 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 1023) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 18) & 1023) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (10 - 6)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 6) & 1023) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 1023) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (10 - 4)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 4) & 1023) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 14) & 1023) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (10 - 2)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 2) & 1023) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 12) & 1023) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 22) & 1023) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 1023) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 10) & 1023) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 20) & 1023) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (10 - 8)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 8) & 1023) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 18) & 1023) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (10 - 6)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 6) & 1023) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 16) & 1023) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (10 - 4)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 4) & 1023) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 14) & 1023) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (10 - 2)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 2) & 1023) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 12) & 1023) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 22) & 1023) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (40);
+}
+
+static uint32_t
+linsearch11_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2047) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 11) & 2047) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (11 - 1)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 1) & 2047) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 2047) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (11 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 2047) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 13) & 2047) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (11 - 3)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 3) & 2047) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 14) & 2047) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (11 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 2047) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 15) & 2047) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (11 - 5)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 5) & 2047) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 2047) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (11 - 6)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 6) & 2047) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 17) & 2047) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (11 - 7)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 7) & 2047) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 18) & 2047) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (11 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 2047) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 19) & 2047) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (11 - 9)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 9) & 2047) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 20) & 2047) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (11 - 10)) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 10) & 2047) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 21) & 2047) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (44);
+}
+
+static uint32_t
+linsearch12_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 40) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (48);
+}
+
+static uint32_t
+linsearch13_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8191) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 13) & 8191) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (13 - 7)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 7) & 8191) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (13 - 1)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 1) & 8191) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 14) & 8191) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (13 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 8191) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (13 - 2)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 2) & 8191) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 15) & 8191) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (13 - 9)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 9) & 8191) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (13 - 3)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 3) & 8191) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 8191) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (13 - 10)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 10) & 8191) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (13 - 4)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 4) & 8191) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 17) & 8191) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (13 - 11)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 11) & 8191) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (13 - 5)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 5) & 8191) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 18) & 8191) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (13 - 12)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 12) & 8191) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (13 - 6)) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 6) & 8191) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 19) & 8191) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (52);
+}
+
+static uint32_t
+linsearch14_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16383) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 14) & 16383) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (14 - 10)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 10) & 16383) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (14 - 6)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 6) & 16383) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (14 - 2)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 2) & 16383) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 16383) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (14 - 12)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 12) & 16383) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (14 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 16383) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (14 - 4)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 4) & 16383) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 18) & 16383) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 16383) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 14) & 16383) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (14 - 10)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 10) & 16383) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (14 - 6)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 6) & 16383) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (14 - 2)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 2) & 16383) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 16) & 16383) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (14 - 12)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 12) & 16383) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (14 - 8)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 8) & 16383) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (14 - 4)) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 4) & 16383) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 18) & 16383) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (56);
+}
+
+static uint32_t
+linsearch15_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 32767) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 15) & 32767) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (15 - 13)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 13) & 32767) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (15 - 11)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 11) & 32767) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (15 - 9)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 9) & 32767) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (15 - 7)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 7) & 32767) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (15 - 5)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 5) & 32767) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (15 - 3)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 3) & 32767) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (15 - 1)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 1) & 32767) == value) {
+    *found = 15;
+    return 15;
+  }
+  if (((tmp >> 16) & 32767) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (15 - 14)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 14) & 32767) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (15 - 12)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 12) & 32767) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (15 - 10)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 10) & 32767) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (15 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 32767) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (15 - 6)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 6) & 32767) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (15 - 4)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 4) & 32767) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (15 - 2)) == value) {
+    *found = 29;
+    return 29;
+  }
+  if (((tmp >> 2) & 32767) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 17) & 32767) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (60);
+}
+
+static uint32_t
+linsearch16_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 1;
+    return 1;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 5;
+    return 5;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 20) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 9;
+    return 9;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 13;
+    return 13;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 36) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 17;
+    return 17;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 40) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 19;
+    return 19;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 44) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 21;
+    return 21;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 48) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 52) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 25;
+    return 25;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 56) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 27;
+    return 27;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 60) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 29;
+    return 29;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 64) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (64);
+}
+
+static uint32_t
+linsearch17_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 131071) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (17 - 2)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 131071) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (17 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 131071) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (17 - 6)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 131071) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (17 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 131071) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (17 - 10)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 10) & 131071) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (17 - 12)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 131071) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (17 - 14)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 14) & 131071) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (17 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (17 - 1)) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 1) & 131071) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (17 - 3)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 3) & 131071) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (17 - 5)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 5) & 131071) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (17 - 7)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 7) & 131071) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (17 - 9)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 9) & 131071) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (17 - 11)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 11) & 131071) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (17 - 13)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 13) & 131071) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (17 - 15)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 15) & 131071) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (68);
+}
+
+static uint32_t
+linsearch18_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 262143) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (18 - 4)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 262143) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (18 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 262143) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (18 - 12)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 262143) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (18 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (18 - 2)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 2) & 262143) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (18 - 6)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 6) & 262143) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (18 - 10)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 10) & 262143) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (18 - 14)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 14) & 262143) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 40) */
+  if (((tmp >> 0) & 262143) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (18 - 4)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 4) & 262143) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (18 - 8)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 8) & 262143) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (18 - 12)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 12) & 262143) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (18 - 16)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (18 - 2)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 2) & 262143) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (18 - 6)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 6) & 262143) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (18 - 10)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 10) & 262143) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (18 - 14)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 14) & 262143) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (72);
+}
+
+static uint32_t
+linsearch19_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 524287) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (19 - 6)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 524287) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (19 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 524287) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (19 - 18)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (19 - 5)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 5) & 524287) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (19 - 11)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 11) & 524287) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (19 - 17)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (19 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 524287) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (19 - 10)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 10) & 524287) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (19 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (19 - 3)) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 3) & 524287) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (19 - 9)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 9) & 524287) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (19 - 15)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (19 - 2)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 2) & 524287) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (19 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 524287) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (19 - 14)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (19 - 1)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 1) & 524287) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (19 - 7)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 7) & 524287) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (19 - 13)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 13) & 524287) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (76);
+}
+
+static uint32_t
+linsearch20_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 44) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 64) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (80);
+}
+
+static uint32_t
+linsearch21_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2097151) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (21 - 10)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 2097151) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (21 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (21 - 9)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 9) & 2097151) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (21 - 19)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (21 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 2097151) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (21 - 18)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (21 - 7)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 7) & 2097151) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (21 - 17)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (21 - 6)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 6) & 2097151) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (21 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (21 - 5)) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 5) & 2097151) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (21 - 15)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (21 - 4)) == value) {
+    *found = 19;
+    return 19;
+  }
+  if (((tmp >> 4) & 2097151) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (21 - 14)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (21 - 3)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 3) & 2097151) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (21 - 13)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (21 - 2)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 2) & 2097151) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (21 - 12)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (21 - 1)) == value) {
+    *found = 28;
+    return 28;
+  }
+  if (((tmp >> 1) & 2097151) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (21 - 11)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 11) & 2097151) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (84);
+}
+
+static uint32_t
+linsearch22_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4194303) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (22 - 12)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (22 - 2)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 2) & 4194303) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (22 - 14)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (22 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 4194303) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (22 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (22 - 6)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 6) & 4194303) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (22 - 18)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (22 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 4194303) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (22 - 20)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (22 - 10)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 10) & 4194303) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 48) */
+  if (((tmp >> 0) & 4194303) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (22 - 12)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (22 - 2)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 2) & 4194303) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (22 - 14)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (22 - 4)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 4) & 4194303) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (22 - 16)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (22 - 6)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 6) & 4194303) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (22 - 18)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (22 - 8)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 8) & 4194303) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (22 - 20)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (22 - 10)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 10) & 4194303) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (88);
+}
+
+static uint32_t
+linsearch23_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8388607) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (23 - 14)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (23 - 5)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 5) & 8388607) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (23 - 19)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (23 - 10)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (23 - 1)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 1) & 8388607) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (23 - 15)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (23 - 6)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 6) & 8388607) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (23 - 20)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (23 - 11)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (23 - 2)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 2) & 8388607) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (23 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (23 - 7)) == value) {
+    *found = 16;
+    return 16;
+  }
+  if (((tmp >> 7) & 8388607) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (23 - 21)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (23 - 12)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (23 - 3)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 3) & 8388607) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (23 - 17)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (23 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  if (((tmp >> 8) & 8388607) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (23 - 22)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (23 - 13)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (23 - 4)) == value) {
+    *found = 27;
+    return 27;
+  }
+  if (((tmp >> 4) & 8388607) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (23 - 18)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (23 - 9)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 9) & 8388607) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (92);
+}
+
+static uint32_t
+linsearch24_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 40) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 52) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 19;
+    return 19;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 64) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 76) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 27;
+    return 27;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 88) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (96);
+}
+
+static uint32_t
+linsearch25_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 33554431) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (25 - 18)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (25 - 11)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (25 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 33554431) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (25 - 22)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (25 - 15)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (25 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (25 - 1)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 1) & 33554431) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (25 - 19)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (25 - 12)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (25 - 5)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 5) & 33554431) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (25 - 23)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (25 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (25 - 9)) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 9;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (25 - 2)) == value) {
+    *found = 17;
+    return 17;
+  }
+  if (((tmp >> 2) & 33554431) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (25 - 20)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (25 - 13)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (25 - 6)) == value) {
+    *found = 21;
+    return 21;
+  }
+  if (((tmp >> 6) & 33554431) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (25 - 24)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (25 - 17)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (25 - 10)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (25 - 3)) == value) {
+    *found = 26;
+    return 26;
+  }
+  if (((tmp >> 3) & 33554431) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (25 - 21)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (25 - 14)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (25 - 7)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 7) & 33554431) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (100);
+}
+
+static uint32_t
+linsearch26_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 67108863) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (26 - 20)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (26 - 14)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (26 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (26 - 2)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 2) & 67108863) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (26 - 22)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (26 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (26 - 10)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (26 - 4)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 4) & 67108863) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (26 - 24)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (26 - 18)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (26 - 12)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (26 - 6)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 6) & 67108863) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 56) */
+  if (((tmp >> 0) & 67108863) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (26 - 20)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (26 - 14)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (26 - 8)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (26 - 2)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 2) & 67108863) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (26 - 22)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (26 - 16)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (26 - 10)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (26 - 4)) == value) {
+    *found = 25;
+    return 25;
+  }
+  if (((tmp >> 4) & 67108863) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (26 - 24)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (26 - 18)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (26 - 12)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (26 - 6)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 6) & 67108863) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (104);
+}
+
+static uint32_t
+linsearch27_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 134217727) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (27 - 22)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (27 - 17)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (27 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (27 - 7)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (27 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 134217727) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (27 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (27 - 19)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (27 - 14)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (27 - 9)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 9;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (27 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 134217727) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (27 - 26)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (27 - 21)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (27 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (27 - 11)) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (27 - 6)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (27 - 1)) == value) {
+    *found = 18;
+    return 18;
+  }
+  if (((tmp >> 1) & 134217727) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (27 - 23)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (27 - 18)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (27 - 13)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (27 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (27 - 3)) == value) {
+    *found = 24;
+    return 24;
+  }
+  if (((tmp >> 3) & 134217727) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (27 - 25)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (27 - 20)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (27 - 15)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (27 - 10)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 108) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (27 - 5)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 5) & 134217727) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (108);
+}
+
+static uint32_t
+linsearch28_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 60) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 22;
+    return 22;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 23;
+    return 23;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 88) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 108) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 112) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (112);
+}
+
+static uint32_t
+linsearch29_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 536870911) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (29 - 26)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (29 - 23)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (29 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (29 - 17)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (29 - 14)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (29 - 11)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (29 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (29 - 5)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 5;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (29 - 2)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 2) & 536870911) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (29 - 28)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (29 - 25)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (29 - 22)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (29 - 19)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (29 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (29 - 13)) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (29 - 10)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (29 - 7)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (29 - 4)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 4;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (29 - 1)) == value) {
+    *found = 20;
+    return 20;
+  }
+  if (((tmp >> 1) & 536870911) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 27)) << (29 - 27)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (29 - 24)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (29 - 21)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (29 - 18)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (29 - 15)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (29 - 12)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 108) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (29 - 9)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 9;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 112) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (29 - 6)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 116) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (29 - 3)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 3) & 536870911) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (116);
+}
+
+static uint32_t
+linsearch30_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1073741823) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (30 - 28)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (30 - 26)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (30 - 24)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (30 - 22)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (30 - 20)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (30 - 18)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (30 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (30 - 14)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (30 - 12)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (30 - 10)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (30 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (30 - 6)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (30 - 4)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 4;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (30 - 2)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 2) & 1073741823) == value) {
+    *found = 15;
+    return 15;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 64) */
+  if (((tmp >> 0) & 1073741823) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (30 - 28)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (30 - 26)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (30 - 24)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (30 - 22)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (30 - 20)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (30 - 18)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (30 - 16)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (30 - 14)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (30 - 12)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (30 - 10)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 108) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (30 - 8)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 112) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (30 - 6)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 116) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (30 - 4)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 4;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 120) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (30 - 2)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 2) & 1073741823) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (120);
+}
+
+static uint32_t
+linsearch31_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2147483647) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 30)) << (31 - 30)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 29)) << (31 - 29)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (31 - 28)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 27)) << (31 - 27)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (31 - 26)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (31 - 25)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (31 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (31 - 23)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (31 - 22)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (31 - 21)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (31 - 20)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (31 - 19)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (31 - 18)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (31 - 17)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (31 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 68) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (31 - 15)) == value) {
+    *found = 16;
+    return 16;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 72) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (31 - 14)) == value) {
+    *found = 17;
+    return 17;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 76) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (31 - 13)) == value) {
+    *found = 18;
+    return 18;
+  }
+  tmp2 = tmp >> 13;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 80) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (31 - 12)) == value) {
+    *found = 19;
+    return 19;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 84) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (31 - 11)) == value) {
+    *found = 20;
+    return 20;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 88) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (31 - 10)) == value) {
+    *found = 21;
+    return 21;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 92) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (31 - 9)) == value) {
+    *found = 22;
+    return 22;
+  }
+  tmp2 = tmp >> 9;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 96) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (31 - 8)) == value) {
+    *found = 23;
+    return 23;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 100) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (31 - 7)) == value) {
+    *found = 24;
+    return 24;
+  }
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 104) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (31 - 6)) == value) {
+    *found = 25;
+    return 25;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 108) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (31 - 5)) == value) {
+    *found = 26;
+    return 26;
+  }
+  tmp2 = tmp >> 5;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 112) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (31 - 4)) == value) {
+    *found = 27;
+    return 27;
+  }
+  tmp2 = tmp >> 4;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 116) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (31 - 3)) == value) {
+    *found = 28;
+    return 28;
+  }
+  tmp2 = tmp >> 3;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 120) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (31 - 2)) == value) {
+    *found = 29;
+    return 29;
+  }
+  tmp2 = tmp >> 2;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 124) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (31 - 1)) == value) {
+    *found = 30;
+    return 30;
+  }
+  if (((tmp >> 1) & 2147483647) == value) {
+    *found = 31;
+    return 31;
+  }
+  /* remaining: 0 bits */
+  return (124);
+}
+
+static uint32_t
+linsearch32_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  value -= base;
+  for (i = 0; i < 32; i++) {
+    if (in32[i] == value) {
+      *found = i;
+      return 0;
+    }
+  }
+  return 32 * sizeof(uint32_t);
+}
+
+for_linsearchfunc_t for_linsearch32[33] = {
+                       linsearch0_n,
+                       linsearch1_32,
+                       linsearch2_32,
+                       linsearch3_32,
+                       linsearch4_32,
+                       linsearch5_32,
+                       linsearch6_32,
+                       linsearch7_32,
+                       linsearch8_32,
+                       linsearch9_32,
+                       linsearch10_32,
+                       linsearch11_32,
+                       linsearch12_32,
+                       linsearch13_32,
+                       linsearch14_32,
+                       linsearch15_32,
+                       linsearch16_32,
+                       linsearch17_32,
+                       linsearch18_32,
+                       linsearch19_32,
+                       linsearch20_32,
+                       linsearch21_32,
+                       linsearch22_32,
+                       linsearch23_32,
+                       linsearch24_32,
+                       linsearch25_32,
+                       linsearch26_32,
+                       linsearch27_32,
+                       linsearch28_32,
+                       linsearch29_32,
+                       linsearch30_32,
+                       linsearch31_32,
+                       linsearch32_32
+};
+
+static uint32_t
+linsearch1_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 1) & 1) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 1) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 3) & 1) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 1) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 5) & 1) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 1) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 7) & 1) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 1) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 9) & 1) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 10) & 1) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 11) & 1) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 1) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 13) & 1) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 14) & 1) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 15) & 1) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (2);
+}
+
+static uint32_t
+linsearch2_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 3) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 2) & 3) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 3) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 6) & 3) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 3) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 10) & 3) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 3) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 14) & 3) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 3) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 18) & 3) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 20) & 3) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 22) & 3) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 24) & 3) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 26) & 3) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 28) & 3) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 30) & 3) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (4);
+}
+
+static uint32_t
+linsearch3_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 7) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 3) & 7) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 7) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 9) & 7) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 7) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 15) & 7) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 18) & 7) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 21) & 7) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 24) & 7) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 27) & 7) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (3 - 1)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 1) & 7) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 7) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 7) & 7) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 10) & 7) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 13) & 7) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (6);
+}
+
+static uint32_t
+linsearch4_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (8);
+}
+
+static uint32_t
+linsearch5_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 31) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 5) & 31) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 31) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 15) & 31) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 20) & 31) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 25) & 31) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (5 - 3)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 3) & 31) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 31) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 13) & 31) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 18) & 31) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 23) & 31) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (5 - 1)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 1) & 31) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 6) & 31) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 11) & 31) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (10);
+}
+
+static uint32_t
+linsearch6_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 63) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 6) & 63) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 12) & 63) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 18) & 63) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 24) & 63) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (6 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 63) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 10) & 63) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 63) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 22) & 63) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (6 - 2)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 2) & 63) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 63) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 14) & 63) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 20) & 63) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 26) & 63) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (12);
+}
+
+static uint32_t
+linsearch7_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 127) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 7) & 127) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 14) & 127) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 21) & 127) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (7 - 3)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 3) & 127) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 10) & 127) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 17) & 127) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 24) & 127) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (7 - 6)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 6) & 127) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 13) & 127) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 20) & 127) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (7 - 2)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 2) & 127) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 9) & 127) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (14);
+}
+
+static uint32_t
+linsearch8_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (16);
+}
+
+static uint32_t
+linsearch9_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 511) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 9) & 511) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 18) & 511) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (9 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 511) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 13) & 511) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 22) & 511) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (9 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 511) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 17) & 511) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (9 - 3)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 3) & 511) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 511) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 21) & 511) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (9 - 7)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 7) & 511) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (18);
+}
+
+static uint32_t
+linsearch10_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1023) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 10) & 1023) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 20) & 1023) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (10 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 1023) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 18) & 1023) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (10 - 6)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 6) & 1023) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 1023) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (10 - 4)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 4) & 1023) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 14) & 1023) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (10 - 2)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 2) & 1023) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 12) & 1023) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 22) & 1023) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (20);
+}
+
+static uint32_t
+linsearch11_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2047) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 11) & 2047) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (11 - 1)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 1) & 2047) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 2047) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (11 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 2047) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 13) & 2047) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (11 - 3)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 3) & 2047) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 14) & 2047) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (11 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 2047) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 15) & 2047) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (11 - 5)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 5) & 2047) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (22);
+}
+
+static uint32_t
+linsearch12_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (24);
+}
+
+static uint32_t
+linsearch13_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8191) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 13) & 8191) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (13 - 7)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 7) & 8191) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (13 - 1)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 1) & 8191) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 14) & 8191) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (13 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 8191) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (13 - 2)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 2) & 8191) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 15) & 8191) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (13 - 9)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 9) & 8191) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (13 - 3)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 3) & 8191) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (26);
+}
+
+static uint32_t
+linsearch14_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16383) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 14) & 16383) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (14 - 10)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 10) & 16383) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (14 - 6)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 6) & 16383) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (14 - 2)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 2) & 16383) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 16) & 16383) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (14 - 12)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 12) & 16383) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (14 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 16383) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (14 - 4)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 4) & 16383) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 18) & 16383) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (28);
+}
+
+static uint32_t
+linsearch15_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 32767) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 15) & 32767) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (15 - 13)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 13) & 32767) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (15 - 11)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 11) & 32767) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (15 - 9)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 9) & 32767) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (15 - 7)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 7) & 32767) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (15 - 5)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 5) & 32767) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (15 - 3)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 3) & 32767) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (15 - 1)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 1) & 32767) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (30);
+}
+
+static uint32_t
+linsearch16_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 1;
+    return 1;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 5;
+    return 5;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 20) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 9;
+    return 9;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 13;
+    return 13;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (32);
+}
+
+static uint32_t
+linsearch17_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 131071) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (17 - 2)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 131071) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (17 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 131071) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (17 - 6)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 131071) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (17 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 131071) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (17 - 10)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 10) & 131071) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (17 - 12)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 12) & 131071) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (17 - 14)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 14) & 131071) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (17 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (34);
+}
+
+static uint32_t
+linsearch18_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 262143) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (18 - 4)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 262143) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (18 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 262143) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (18 - 12)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 262143) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (18 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (18 - 2)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 2) & 262143) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (18 - 6)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 6) & 262143) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (18 - 10)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 10) & 262143) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (18 - 14)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 14) & 262143) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (36);
+}
+
+static uint32_t
+linsearch19_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 524287) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (19 - 6)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 524287) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (19 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 524287) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (19 - 18)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (19 - 5)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 5) & 524287) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (19 - 11)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 11) & 524287) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (19 - 17)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (19 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 524287) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (19 - 10)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 10) & 524287) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (19 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (38);
+}
+
+static uint32_t
+linsearch20_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 24) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (40);
+}
+
+static uint32_t
+linsearch21_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2097151) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (21 - 10)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 2097151) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (21 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (21 - 9)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 9) & 2097151) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (21 - 19)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (21 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (((tmp >> 8) & 2097151) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (21 - 18)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (21 - 7)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 7) & 2097151) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (21 - 17)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (21 - 6)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 6) & 2097151) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (21 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (42);
+}
+
+static uint32_t
+linsearch22_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4194303) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (22 - 12)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (22 - 2)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 2) & 4194303) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (22 - 14)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (22 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 4194303) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (22 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (22 - 6)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 6) & 4194303) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (22 - 18)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (22 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 8) & 4194303) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (22 - 20)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (22 - 10)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 10) & 4194303) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (44);
+}
+
+static uint32_t
+linsearch23_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8388607) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (23 - 14)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (23 - 5)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 5) & 8388607) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (23 - 19)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (23 - 10)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (23 - 1)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 1) & 8388607) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (23 - 15)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (23 - 6)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 6) & 8388607) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (23 - 20)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (23 - 11)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (23 - 2)) == value) {
+    *found = 13;
+    return 13;
+  }
+  if (((tmp >> 2) & 8388607) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (23 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (46);
+}
+
+static uint32_t
+linsearch24_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 28) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 10;
+    return 10;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 11;
+    return 11;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 40) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (48);
+}
+
+static uint32_t
+linsearch25_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 33554431) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (25 - 18)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (25 - 11)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (25 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 33554431) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (25 - 22)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (25 - 15)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (25 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (25 - 1)) == value) {
+    *found = 8;
+    return 8;
+  }
+  if (((tmp >> 1) & 33554431) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (25 - 19)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (25 - 12)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (25 - 5)) == value) {
+    *found = 12;
+    return 12;
+  }
+  if (((tmp >> 5) & 33554431) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (25 - 23)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (25 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (50);
+}
+
+static uint32_t
+linsearch26_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 67108863) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (26 - 20)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (26 - 14)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (26 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (26 - 2)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 2) & 67108863) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (26 - 22)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (26 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (26 - 10)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (26 - 4)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 4) & 67108863) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (26 - 24)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (26 - 18)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (26 - 12)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (26 - 6)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 6) & 67108863) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (52);
+}
+
+static uint32_t
+linsearch27_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 134217727) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (27 - 22)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (27 - 17)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (27 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (27 - 7)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (27 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 134217727) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (27 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (27 - 19)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (27 - 14)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (27 - 9)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 9;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (27 - 4)) == value) {
+    *found = 11;
+    return 11;
+  }
+  if (((tmp >> 4) & 134217727) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (27 - 26)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (27 - 21)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (27 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (54);
+}
+
+static uint32_t
+linsearch28_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 7;
+    return 7;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 32) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (56);
+}
+
+static uint32_t
+linsearch29_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 536870911) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (29 - 26)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (29 - 23)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (29 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (29 - 17)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (29 - 14)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (29 - 11)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (29 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (29 - 5)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 5;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (29 - 2)) == value) {
+    *found = 9;
+    return 9;
+  }
+  if (((tmp >> 2) & 536870911) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (29 - 28)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (29 - 25)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (29 - 22)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (29 - 19)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (29 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (58);
+}
+
+static uint32_t
+linsearch30_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1073741823) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (30 - 28)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (30 - 26)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (30 - 24)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (30 - 22)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (30 - 20)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (30 - 18)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (30 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (30 - 14)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (30 - 12)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (30 - 10)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (30 - 8)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (30 - 6)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 6;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (30 - 4)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 4;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (30 - 2)) == value) {
+    *found = 14;
+    return 14;
+  }
+  if (((tmp >> 2) & 1073741823) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 0 bits */
+  return (60);
+}
+
+static uint32_t
+linsearch31_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2147483647) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 30)) << (31 - 30)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 29)) << (31 - 29)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (31 - 28)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 27)) << (31 - 27)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (31 - 26)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (31 - 25)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (31 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 36) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (31 - 23)) == value) {
+    *found = 8;
+    return 8;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 40) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (31 - 22)) == value) {
+    *found = 9;
+    return 9;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 44) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 21)) << (31 - 21)) == value) {
+    *found = 10;
+    return 10;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 48) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (31 - 20)) == value) {
+    *found = 11;
+    return 11;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 52) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (31 - 19)) == value) {
+    *found = 12;
+    return 12;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 56) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (31 - 18)) == value) {
+    *found = 13;
+    return 13;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 60) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (31 - 17)) == value) {
+    *found = 14;
+    return 14;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 64) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (31 - 16)) == value) {
+    *found = 15;
+    return 15;
+  }
+  /* remaining: 16 bits */
+  return (62);
+}
+
+static uint32_t
+linsearch32_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  value -= base;
+  for (i = 0; i < 16; i++) {
+    if (in32[i] == value) {
+      *found = i;
+      return 0;
+    }
+  }
+  return 16 * sizeof(uint32_t);
+}
+
+for_linsearchfunc_t for_linsearch16[33] = {
+                       linsearch0_n,
+                       linsearch1_16,
+                       linsearch2_16,
+                       linsearch3_16,
+                       linsearch4_16,
+                       linsearch5_16,
+                       linsearch6_16,
+                       linsearch7_16,
+                       linsearch8_16,
+                       linsearch9_16,
+                       linsearch10_16,
+                       linsearch11_16,
+                       linsearch12_16,
+                       linsearch13_16,
+                       linsearch14_16,
+                       linsearch15_16,
+                       linsearch16_16,
+                       linsearch17_16,
+                       linsearch18_16,
+                       linsearch19_16,
+                       linsearch20_16,
+                       linsearch21_16,
+                       linsearch22_16,
+                       linsearch23_16,
+                       linsearch24_16,
+                       linsearch25_16,
+                       linsearch26_16,
+                       linsearch27_16,
+                       linsearch28_16,
+                       linsearch29_16,
+                       linsearch30_16,
+                       linsearch31_16,
+                       linsearch32_16
+};
+
+static uint32_t
+linsearch1_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 1) & 1) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 1) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 3) & 1) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 1) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 5) & 1) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 1) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 7) & 1) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (1);
+}
+
+static uint32_t
+linsearch2_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 3) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 2) & 3) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 3) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 6) & 3) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 3) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 10) & 3) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 3) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 14) & 3) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (2);
+}
+
+static uint32_t
+linsearch3_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 7) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 3) & 7) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 7) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 9) & 7) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 7) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 15) & 7) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 18) & 7) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 21) & 7) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (3);
+}
+
+static uint32_t
+linsearch4_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 15) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 4) & 15) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 15) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 12) & 15) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 15) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 20) & 15) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 24) & 15) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 28) & 15) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (4);
+}
+
+static uint32_t
+linsearch5_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 31) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 5) & 31) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 31) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 15) & 31) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 20) & 31) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 25) & 31) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (5 - 3)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 3) & 31) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (5);
+}
+
+static uint32_t
+linsearch6_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 63) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 6) & 63) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 12) & 63) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 18) & 63) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 24) & 63) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (6 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 63) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 10) & 63) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (6);
+}
+
+static uint32_t
+linsearch7_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 127) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 7) & 127) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 14) & 127) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 21) & 127) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (7 - 3)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 3) & 127) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 10) & 127) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 17) & 127) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (7);
+}
+
+static uint32_t
+linsearch8_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 255) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 8) & 255) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 16) & 255) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 24) & 255) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (8);
+}
+
+static uint32_t
+linsearch9_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 511) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 9) & 511) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 18) & 511) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (9 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 511) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 13) & 511) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 22) & 511) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (9 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (9);
+}
+
+static uint32_t
+linsearch10_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1023) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 10) & 1023) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 20) & 1023) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (10 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 1023) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 18) & 1023) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (10 - 6)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 6) & 1023) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (10);
+}
+
+static uint32_t
+linsearch11_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2047) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 11) & 2047) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (11 - 1)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 1) & 2047) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 2047) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (11 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 2047) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 13) & 2047) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (11);
+}
+
+static uint32_t
+linsearch12_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4095) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 12) & 4095) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 4) & 4095) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 16) & 4095) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 8) & 4095) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 20) & 4095) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (12);
+}
+
+static uint32_t
+linsearch13_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8191) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 13) & 8191) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (13 - 7)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 7) & 8191) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (13 - 1)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 1) & 8191) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 14) & 8191) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (13 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (13);
+}
+
+static uint32_t
+linsearch14_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16383) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 14) & 16383) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (14 - 10)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 10) & 16383) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (14 - 6)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 6) & 16383) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (14 - 2)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 2) & 16383) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (14);
+}
+
+static uint32_t
+linsearch15_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 32767) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 15) & 32767) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (15 - 13)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 13) & 32767) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (15 - 11)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 11) & 32767) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (15 - 9)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 9) & 32767) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (15);
+}
+
+static uint32_t
+linsearch16_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 0;
+    return 0;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 1;
+    return 1;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 8) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 12) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 5;
+    return 5;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 65535) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 16) & 65535) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (16);
+}
+
+static uint32_t
+linsearch17_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 131071) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (17 - 2)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 2) & 131071) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (17 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 131071) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (17 - 6)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 6) & 131071) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (17 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (17);
+}
+
+static uint32_t
+linsearch18_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 262143) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (18 - 4)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 4) & 262143) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (18 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 8) & 262143) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (18 - 12)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 12) & 262143) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (18 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (18);
+}
+
+static uint32_t
+linsearch19_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 524287) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (19 - 6)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 6) & 524287) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (19 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 12) & 524287) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (19 - 18)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (19 - 5)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 5) & 524287) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (19);
+}
+
+static uint32_t
+linsearch20_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1048575) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 8) & 1048575) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 4) & 1048575) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 12) & 1048575) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (20);
+}
+
+static uint32_t
+linsearch21_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2097151) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (21 - 10)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (((tmp >> 10) & 2097151) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (21 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (21 - 9)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 9) & 2097151) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (21 - 19)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (21 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (21);
+}
+
+static uint32_t
+linsearch22_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 4194303) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (22 - 12)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (22 - 2)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 2) & 4194303) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (22 - 14)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (22 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 4) & 4194303) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (22 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (22);
+}
+
+static uint32_t
+linsearch23_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 8388607) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (23 - 14)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (23 - 5)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 5) & 8388607) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (23 - 19)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (23 - 10)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (23 - 1)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 1) & 8388607) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (23);
+}
+
+static uint32_t
+linsearch24_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 3;
+    return 3;
+  }
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 16) */
+  if (((tmp >> 0) & 16777215) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 8) & 16777215) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (24);
+}
+
+static uint32_t
+linsearch25_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 33554431) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (25 - 18)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (25 - 11)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (25 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (((tmp >> 4) & 33554431) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (25 - 22)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (25 - 15)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (25 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (25);
+}
+
+static uint32_t
+linsearch26_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 67108863) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (26 - 20)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (26 - 14)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (26 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (26 - 2)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (((tmp >> 2) & 67108863) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (26 - 22)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (26 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (26);
+}
+
+static uint32_t
+linsearch27_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 134217727) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (27 - 22)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (27 - 17)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (27 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (27 - 7)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (27 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (((tmp >> 2) & 134217727) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (27 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (27);
+}
+
+static uint32_t
+linsearch28_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 268435455) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (((tmp >> 4) & 268435455) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 0 bits */
+  return (28);
+}
+
+static uint32_t
+linsearch29_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 536870911) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (29 - 26)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (29 - 23)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (29 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (29 - 17)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (29 - 14)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (29 - 11)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (29 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 24 bits */
+  return (29);
+}
+
+static uint32_t
+linsearch30_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 1073741823) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (30 - 28)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (30 - 26)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (30 - 24)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (30 - 22)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (30 - 20)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (30 - 18)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (30 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 16 bits */
+  return (30);
+}
+
+static uint32_t
+linsearch31_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  value -= base;
+  (void)tmp2;
+  tmp = *(uint32_t *)in;
+  /* consumed: 4 bytes (total: 4) */
+  if (((tmp >> 0) & 2147483647) == value) {
+    *found = 0;
+    return 0;
+  }
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 8) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 30)) << (31 - 30)) == value) {
+    *found = 1;
+    return 1;
+  }
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 12) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 29)) << (31 - 29)) == value) {
+    *found = 2;
+    return 2;
+  }
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 16) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (31 - 28)) == value) {
+    *found = 3;
+    return 3;
+  }
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 20) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 27)) << (31 - 27)) == value) {
+    *found = 4;
+    return 4;
+  }
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 24) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (31 - 26)) == value) {
+    *found = 5;
+    return 5;
+  }
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 28) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (31 - 25)) == value) {
+    *found = 6;
+    return 6;
+  }
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  /* consumed: 4 bytes (total: 32) */
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (31 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  /* remaining: 8 bits */
+  return (31);
+}
+
+static uint32_t
+linsearch32_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  uint32_t i;
+  uint32_t *in32 = (uint32_t *)in;
+  value -= base;
+  for (i = 0; i < 8; i++) {
+    if (in32[i] == value) {
+      *found = i;
+      return 0;
+    }
+  }
+  return 8 * sizeof(uint32_t);
+}
+
+for_linsearchfunc_t for_linsearch8[33] = {
+                       linsearch0_n,
+                       linsearch1_8,
+                       linsearch2_8,
+                       linsearch3_8,
+                       linsearch4_8,
+                       linsearch5_8,
+                       linsearch6_8,
+                       linsearch7_8,
+                       linsearch8_8,
+                       linsearch9_8,
+                       linsearch10_8,
+                       linsearch11_8,
+                       linsearch12_8,
+                       linsearch13_8,
+                       linsearch14_8,
+                       linsearch15_8,
+                       linsearch16_8,
+                       linsearch17_8,
+                       linsearch18_8,
+                       linsearch19_8,
+                       linsearch20_8,
+                       linsearch21_8,
+                       linsearch22_8,
+                       linsearch23_8,
+                       linsearch24_8,
+                       linsearch25_8,
+                       linsearch26_8,
+                       linsearch27_8,
+                       linsearch28_8,
+                       linsearch29_8,
+                       linsearch30_8,
+                       linsearch31_8,
+                       linsearch32_8
+};
+
+static uint32_t
+linsearch1_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 1)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 1) & 1)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 2) & 1)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 3) & 1)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 4) & 1)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 5) & 1)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 6) & 1)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 7) & 1)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 1) + 7) / 8;
+}
+
+static uint32_t
+linsearch2_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 3)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 2) & 3)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 4) & 3)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 6) & 3)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 8) & 3)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 10) & 3)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 12) & 3)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 14) & 3)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 2) + 7) / 8;
+}
+
+static uint32_t
+linsearch3_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 7)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 3) & 7)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 6) & 7)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 9) & 7)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 12) & 7)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 15) & 7)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 18) & 7)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 21) & 7)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 3) + 7) / 8;
+}
+
+static uint32_t
+linsearch4_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 15)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 4) & 15)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 8) & 15)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 12) & 15)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 16) & 15)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 20) & 15)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 24) & 15)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 28) & 15)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 4) + 7) / 8;
+}
+
+static uint32_t
+linsearch5_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 31)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 5) & 31)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 10) & 31)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 15) & 31)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 20) & 31)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 25) & 31)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (5 - 3)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 3) & 31)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 5) + 7) / 8;
+}
+
+static uint32_t
+linsearch6_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 63)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 6) & 63)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 12) & 63)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 18) & 63)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 24) & 63)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (6 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 4) & 63)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 10) & 63)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 6) + 7) / 8;
+}
+
+static uint32_t
+linsearch7_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 127)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 7) & 127)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 14) & 127)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 21) & 127)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 3)) << (7 - 3)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 3) & 127)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 10) & 127)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 17) & 127)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 7) + 7) / 8;
+}
+
+static uint32_t
+linsearch8_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 255)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 8) & 255)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 16) & 255)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 24) & 255)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 255)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 8) & 255)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 16) & 255)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 24) & 255)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 8) + 7) / 8;
+}
+
+static uint32_t
+linsearch9_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 511)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 9) & 511)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 18) & 511)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (9 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 4) & 511)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 13) & 511)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 22) & 511)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (9 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 9) + 7) / 8;
+}
+
+static uint32_t
+linsearch10_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 1023)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 10) & 1023)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 20) & 1023)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (10 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 8) & 1023)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 18) & 1023)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (10 - 6)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 6) & 1023)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 10) + 7) / 8;
+}
+
+static uint32_t
+linsearch11_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 2047)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 11) & 2047)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (11 - 1)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 1) & 2047)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 12) & 2047)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (11 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 2) & 2047)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 13) & 2047)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 11) + 7) / 8;
+}
+
+static uint32_t
+linsearch12_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4095)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 12) & 4095)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (12 - 4)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 4) & 4095)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 16) & 4095)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (12 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 8) & 4095)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 20) & 4095)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 12) + 7) / 8;
+}
+
+static uint32_t
+linsearch13_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 8191)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 13) & 8191)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (13 - 7)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 7) & 8191)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (13 - 1)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 1) & 8191)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 14) & 8191)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (13 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 13) + 7) / 8;
+}
+
+static uint32_t
+linsearch14_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 16383)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 14) & 16383)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (14 - 10)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 10) & 16383)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (14 - 6)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 6) & 16383)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (14 - 2)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 2) & 16383)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 14) + 7) / 8;
+}
+
+static uint32_t
+linsearch15_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 32767)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 15) & 32767)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 13)) << (15 - 13)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 13) & 32767)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (15 - 11)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 11) & 32767)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (15 - 9)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 9) & 32767)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 15) + 7) / 8;
+}
+
+static uint32_t
+linsearch16_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 65535)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  if (value == ((tmp >> 16) & 65535)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 65535)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 16) & 65535)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 65535)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 16) & 65535)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 65535)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 16) & 65535)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 16) + 7) / 8;
+}
+
+static uint32_t
+linsearch17_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 131071)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (17 - 2)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 2) & 131071)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (17 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 4) & 131071)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (17 - 6)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 6) & 131071)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (17 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 17) + 7) / 8;
+}
+
+static uint32_t
+linsearch18_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 262143)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (18 - 4)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 4) & 262143)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (18 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 8) & 262143)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (18 - 12)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 12) & 262143)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (18 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 18) + 7) / 8;
+}
+
+static uint32_t
+linsearch19_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 524287)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 6)) << (19 - 6)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 6) & 524287)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (19 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 12) & 524287)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (19 - 18)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (19 - 5)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 5) & 524287)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 19) + 7) / 8;
+}
+
+static uint32_t
+linsearch20_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 1048575)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (20 - 8)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 8) & 1048575)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (20 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (20 - 4)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 4) & 1048575)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (20 - 12)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 12) & 1048575)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 20) + 7) / 8;
+}
+
+static uint32_t
+linsearch21_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 2097151)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 21;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (21 - 10)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  if (value == ((tmp >> 10) & 2097151)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (21 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 9)) << (21 - 9)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 9) & 2097151)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (21 - 19)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (21 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 21) + 7) / 8;
+}
+
+static uint32_t
+linsearch22_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4194303)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (22 - 12)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (22 - 2)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 2) & 4194303)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (22 - 14)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (22 - 4)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 4) & 4194303)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (22 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 22) + 7) / 8;
+}
+
+static uint32_t
+linsearch23_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 8388607)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (23 - 14)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 5)) << (23 - 5)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 5) & 8388607)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 19)) << (23 - 19)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 19;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 10)) << (23 - 10)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 10;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 1)) << (23 - 1)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 1) & 8388607)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 23) + 7) / 8;
+}
+
+static uint32_t
+linsearch24_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 16777215)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  if (value == ((tmp >> 8) & 16777215)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 16777215)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (24 - 16)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (24 - 8)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 8) & 16777215)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 24) + 7) / 8;
+}
+
+static uint32_t
+linsearch25_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 33554431)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (25 - 18)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (25 - 11)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (25 - 4)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  if (value == ((tmp >> 4) & 33554431)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (25 - 22)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 15)) << (25 - 15)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 15;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (25 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 25) + 7) / 8;
+}
+
+static uint32_t
+linsearch26_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 67108863)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (26 - 20)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (26 - 14)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (26 - 8)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (26 - 2)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  if (value == ((tmp >> 2) & 67108863)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (26 - 22)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (26 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 26) + 7) / 8;
+}
+
+static uint32_t
+linsearch27_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 134217727)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (27 - 22)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (27 - 17)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (27 - 12)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 7)) << (27 - 7)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 7;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 2)) << (27 - 2)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  if (value == ((tmp >> 2) & 134217727)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (27 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 27) + 7) / 8;
+}
+
+static uint32_t
+linsearch28_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 268435455)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (28 - 24)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (28 - 20)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (28 - 16)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 16;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 12)) << (28 - 12)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 12;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (28 - 8)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 8;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 4)) << (28 - 4)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  if (value == ((tmp >> 4) & 268435455)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 28) + 7) / 8;
+}
+
+static uint32_t
+linsearch29_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 536870911)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (29 - 26)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 23)) << (29 - 23)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 23;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (29 - 20)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 17)) << (29 - 17)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 17;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 14)) << (29 - 14)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 14;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 11)) << (29 - 11)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 11;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 8)) << (29 - 8)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 29) + 7) / 8;
+}
+
+static uint32_t
+linsearch30_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 1073741823)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (30 - 28)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (30 - 26)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (30 - 24)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 24;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 22)) << (30 - 22)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 22;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 20)) << (30 - 20)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 20;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 18)) << (30 - 18)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 18;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 16)) << (30 - 16)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 30) + 7) / 8;
+}
+
+static uint32_t
+linsearch31_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 2147483647)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  tmp2 = tmp >> 31;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 30)) << (31 - 30)) == value) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  tmp2 = tmp >> 30;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 29)) << (31 - 29)) == value) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  tmp2 = tmp >> 29;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 28)) << (31 - 28)) == value) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  tmp2 = tmp >> 28;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 27)) << (31 - 27)) == value) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  tmp2 = tmp >> 27;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 26)) << (31 - 26)) == value) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  tmp2 = tmp >> 26;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 25)) << (31 - 25)) == value) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  tmp2 = tmp >> 25;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if ((tmp2 | (tmp % (1U << 24)) << (31 - 24)) == value) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 31) + 7) / 8;
+}
+
+static uint32_t
+linsearch32_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {
+  uint32_t tmp, tmp2;
+  (void)tmp2;
+  if (length == 0)
+    return 0;
+  value -= base;
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 0;
+    return 0;
+  }
+  if (length == 1)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 1;
+    return 1;
+  }
+  if (length == 2)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 2;
+    return 2;
+  }
+  if (length == 3)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 3;
+    return 3;
+  }
+  if (length == 4)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 4;
+    return 4;
+  }
+  if (length == 5)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 5;
+    return 5;
+  }
+  if (length == 6)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 6;
+    return 6;
+  }
+  if (length == 7)
+    goto bail;
+  in += sizeof(uint32_t);
+  tmp = *(uint32_t *)in;
+  if (value == ((tmp >> 0) & 4294967295)) {
+    *found = 7;
+    return 7;
+  }
+  if (length == 8)
+    goto bail;
+bail:
+  return ((length * 32) + 7) / 8;
+}
+
+for_linsearchxfunc_t for_linsearchx[33] = {
+                       linsearch0_x,
+                       linsearch1_x,
+                       linsearch2_x,
+                       linsearch3_x,
+                       linsearch4_x,
+                       linsearch5_x,
+                       linsearch6_x,
+                       linsearch7_x,
+                       linsearch8_x,
+                       linsearch9_x,
+                       linsearch10_x,
+                       linsearch11_x,
+                       linsearch12_x,
+                       linsearch13_x,
+                       linsearch14_x,
+                       linsearch15_x,
+                       linsearch16_x,
+                       linsearch17_x,
+                       linsearch18_x,
+                       linsearch19_x,
+                       linsearch20_x,
+                       linsearch21_x,
+                       linsearch22_x,
+                       linsearch23_x,
+                       linsearch24_x,
+                       linsearch25_x,
+                       linsearch26_x,
+                       linsearch27_x,
+                       linsearch28_x,
+                       linsearch29_x,
+                       linsearch30_x,
+                       linsearch31_x,
+                       linsearch32_x
 };
 

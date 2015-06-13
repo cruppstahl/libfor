@@ -353,6 +353,180 @@ sub generate_packer_array
   print "};\n\n";
 }
 
+sub generate_linsearch_impl
+{
+  my $fname = shift;
+  my $type = shift;
+  my $bits_per_word = shift;
+  my $bits = shift;
+  my $block = shift;
+
+  my $consumed = 0;
+  my $inittmp = 1;
+
+  my $mask = bitmask($bits);
+
+  print "static uint32_t\n";
+  print "$fname(uint32_t base, const uint8_t *in, uint32_t value, int *found) {\n";
+
+  # optimized path for 32bit
+  if ($bits == 32) {
+    print "  uint32_t i;\n";
+    print "  uint32_t *in32 = (uint32_t *)in;\n";
+    print "  value -= base;\n";
+    print "  for (i = 0; i < $block; i++) {\n";
+    print "    if (in32[i] == value) {\n";
+    print "      *found = i;\n";
+    print "      return 0;\n";
+    print "    }\n";
+    print "  }\n";
+    print "  return $block * sizeof(uint32_t);\n";
+    print "}\n\n";
+    return;
+  }
+
+  print "  $type tmp, tmp2;\n";
+  print "  value -= base;\n";
+  print "  (void)tmp2;\n";
+
+  my $i = 0;
+  my $j = 0;
+
+  while (1) {
+    my $b = 0;
+    while ($b < $bits_per_word and $i < $block) {
+      if ($inittmp != 0) {
+        print "  tmp = *($type *)in;\n";
+        $consumed = consume($consumed, $bits_per_word / 8);
+        $inittmp = 0;
+      }
+
+      # new value fits into the current word?
+      if ($b + $bits <= $bits_per_word) {
+        print "  if (((tmp >> $b) & $mask) == value) {\n";
+        print "    *found = $j;\n";
+        print "    return $j;\n";
+        print "  }\n";
+        $b += $bits;
+      }
+      # if not then decode at a word boundary
+      else {
+        print "  tmp2 = tmp >> $b;\n";
+        print "  in += sizeof($type);\n";
+        $consumed = consume($consumed, $bits_per_word / 8);
+        my $d = ($b + $bits) - 32;
+        print "  tmp = *($type *)in;\n";
+        print "  if ((tmp2 | (tmp % (1U << $d)) << ($bits - $d)) == value) {\n";
+        print "    *found = $j;\n";
+        print "    return $j;\n";
+        print "  }\n";
+        $b = $d;
+      }
+      $j++;
+      $i++;
+    }
+
+    # move to next block
+    if ($i < $block) {
+      print "  in += sizeof($type);\n";
+      $inittmp = 1;
+    }
+    # or reached the end?
+    else {
+      use integer; # force integer division
+      my $remaining = $bits_per_word - $b;
+      print "  /* remaining: $remaining bits */\n";
+      $consumed -= $remaining / 8;
+      print "  return ($consumed);\n";
+      last;
+    }
+  }
+  print "}\n\n";
+}
+
+sub generate_linsearch
+{
+  my $bits = shift;
+  my $block = shift;
+
+  my $fname = "linsearch$bits" . '_' . $block;
+
+  generate_linsearch_impl($fname, 'uint32_t', 32, $bits, $block);
+}
+
+sub generate_linsearchx
+{
+  my $fname = shift;
+  my $type = shift;
+  my $bits_per_word = shift;
+  my $bits = shift;
+  my $block = 8;
+
+  my $mask = bitmask($bits);
+
+  my $inittmp = 1;
+
+  print "static uint32_t\n";
+  print "$fname(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value, int *found) {\n";
+  print "  $type tmp, tmp2;\n";
+  print "  (void)tmp2;\n";
+  print "  if (length == 0)\n";
+  print "    return 0;\n";
+  print "  value -= base;\n";
+
+  my $i = 0;
+  my $j = 0;
+
+  while (1) {
+    my $b = 0;
+    while ($b < $bits_per_word and $i < $block) {
+      if ($inittmp != 0) {
+        print "  tmp = *($type *)in;\n";
+        $inittmp = 0;
+      }
+
+      # new value fits into the current word?
+      if ($b + $bits <= $bits_per_word) {
+        print "  if (value == ((tmp >> $b) & $mask)) {\n";
+        print "    *found = $j;\n";
+        print "    return $j;\n";
+        print "  }\n";
+        $b += $bits;
+      }
+      # if not then decode at a word boundary
+      else {
+        print "  tmp2 = tmp >> $b;\n";
+        print "  in += sizeof($type);\n";
+        my $d = ($b + $bits) - 32;
+        print "  tmp = *($type *)in;\n";
+        print "  if ((tmp2 | (tmp % (1U << $d)) << ($bits - $d)) == value) {\n";
+        print "    *found = $j;\n";
+        print "    return $j;\n";
+        print "  }\n";
+        $b = $d;
+      }
+
+      $j++;
+      $i++;
+
+      print "  if (length == $j)\n    goto bail;\n";
+    }
+
+    # move to next block
+    if ($i < $block) {
+      print "  in += sizeof($type);\n";
+      $inittmp = 1;
+    }
+    # or reached the end?
+    else {
+      print "bail:\n";
+      print "  return ((length * $bits) + 7) / 8;\n";
+      last;
+    }
+  }
+  print "}\n\n";
+}
+
 # print the prologue
 print <<EOL;
 /* This file was generated.
@@ -365,7 +539,7 @@ pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
   (void)base;
   (void)in;
   (void)out;
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -375,7 +549,7 @@ unpack0_n(uint32_t base, const uint8_t *in, uint32_t *out) {
   for (k = 0; k < 32; ++k) {
     out[k] = base;
   }
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -384,7 +558,7 @@ pack0_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   (void)in;
   (void)out;
   (void)length;
-  return (0);
+  return 0;
 }
 
 static uint32_t
@@ -394,7 +568,24 @@ unpack0_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
   for (k = 0; k < length; ++k) {
     out[k] = base;
   }
-  return (0);
+  return 0;
+}
+
+static uint32_t
+linsearch0_n(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value,
+                int *found) {
+  (void)in;
+  if (base == value && length > 0)
+    *found = 0;
+  return 0;
 }
 
 EOL
@@ -430,3 +621,28 @@ for (my $b = 1; $b <= 32; $b++) {
 
 generate_packer_array('pack', 'x', 'for_packxfunc_t');
 generate_packer_array('unpack', 'x', 'for_unpackxfunc_t');
+
+for (my $b = 1; $b <= 32; $b++) {
+  generate_linsearch($b, 32);
+}
+
+generate_packer_array('linsearch', 32, 'for_linsearchfunc_t');
+
+for (my $b = 1; $b <= 32; $b++) {
+  generate_linsearch($b, 16);
+}
+
+generate_packer_array('linsearch', 16, 'for_linsearchfunc_t');
+
+for (my $b = 1; $b <= 32; $b++) {
+  generate_linsearch($b, 8);
+}
+
+generate_packer_array('linsearch',  8, 'for_linsearchfunc_t');
+
+for (my $b = 1; $b <= 32; $b++) {
+  generate_linsearchx("linsearch$b" . '_x', 'uint32_t', 32, $b);
+}
+
+generate_packer_array('linsearch', 'x', 'for_linsearchxfunc_t');
+
