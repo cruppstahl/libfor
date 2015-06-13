@@ -34,3 +34,8 @@ perf.data
 
 # Debug files
 *.dSYM/
+Debug
+Release
+*.filters
+*.suo
+*sdf

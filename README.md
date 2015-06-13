@@ -1,8 +1,9 @@
 libfor - Fast C Library for Frame of Reference Integer Compression
 ======================
 
-As the name suggests, this is a C/C++ library with a fast scalar (non-SIMD)
-implementation for Frame of Reference (FOR) integer compression.
+An ANSI C library with a fast scalar (non-SIMD) implementation for
+Frame of Reference (FOR) integer compression. It works on Linux,
+Microsoft Windows and most likely all other sane systems.
 
 FOR can compress sorted and unsorted integer sequences.
 

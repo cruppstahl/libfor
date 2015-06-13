@@ -18,26 +18,48 @@
 #include <assert.h>
 #include <string.h> /* for memcpy */
 
-typedef uint32_t (*for_unpackfunc_t) (uint32_t, const uint8_t *, uint32_t *);
-typedef uint32_t (*for_packfunc_t)   (uint32_t, const uint32_t *, uint8_t *);
-typedef uint32_t (*for_unpackxfunc_t) (uint32_t, const uint8_t *, uint32_t *,
-                        uint32_t);
-typedef uint32_t (*for_packxfunc_t)   (uint32_t, const uint32_t *, uint8_t *,
-                        uint32_t);
-typedef uint32_t (*for_linsearchfunc_t)(uint32_t, const uint8_t *, uint32_t,
-                        int *);
-typedef uint32_t (*for_linsearchxfunc_t)(uint32_t, const uint8_t *, uint32_t,
-                        uint32_t, int *);
+#if defined(_MSC_VER) && _MSC_VER < 1600
+typedef unsigned int uint32_t;
+typedef unsigned char uint8_t;
+typedef signed char int8_t;
+#else
+#  include <stdint.h>
+#endif
+
+#define METADATA 5  /* size of metadata overhead */
+
+#ifdef _MSC_VER
+#  define INLINE __inline
+#  include <intrin.h>
+
+uint32_t __inline CLZ(uint32_t value) {
+  uint32_t leading_zero = 0;
+  _BitScanReverse(&leading_zero, value);
+  return 31 - leading_zero;
+}
+#else
+#  define INLINE inline
+#  define CLZ __builtin_clz
+#endif
+
+typedef uint32_t(*for_unpackfunc_t) (uint32_t, const uint8_t *, uint32_t *);
+typedef uint32_t(*for_packfunc_t)   (uint32_t, const uint32_t *, uint8_t *);
+typedef uint32_t(*for_unpackxfunc_t) (uint32_t, const uint8_t *, uint32_t *,
+	uint32_t);
+typedef uint32_t(*for_packxfunc_t)   (uint32_t, const uint32_t *, uint8_t *,
+	uint32_t);
+typedef uint32_t(*for_linsearchfunc_t)(uint32_t, const uint8_t *, uint32_t,
+	int *);
+typedef uint32_t(*for_linsearchxfunc_t)(uint32_t, const uint8_t *, uint32_t,
+	uint32_t, int *);
 
 /* include the generated file */
 #include "for-gen.c"
 
-#define METADATA 5
-
-static inline uint32_t
+static INLINE uint32_t
 bits(const uint32_t v)
 {
-  return v == 0 ? 0 : 32 - __builtin_clz(v);
+  return v == 0 ? 0 : 32 - CLZ(v);
 }
 
 uint32_t
