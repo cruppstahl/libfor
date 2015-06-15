@@ -84,9 +84,11 @@ highlevel_sorted(uint32_t length)
   for (i = 0; i < length; i++)
     in[i] = 33 + i;
 
-  s1 = for_compress_sorted(in, out, length);
-  s2 = for_uncompress(out, tmp, length);
   s3 = for_compressed_size_sorted(in, length);
+  tmp[s3] = 'x';
+  s1 = for_compress_sorted(in, out, length);
+  VERIFY(tmp[s3] == 'x');
+  s2 = for_uncompress(out, tmp, length);
   VERIFY(s1 == s2);
   VERIFY(s2 == s3);
   VERIFY_ARRAY(in, tmp, length);
@@ -126,11 +128,13 @@ highlevel_unsorted(uint32_t length)
   for (i = 0; i < length; i++)
     in[i] = 7 + (rnd() - 7);
 
+  s3 = for_compressed_size_unsorted(in, length);
+  tmp[s3] = 'x';
   s1 = for_compress_unsorted(in, out, length);
   s2 = for_uncompress(out, tmp, length);
-  s3 = for_compressed_size_unsorted(in, length);
   VERIFY(s1 == s2);
   VERIFY(s2 == s3);
+  VERIFY(tmp[s3] == 'x');
   VERIFY_ARRAY(in, tmp, length);
 
   for (i = 0; i < length; i++)
