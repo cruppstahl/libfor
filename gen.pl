@@ -48,7 +48,7 @@ sub generate_pack_impl
     return;
   }
 
-  print "  $type tmp;\n";
+  print "  $type tmp, length;\n";
 
   my $i = 0;
   my $j = 0;
@@ -93,10 +93,11 @@ sub generate_pack_impl
     else {
       use integer; # force integer division
       print "  /* remaining: " . ($bits_per_word - $b) . " bits */\n";
+      print "  length = ($bits_per_word / 8) - ($bits_per_word - $b) / 8;\n";
       $consumed = consume($consumed,
                         ($bits_per_word / 8) - ($bits_per_word - $b) / 8);
-      print "  *($type *)out = tmp;\n";
-      print "  return ($consumed);\n";
+      print "  memcpy(out, &tmp, length);\n";
+      print "  return $consumed;\n";
       last;
     }
   }
@@ -214,7 +215,7 @@ sub generate_packx
 
   print "static uint32_t\n";
   print "$fname(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {\n";
-  print "  $type tmp;\n";
+  print "  $type tmp, remaining;\n";
   print "  if (length == 0)\n";
   print "    return 0;\n";
 
@@ -260,7 +261,9 @@ sub generate_packx
     # or reached the end?
     else {
       print "bail:\n";
-      print "  *($type *)out = tmp;\n";
+      print "  remaining = (((length * $bits) + 7) / 8) % 4;\n";
+      print "  if (remaining == 0) remaining = 4;\n";
+      print "  memcpy(out, &tmp, remaining);\n";
       print "  return ((length * $bits) + 7) / 8;\n";
       last;
     }

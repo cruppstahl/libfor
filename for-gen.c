@@ -59,7 +59,7 @@ linsearch0_x(uint32_t base, const uint8_t *in, uint32_t length, uint32_t value,
 
 static uint32_t
 pack1_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 1;
   tmp |= (*(in + 2) - base) << 2;
@@ -93,9 +93,10 @@ pack1_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 30;
   tmp |= (*(in + 31) - base) << 31;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 4) */
-  *(uint32_t *)out = tmp;
-  return (4);
+  memcpy(out, &tmp, length);
+  return 4;
 }
 
 static uint32_t
@@ -141,7 +142,7 @@ unpack1_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack2_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 2;
   tmp |= (*(in + 2) - base) << 4;
@@ -178,9 +179,10 @@ pack2_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 28;
   tmp |= (*(in + 31) - base) << 30;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 8) */
-  *(uint32_t *)out = tmp;
-  return (8);
+  memcpy(out, &tmp, length);
+  return 8;
 }
 
 static uint32_t
@@ -229,7 +231,7 @@ unpack2_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack3_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 3;
   tmp |= (*(in + 2) - base) << 6;
@@ -271,9 +273,10 @@ pack3_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 26;
   tmp |= (*(in + 31) - base) << 29;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 12) */
-  *(uint32_t *)out = tmp;
-  return (12);
+  memcpy(out, &tmp, length);
+  return 12;
 }
 
 static uint32_t
@@ -329,7 +332,7 @@ unpack3_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack4_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 4;
   tmp |= (*(in + 2) - base) << 8;
@@ -372,9 +375,10 @@ pack4_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 24;
   tmp |= (*(in + 31) - base) << 28;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 16) */
-  *(uint32_t *)out = tmp;
-  return (16);
+  memcpy(out, &tmp, length);
+  return 16;
 }
 
 static uint32_t
@@ -429,7 +433,7 @@ unpack4_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack5_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 5;
   tmp |= (*(in + 2) - base) << 10;
@@ -479,9 +483,10 @@ pack5_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 22;
   tmp |= (*(in + 31) - base) << 27;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 20) */
-  *(uint32_t *)out = tmp;
-  return (20);
+  memcpy(out, &tmp, length);
+  return 20;
 }
 
 static uint32_t
@@ -547,7 +552,7 @@ unpack5_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack6_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 6;
   tmp |= (*(in + 2) - base) << 12;
@@ -600,9 +605,10 @@ pack6_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 20;
   tmp |= (*(in + 31) - base) << 26;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 24) */
-  *(uint32_t *)out = tmp;
-  return (24);
+  memcpy(out, &tmp, length);
+  return 24;
 }
 
 static uint32_t
@@ -671,7 +677,7 @@ unpack6_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack7_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 7;
   tmp |= (*(in + 2) - base) << 14;
@@ -729,9 +735,10 @@ pack7_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 18;
   tmp |= (*(in + 31) - base) << 25;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 28) */
-  *(uint32_t *)out = tmp;
-  return (28);
+  memcpy(out, &tmp, length);
+  return 28;
 }
 
 static uint32_t
@@ -807,7 +814,7 @@ unpack7_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack8_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 8;
   tmp |= (*(in + 2) - base) << 16;
@@ -862,9 +869,10 @@ pack8_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 16;
   tmp |= (*(in + 31) - base) << 24;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 32) */
-  *(uint32_t *)out = tmp;
-  return (32);
+  memcpy(out, &tmp, length);
+  return 32;
 }
 
 static uint32_t
@@ -931,7 +939,7 @@ unpack8_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack9_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 9;
   tmp |= (*(in + 2) - base) << 18;
@@ -997,9 +1005,10 @@ pack9_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 14;
   tmp |= (*(in + 31) - base) << 23;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 36) */
-  *(uint32_t *)out = tmp;
-  return (36);
+  memcpy(out, &tmp, length);
+  return 36;
 }
 
 static uint32_t
@@ -1085,7 +1094,7 @@ unpack9_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack10_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 10;
   tmp |= (*(in + 2) - base) << 20;
@@ -1154,9 +1163,10 @@ pack10_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 12;
   tmp |= (*(in + 31) - base) << 22;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 40) */
-  *(uint32_t *)out = tmp;
-  return (40);
+  memcpy(out, &tmp, length);
+  return 40;
 }
 
 static uint32_t
@@ -1245,7 +1255,7 @@ unpack10_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack11_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 11;
   tmp |= (*(in + 2) - base) << 22;
@@ -1319,9 +1329,10 @@ pack11_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 10;
   tmp |= (*(in + 31) - base) << 21;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 44) */
-  *(uint32_t *)out = tmp;
-  return (44);
+  memcpy(out, &tmp, length);
+  return 44;
 }
 
 static uint32_t
@@ -1417,7 +1428,7 @@ unpack11_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack12_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 12;
   tmp |= (*(in + 2) - base) << 24;
@@ -1492,9 +1503,10 @@ pack12_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 8;
   tmp |= (*(in + 31) - base) << 20;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 48) */
-  *(uint32_t *)out = tmp;
-  return (48);
+  memcpy(out, &tmp, length);
+  return 48;
 }
 
 static uint32_t
@@ -1589,7 +1601,7 @@ unpack12_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack13_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 13;
   tmp |= (*(in + 2) - base) << 26;
@@ -1671,9 +1683,10 @@ pack13_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 6;
   tmp |= (*(in + 31) - base) << 19;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 52) */
-  *(uint32_t *)out = tmp;
-  return (52);
+  memcpy(out, &tmp, length);
+  return 52;
 }
 
 static uint32_t
@@ -1779,7 +1792,7 @@ unpack13_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack14_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 14;
   tmp |= (*(in + 2) - base) << 28;
@@ -1864,9 +1877,10 @@ pack14_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 4;
   tmp |= (*(in + 31) - base) << 18;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 56) */
-  *(uint32_t *)out = tmp;
-  return (56);
+  memcpy(out, &tmp, length);
+  return 56;
 }
 
 static uint32_t
@@ -1975,7 +1989,7 @@ unpack14_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack15_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 15;
   tmp |= (*(in + 2) - base) << 30;
@@ -2065,9 +2079,10 @@ pack15_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 30) - base) << 2;
   tmp |= (*(in + 31) - base) << 17;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 60) */
-  *(uint32_t *)out = tmp;
-  return (60);
+  memcpy(out, &tmp, length);
+  return 60;
 }
 
 static uint32_t
@@ -2183,7 +2198,7 @@ unpack15_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack16_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 16;
   *(uint32_t *)out = tmp;
@@ -2262,9 +2277,10 @@ pack16_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) << 0;
   tmp |= (*(in + 31) - base) << 16;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 64) */
-  *(uint32_t *)out = tmp;
-  return (64);
+  memcpy(out, &tmp, length);
+  return 64;
 }
 
 static uint32_t
@@ -2355,7 +2371,7 @@ unpack16_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack17_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 17;
   *(uint32_t *)out = tmp;
@@ -2453,9 +2469,10 @@ pack17_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (17 - 15);
   tmp |= (*(in + 31) - base) << 15;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 68) */
-  *(uint32_t *)out = tmp;
-  return (68);
+  memcpy(out, &tmp, length);
+  return 68;
 }
 
 static uint32_t
@@ -2581,7 +2598,7 @@ unpack17_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack18_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 18;
   *(uint32_t *)out = tmp;
@@ -2682,9 +2699,10 @@ pack18_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (18 - 14);
   tmp |= (*(in + 31) - base) << 14;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 72) */
-  *(uint32_t *)out = tmp;
-  return (72);
+  memcpy(out, &tmp, length);
+  return 72;
 }
 
 static uint32_t
@@ -2813,7 +2831,7 @@ unpack18_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack19_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 19;
   *(uint32_t *)out = tmp;
@@ -2919,9 +2937,10 @@ pack19_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (19 - 13);
   tmp |= (*(in + 31) - base) << 13;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 76) */
-  *(uint32_t *)out = tmp;
-  return (76);
+  memcpy(out, &tmp, length);
+  return 76;
 }
 
 static uint32_t
@@ -3057,7 +3076,7 @@ unpack19_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack20_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 20;
   *(uint32_t *)out = tmp;
@@ -3164,9 +3183,10 @@ pack20_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (20 - 12);
   tmp |= (*(in + 31) - base) << 12;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 80) */
-  *(uint32_t *)out = tmp;
-  return (80);
+  memcpy(out, &tmp, length);
+  return 80;
 }
 
 static uint32_t
@@ -3301,7 +3321,7 @@ unpack20_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack21_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 21;
   *(uint32_t *)out = tmp;
@@ -3415,9 +3435,10 @@ pack21_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (21 - 11);
   tmp |= (*(in + 31) - base) << 11;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 84) */
-  *(uint32_t *)out = tmp;
-  return (84);
+  memcpy(out, &tmp, length);
+  return 84;
 }
 
 static uint32_t
@@ -3563,7 +3584,7 @@ unpack21_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack22_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 22;
   *(uint32_t *)out = tmp;
@@ -3680,9 +3701,10 @@ pack22_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (22 - 10);
   tmp |= (*(in + 31) - base) << 10;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 88) */
-  *(uint32_t *)out = tmp;
-  return (88);
+  memcpy(out, &tmp, length);
+  return 88;
 }
 
 static uint32_t
@@ -3831,7 +3853,7 @@ unpack22_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack23_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 23;
   *(uint32_t *)out = tmp;
@@ -3953,9 +3975,10 @@ pack23_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (23 - 9);
   tmp |= (*(in + 31) - base) << 9;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 92) */
-  *(uint32_t *)out = tmp;
-  return (92);
+  memcpy(out, &tmp, length);
+  return 92;
 }
 
 static uint32_t
@@ -4111,7 +4134,7 @@ unpack23_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack24_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 24;
   *(uint32_t *)out = tmp;
@@ -4230,9 +4253,10 @@ pack24_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (24 - 8);
   tmp |= (*(in + 31) - base) << 8;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 96) */
-  *(uint32_t *)out = tmp;
-  return (96);
+  memcpy(out, &tmp, length);
+  return 96;
 }
 
 static uint32_t
@@ -4379,7 +4403,7 @@ unpack24_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack25_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 25;
   *(uint32_t *)out = tmp;
@@ -4509,9 +4533,10 @@ pack25_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (25 - 7);
   tmp |= (*(in + 31) - base) << 7;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 100) */
-  *(uint32_t *)out = tmp;
-  return (100);
+  memcpy(out, &tmp, length);
+  return 100;
 }
 
 static uint32_t
@@ -4677,7 +4702,7 @@ unpack25_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack26_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 26;
   *(uint32_t *)out = tmp;
@@ -4810,9 +4835,10 @@ pack26_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (26 - 6);
   tmp |= (*(in + 31) - base) << 6;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 104) */
-  *(uint32_t *)out = tmp;
-  return (104);
+  memcpy(out, &tmp, length);
+  return 104;
 }
 
 static uint32_t
@@ -4981,7 +5007,7 @@ unpack26_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack27_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 27;
   *(uint32_t *)out = tmp;
@@ -5119,9 +5145,10 @@ pack27_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (27 - 5);
   tmp |= (*(in + 31) - base) << 5;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 108) */
-  *(uint32_t *)out = tmp;
-  return (108);
+  memcpy(out, &tmp, length);
+  return 108;
 }
 
 static uint32_t
@@ -5297,7 +5324,7 @@ unpack27_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack28_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 28;
   *(uint32_t *)out = tmp;
@@ -5436,9 +5463,10 @@ pack28_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (28 - 4);
   tmp |= (*(in + 31) - base) << 4;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 112) */
-  *(uint32_t *)out = tmp;
-  return (112);
+  memcpy(out, &tmp, length);
+  return 112;
 }
 
 static uint32_t
@@ -5613,7 +5641,7 @@ unpack28_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack29_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 29;
   *(uint32_t *)out = tmp;
@@ -5759,9 +5787,10 @@ pack29_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (29 - 3);
   tmp |= (*(in + 31) - base) << 3;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 116) */
-  *(uint32_t *)out = tmp;
-  return (116);
+  memcpy(out, &tmp, length);
+  return 116;
 }
 
 static uint32_t
@@ -5947,7 +5976,7 @@ unpack29_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack30_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 30;
   *(uint32_t *)out = tmp;
@@ -6096,9 +6125,10 @@ pack30_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (30 - 2);
   tmp |= (*(in + 31) - base) << 2;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 120) */
-  *(uint32_t *)out = tmp;
-  return (120);
+  memcpy(out, &tmp, length);
+  return 120;
 }
 
 static uint32_t
@@ -6287,7 +6317,7 @@ unpack30_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack31_32(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 31;
   *(uint32_t *)out = tmp;
@@ -6441,9 +6471,10 @@ pack31_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 30) - base) >> (31 - 1);
   tmp |= (*(in + 31) - base) << 1;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 124) */
-  *(uint32_t *)out = tmp;
-  return (124);
+  memcpy(out, &tmp, length);
+  return 124;
 }
 
 static uint32_t
@@ -6729,7 +6760,7 @@ for_unpackfunc_t for_unpack32[33] = {
 
 static uint32_t
 pack1_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 1;
   tmp |= (*(in + 2) - base) << 2;
@@ -6747,9 +6778,10 @@ pack1_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 14;
   tmp |= (*(in + 15) - base) << 15;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 2) */
-  *(uint32_t *)out = tmp;
-  return (2);
+  memcpy(out, &tmp, length);
+  return 2;
 }
 
 static uint32_t
@@ -6779,7 +6811,7 @@ unpack1_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack2_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 2;
   tmp |= (*(in + 2) - base) << 4;
@@ -6797,9 +6829,10 @@ pack2_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 28;
   tmp |= (*(in + 15) - base) << 30;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 4) */
-  *(uint32_t *)out = tmp;
-  return (4);
+  memcpy(out, &tmp, length);
+  return 4;
 }
 
 static uint32_t
@@ -6829,7 +6862,7 @@ unpack2_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack3_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 3;
   tmp |= (*(in + 2) - base) << 6;
@@ -6851,9 +6884,10 @@ pack3_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 10;
   tmp |= (*(in + 15) - base) << 13;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 6) */
-  *(uint32_t *)out = tmp;
-  return (6);
+  memcpy(out, &tmp, length);
+  return 6;
 }
 
 static uint32_t
@@ -6888,7 +6922,7 @@ unpack3_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack4_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 4;
   tmp |= (*(in + 2) - base) << 8;
@@ -6909,9 +6943,10 @@ pack4_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 24;
   tmp |= (*(in + 15) - base) << 28;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 8) */
-  *(uint32_t *)out = tmp;
-  return (8);
+  memcpy(out, &tmp, length);
+  return 8;
 }
 
 static uint32_t
@@ -6944,7 +6979,7 @@ unpack4_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack5_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 5;
   tmp |= (*(in + 2) - base) << 10;
@@ -6970,9 +7005,10 @@ pack5_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 6;
   tmp |= (*(in + 15) - base) << 11;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 10) */
-  *(uint32_t *)out = tmp;
-  return (10);
+  memcpy(out, &tmp, length);
+  return 10;
 }
 
 static uint32_t
@@ -7012,7 +7048,7 @@ unpack5_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack6_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 6;
   tmp |= (*(in + 2) - base) << 12;
@@ -7038,9 +7074,10 @@ pack6_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 20;
   tmp |= (*(in + 15) - base) << 26;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 12) */
-  *(uint32_t *)out = tmp;
-  return (12);
+  memcpy(out, &tmp, length);
+  return 12;
 }
 
 static uint32_t
@@ -7080,7 +7117,7 @@ unpack6_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack7_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 7;
   tmp |= (*(in + 2) - base) << 14;
@@ -7110,9 +7147,10 @@ pack7_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 2;
   tmp |= (*(in + 15) - base) << 9;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 14) */
-  *(uint32_t *)out = tmp;
-  return (14);
+  memcpy(out, &tmp, length);
+  return 14;
 }
 
 static uint32_t
@@ -7157,7 +7195,7 @@ unpack7_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack8_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 8;
   tmp |= (*(in + 2) - base) << 16;
@@ -7184,9 +7222,10 @@ pack8_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 16;
   tmp |= (*(in + 15) - base) << 24;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 16) */
-  *(uint32_t *)out = tmp;
-  return (16);
+  memcpy(out, &tmp, length);
+  return 16;
 }
 
 static uint32_t
@@ -7225,7 +7264,7 @@ unpack8_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack9_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 9;
   tmp |= (*(in + 2) - base) << 18;
@@ -7259,9 +7298,10 @@ pack9_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (9 - 7);
   tmp |= (*(in + 15) - base) << 7;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 18) */
-  *(uint32_t *)out = tmp;
-  return (18);
+  memcpy(out, &tmp, length);
+  return 18;
 }
 
 static uint32_t
@@ -7311,7 +7351,7 @@ unpack9_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack10_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 10;
   tmp |= (*(in + 2) - base) << 20;
@@ -7345,9 +7385,10 @@ pack10_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 12;
   tmp |= (*(in + 15) - base) << 22;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 20) */
-  *(uint32_t *)out = tmp;
-  return (20);
+  memcpy(out, &tmp, length);
+  return 20;
 }
 
 static uint32_t
@@ -7397,7 +7438,7 @@ unpack10_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack11_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 11;
   tmp |= (*(in + 2) - base) << 22;
@@ -7435,9 +7476,10 @@ pack11_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (11 - 5);
   tmp |= (*(in + 15) - base) << 5;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 22) */
-  *(uint32_t *)out = tmp;
-  return (22);
+  memcpy(out, &tmp, length);
+  return 22;
 }
 
 static uint32_t
@@ -7492,7 +7534,7 @@ unpack11_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack12_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 12;
   tmp |= (*(in + 2) - base) << 24;
@@ -7529,9 +7571,10 @@ pack12_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 8;
   tmp |= (*(in + 15) - base) << 20;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 24) */
-  *(uint32_t *)out = tmp;
-  return (24);
+  memcpy(out, &tmp, length);
+  return 24;
 }
 
 static uint32_t
@@ -7584,7 +7627,7 @@ unpack12_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack13_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 13;
   tmp |= (*(in + 2) - base) << 26;
@@ -7626,9 +7669,10 @@ pack13_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (13 - 3);
   tmp |= (*(in + 15) - base) << 3;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 26) */
-  *(uint32_t *)out = tmp;
-  return (26);
+  memcpy(out, &tmp, length);
+  return 26;
 }
 
 static uint32_t
@@ -7688,7 +7732,7 @@ unpack13_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack14_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 14;
   tmp |= (*(in + 2) - base) << 28;
@@ -7730,9 +7774,10 @@ pack14_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 14) - base) << 4;
   tmp |= (*(in + 15) - base) << 18;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 28) */
-  *(uint32_t *)out = tmp;
-  return (28);
+  memcpy(out, &tmp, length);
+  return 28;
 }
 
 static uint32_t
@@ -7792,7 +7837,7 @@ unpack14_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack15_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 15;
   tmp |= (*(in + 2) - base) << 30;
@@ -7838,9 +7883,10 @@ pack15_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (15 - 1);
   tmp |= (*(in + 15) - base) << 1;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 30) */
-  *(uint32_t *)out = tmp;
-  return (30);
+  memcpy(out, &tmp, length);
+  return 30;
 }
 
 static uint32_t
@@ -7905,7 +7951,7 @@ unpack15_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack16_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 16;
   *(uint32_t *)out = tmp;
@@ -7944,9 +7990,10 @@ pack16_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) << 0;
   tmp |= (*(in + 15) - base) << 16;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 32) */
-  *(uint32_t *)out = tmp;
-  return (32);
+  memcpy(out, &tmp, length);
+  return 32;
 }
 
 static uint32_t
@@ -7997,7 +8044,7 @@ unpack16_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack17_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 17;
   *(uint32_t *)out = tmp;
@@ -8047,9 +8094,10 @@ pack17_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 32) */
   tmp  = (*(in + 15) - base) >> (17 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 34) */
-  *(uint32_t *)out = tmp;
-  return (34);
+  memcpy(out, &tmp, length);
+  return 34;
 }
 
 static uint32_t
@@ -8119,7 +8167,7 @@ unpack17_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack18_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 18;
   *(uint32_t *)out = tmp;
@@ -8169,9 +8217,10 @@ pack18_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (18 - 14);
   tmp |= (*(in + 15) - base) << 14;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 36) */
-  *(uint32_t *)out = tmp;
-  return (36);
+  memcpy(out, &tmp, length);
+  return 36;
 }
 
 static uint32_t
@@ -8241,7 +8290,7 @@ unpack18_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack19_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 19;
   *(uint32_t *)out = tmp;
@@ -8295,9 +8344,10 @@ pack19_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 36) */
   tmp  = (*(in + 15) - base) >> (19 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 38) */
-  *(uint32_t *)out = tmp;
-  return (38);
+  memcpy(out, &tmp, length);
+  return 38;
 }
 
 static uint32_t
@@ -8372,7 +8422,7 @@ unpack19_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack20_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 20;
   *(uint32_t *)out = tmp;
@@ -8425,9 +8475,10 @@ pack20_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (20 - 12);
   tmp |= (*(in + 15) - base) << 12;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 40) */
-  *(uint32_t *)out = tmp;
-  return (40);
+  memcpy(out, &tmp, length);
+  return 40;
 }
 
 static uint32_t
@@ -8500,7 +8551,7 @@ unpack20_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack21_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 21;
   *(uint32_t *)out = tmp;
@@ -8558,9 +8609,10 @@ pack21_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 40) */
   tmp  = (*(in + 15) - base) >> (21 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 42) */
-  *(uint32_t *)out = tmp;
-  return (42);
+  memcpy(out, &tmp, length);
+  return 42;
 }
 
 static uint32_t
@@ -8640,7 +8692,7 @@ unpack21_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack22_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 22;
   *(uint32_t *)out = tmp;
@@ -8698,9 +8750,10 @@ pack22_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (22 - 10);
   tmp |= (*(in + 15) - base) << 10;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 44) */
-  *(uint32_t *)out = tmp;
-  return (44);
+  memcpy(out, &tmp, length);
+  return 44;
 }
 
 static uint32_t
@@ -8780,7 +8833,7 @@ unpack22_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack23_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 23;
   *(uint32_t *)out = tmp;
@@ -8842,9 +8895,10 @@ pack23_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 44) */
   tmp  = (*(in + 15) - base) >> (23 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 46) */
-  *(uint32_t *)out = tmp;
-  return (46);
+  memcpy(out, &tmp, length);
+  return 46;
 }
 
 static uint32_t
@@ -8929,7 +8983,7 @@ unpack23_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack24_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 24;
   *(uint32_t *)out = tmp;
@@ -8988,9 +9042,10 @@ pack24_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (24 - 8);
   tmp |= (*(in + 15) - base) << 8;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 48) */
-  *(uint32_t *)out = tmp;
-  return (48);
+  memcpy(out, &tmp, length);
+  return 48;
 }
 
 static uint32_t
@@ -9069,7 +9124,7 @@ unpack24_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack25_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 25;
   *(uint32_t *)out = tmp;
@@ -9135,9 +9190,10 @@ pack25_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 48) */
   tmp  = (*(in + 15) - base) >> (25 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 50) */
-  *(uint32_t *)out = tmp;
-  return (50);
+  memcpy(out, &tmp, length);
+  return 50;
 }
 
 static uint32_t
@@ -9227,7 +9283,7 @@ unpack25_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack26_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 26;
   *(uint32_t *)out = tmp;
@@ -9293,9 +9349,10 @@ pack26_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (26 - 6);
   tmp |= (*(in + 15) - base) << 6;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 52) */
-  *(uint32_t *)out = tmp;
-  return (52);
+  memcpy(out, &tmp, length);
+  return 52;
 }
 
 static uint32_t
@@ -9385,7 +9442,7 @@ unpack26_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack27_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 27;
   *(uint32_t *)out = tmp;
@@ -9455,9 +9512,10 @@ pack27_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 52) */
   tmp  = (*(in + 15) - base) >> (27 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 54) */
-  *(uint32_t *)out = tmp;
-  return (54);
+  memcpy(out, &tmp, length);
+  return 54;
 }
 
 static uint32_t
@@ -9552,7 +9610,7 @@ unpack27_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack28_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 28;
   *(uint32_t *)out = tmp;
@@ -9621,9 +9679,10 @@ pack28_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (28 - 4);
   tmp |= (*(in + 15) - base) << 4;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 56) */
-  *(uint32_t *)out = tmp;
-  return (56);
+  memcpy(out, &tmp, length);
+  return 56;
 }
 
 static uint32_t
@@ -9716,7 +9775,7 @@ unpack28_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack29_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 29;
   *(uint32_t *)out = tmp;
@@ -9790,9 +9849,10 @@ pack29_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 56) */
   tmp  = (*(in + 15) - base) >> (29 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 58) */
-  *(uint32_t *)out = tmp;
-  return (58);
+  memcpy(out, &tmp, length);
+  return 58;
 }
 
 static uint32_t
@@ -9892,7 +9952,7 @@ unpack29_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack30_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 30;
   *(uint32_t *)out = tmp;
@@ -9966,9 +10026,10 @@ pack30_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 14) - base) >> (30 - 2);
   tmp |= (*(in + 15) - base) << 2;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 60) */
-  *(uint32_t *)out = tmp;
-  return (60);
+  memcpy(out, &tmp, length);
+  return 60;
 }
 
 static uint32_t
@@ -10068,7 +10129,7 @@ unpack30_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack31_16(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 31;
   *(uint32_t *)out = tmp;
@@ -10146,9 +10207,10 @@ pack31_16(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 60) */
   tmp  = (*(in + 15) - base) >> (31 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 62) */
-  *(uint32_t *)out = tmp;
-  return (62);
+  memcpy(out, &tmp, length);
+  return 62;
 }
 
 static uint32_t
@@ -10343,7 +10405,7 @@ for_unpackfunc_t for_unpack16[33] = {
 
 static uint32_t
 pack1_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 1;
   tmp |= (*(in + 2) - base) << 2;
@@ -10353,9 +10415,10 @@ pack1_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 6;
   tmp |= (*(in + 7) - base) << 7;
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 1) */
-  *(uint32_t *)out = tmp;
-  return (1);
+  memcpy(out, &tmp, length);
+  return 1;
 }
 
 static uint32_t
@@ -10377,7 +10440,7 @@ unpack1_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack2_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 2;
   tmp |= (*(in + 2) - base) << 4;
@@ -10387,9 +10450,10 @@ pack2_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 12;
   tmp |= (*(in + 7) - base) << 14;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 2) */
-  *(uint32_t *)out = tmp;
-  return (2);
+  memcpy(out, &tmp, length);
+  return 2;
 }
 
 static uint32_t
@@ -10411,7 +10475,7 @@ unpack2_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack3_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 3;
   tmp |= (*(in + 2) - base) << 6;
@@ -10421,9 +10485,10 @@ pack3_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 18;
   tmp |= (*(in + 7) - base) << 21;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 3) */
-  *(uint32_t *)out = tmp;
-  return (3);
+  memcpy(out, &tmp, length);
+  return 3;
 }
 
 static uint32_t
@@ -10445,7 +10510,7 @@ unpack3_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack4_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 4;
   tmp |= (*(in + 2) - base) << 8;
@@ -10455,9 +10520,10 @@ pack4_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 24;
   tmp |= (*(in + 7) - base) << 28;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 4) */
-  *(uint32_t *)out = tmp;
-  return (4);
+  memcpy(out, &tmp, length);
+  return 4;
 }
 
 static uint32_t
@@ -10479,7 +10545,7 @@ unpack4_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack5_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 5;
   tmp |= (*(in + 2) - base) << 10;
@@ -10493,9 +10559,10 @@ pack5_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (5 - 3);
   tmp |= (*(in + 7) - base) << 3;
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 5) */
-  *(uint32_t *)out = tmp;
-  return (5);
+  memcpy(out, &tmp, length);
+  return 5;
 }
 
 static uint32_t
@@ -10522,7 +10589,7 @@ unpack5_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack6_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 6;
   tmp |= (*(in + 2) - base) << 12;
@@ -10536,9 +10603,10 @@ pack6_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 4;
   tmp |= (*(in + 7) - base) << 10;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 6) */
-  *(uint32_t *)out = tmp;
-  return (6);
+  memcpy(out, &tmp, length);
+  return 6;
 }
 
 static uint32_t
@@ -10565,7 +10633,7 @@ unpack6_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack7_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 7;
   tmp |= (*(in + 2) - base) << 14;
@@ -10579,9 +10647,10 @@ pack7_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 10;
   tmp |= (*(in + 7) - base) << 17;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 7) */
-  *(uint32_t *)out = tmp;
-  return (7);
+  memcpy(out, &tmp, length);
+  return 7;
 }
 
 static uint32_t
@@ -10608,7 +10677,7 @@ unpack7_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack8_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 8;
   tmp |= (*(in + 2) - base) << 16;
@@ -10621,9 +10690,10 @@ pack8_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 16;
   tmp |= (*(in + 7) - base) << 24;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 8) */
-  *(uint32_t *)out = tmp;
-  return (8);
+  memcpy(out, &tmp, length);
+  return 8;
 }
 
 static uint32_t
@@ -10648,7 +10718,7 @@ unpack8_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack9_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 9;
   tmp |= (*(in + 2) - base) << 18;
@@ -10666,9 +10736,10 @@ pack9_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 8) */
   tmp  = (*(in + 7) - base) >> (9 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 9) */
-  *(uint32_t *)out = tmp;
-  return (9);
+  memcpy(out, &tmp, length);
+  return 9;
 }
 
 static uint32_t
@@ -10700,7 +10771,7 @@ unpack9_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack10_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 10;
   tmp |= (*(in + 2) - base) << 20;
@@ -10718,9 +10789,10 @@ pack10_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (10 - 6);
   tmp |= (*(in + 7) - base) << 6;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 10) */
-  *(uint32_t *)out = tmp;
-  return (10);
+  memcpy(out, &tmp, length);
+  return 10;
 }
 
 static uint32_t
@@ -10752,7 +10824,7 @@ unpack10_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack11_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 11;
   tmp |= (*(in + 2) - base) << 22;
@@ -10770,9 +10842,10 @@ pack11_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 2;
   tmp |= (*(in + 7) - base) << 13;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 11) */
-  *(uint32_t *)out = tmp;
-  return (11);
+  memcpy(out, &tmp, length);
+  return 11;
 }
 
 static uint32_t
@@ -10804,7 +10877,7 @@ unpack11_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack12_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 12;
   tmp |= (*(in + 2) - base) << 24;
@@ -10822,9 +10895,10 @@ pack12_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp |= (*(in + 6) - base) << 8;
   tmp |= (*(in + 7) - base) << 20;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 12) */
-  *(uint32_t *)out = tmp;
-  return (12);
+  memcpy(out, &tmp, length);
+  return 12;
 }
 
 static uint32_t
@@ -10856,7 +10930,7 @@ unpack12_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack13_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 13;
   tmp |= (*(in + 2) - base) << 26;
@@ -10878,9 +10952,10 @@ pack13_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 12) */
   tmp  = (*(in + 7) - base) >> (13 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 13) */
-  *(uint32_t *)out = tmp;
-  return (13);
+  memcpy(out, &tmp, length);
+  return 13;
 }
 
 static uint32_t
@@ -10917,7 +10992,7 @@ unpack13_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack14_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 14;
   tmp |= (*(in + 2) - base) << 28;
@@ -10939,9 +11014,10 @@ pack14_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (14 - 2);
   tmp |= (*(in + 7) - base) << 2;
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 14) */
-  *(uint32_t *)out = tmp;
-  return (14);
+  memcpy(out, &tmp, length);
+  return 14;
 }
 
 static uint32_t
@@ -10978,7 +11054,7 @@ unpack14_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack15_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 15;
   tmp |= (*(in + 2) - base) << 30;
@@ -11000,9 +11076,10 @@ pack15_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (15 - 9);
   tmp |= (*(in + 7) - base) << 9;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 15) */
-  *(uint32_t *)out = tmp;
-  return (15);
+  memcpy(out, &tmp, length);
+  return 15;
 }
 
 static uint32_t
@@ -11039,7 +11116,7 @@ unpack15_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack16_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 16;
   *(uint32_t *)out = tmp;
@@ -11058,9 +11135,10 @@ pack16_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) << 0;
   tmp |= (*(in + 7) - base) << 16;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 16) */
-  *(uint32_t *)out = tmp;
-  return (16);
+  memcpy(out, &tmp, length);
+  return 16;
 }
 
 static uint32_t
@@ -11091,7 +11169,7 @@ unpack16_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack17_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 17;
   *(uint32_t *)out = tmp;
@@ -11117,9 +11195,10 @@ pack17_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 16) */
   tmp  = (*(in + 7) - base) >> (17 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 17) */
-  *(uint32_t *)out = tmp;
-  return (17);
+  memcpy(out, &tmp, length);
+  return 17;
 }
 
 static uint32_t
@@ -11161,7 +11240,7 @@ unpack17_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack18_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 18;
   *(uint32_t *)out = tmp;
@@ -11187,9 +11266,10 @@ pack18_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 16) */
   tmp  = (*(in + 7) - base) >> (18 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 18) */
-  *(uint32_t *)out = tmp;
-  return (18);
+  memcpy(out, &tmp, length);
+  return 18;
 }
 
 static uint32_t
@@ -11231,7 +11311,7 @@ unpack18_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack19_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 19;
   *(uint32_t *)out = tmp;
@@ -11257,9 +11337,10 @@ pack19_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (19 - 5);
   tmp |= (*(in + 7) - base) << 5;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 19) */
-  *(uint32_t *)out = tmp;
-  return (19);
+  memcpy(out, &tmp, length);
+  return 19;
 }
 
 static uint32_t
@@ -11301,7 +11382,7 @@ unpack19_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack20_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 20;
   *(uint32_t *)out = tmp;
@@ -11327,9 +11408,10 @@ pack20_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (20 - 12);
   tmp |= (*(in + 7) - base) << 12;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 20) */
-  *(uint32_t *)out = tmp;
-  return (20);
+  memcpy(out, &tmp, length);
+  return 20;
 }
 
 static uint32_t
@@ -11371,7 +11453,7 @@ unpack20_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack21_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 21;
   *(uint32_t *)out = tmp;
@@ -11401,9 +11483,10 @@ pack21_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 20) */
   tmp  = (*(in + 7) - base) >> (21 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 21) */
-  *(uint32_t *)out = tmp;
-  return (21);
+  memcpy(out, &tmp, length);
+  return 21;
 }
 
 static uint32_t
@@ -11450,7 +11533,7 @@ unpack21_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack22_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 22;
   *(uint32_t *)out = tmp;
@@ -11480,9 +11563,10 @@ pack22_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 20) */
   tmp  = (*(in + 7) - base) >> (22 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 22) */
-  *(uint32_t *)out = tmp;
-  return (22);
+  memcpy(out, &tmp, length);
+  return 22;
 }
 
 static uint32_t
@@ -11529,7 +11613,7 @@ unpack22_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack23_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 23;
   *(uint32_t *)out = tmp;
@@ -11559,9 +11643,10 @@ pack23_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (23 - 1);
   tmp |= (*(in + 7) - base) << 1;
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 23) */
-  *(uint32_t *)out = tmp;
-  return (23);
+  memcpy(out, &tmp, length);
+  return 23;
 }
 
 static uint32_t
@@ -11608,7 +11693,7 @@ unpack23_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack24_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 24;
   *(uint32_t *)out = tmp;
@@ -11637,9 +11722,10 @@ pack24_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (24 - 8);
   tmp |= (*(in + 7) - base) << 8;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 24) */
-  *(uint32_t *)out = tmp;
-  return (24);
+  memcpy(out, &tmp, length);
+  return 24;
 }
 
 static uint32_t
@@ -11684,7 +11770,7 @@ unpack24_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack25_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 25;
   *(uint32_t *)out = tmp;
@@ -11718,9 +11804,10 @@ pack25_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 24) */
   tmp  = (*(in + 7) - base) >> (25 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 25) */
-  *(uint32_t *)out = tmp;
-  return (25);
+  memcpy(out, &tmp, length);
+  return 25;
 }
 
 static uint32_t
@@ -11772,7 +11859,7 @@ unpack25_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack26_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 26;
   *(uint32_t *)out = tmp;
@@ -11806,9 +11893,10 @@ pack26_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 24) */
   tmp  = (*(in + 7) - base) >> (26 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 26) */
-  *(uint32_t *)out = tmp;
-  return (26);
+  memcpy(out, &tmp, length);
+  return 26;
 }
 
 static uint32_t
@@ -11860,7 +11948,7 @@ unpack26_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack27_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 27;
   *(uint32_t *)out = tmp;
@@ -11894,9 +11982,10 @@ pack27_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 24) */
   tmp  = (*(in + 7) - base) >> (27 - 24);
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 27) */
-  *(uint32_t *)out = tmp;
-  return (27);
+  memcpy(out, &tmp, length);
+  return 27;
 }
 
 static uint32_t
@@ -11948,7 +12037,7 @@ unpack27_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack28_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 28;
   *(uint32_t *)out = tmp;
@@ -11982,9 +12071,10 @@ pack28_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   tmp  = (*(in + 6) - base) >> (28 - 4);
   tmp |= (*(in + 7) - base) << 4;
   /* remaining: 0 bits */
+  length = (32 / 8) - (32 - 32) / 8;
   /* consumed: 4 bytes (total: 28) */
-  *(uint32_t *)out = tmp;
-  return (28);
+  memcpy(out, &tmp, length);
+  return 28;
 }
 
 static uint32_t
@@ -12036,7 +12126,7 @@ unpack28_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack29_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 29;
   *(uint32_t *)out = tmp;
@@ -12074,9 +12164,10 @@ pack29_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 28) */
   tmp  = (*(in + 7) - base) >> (29 - 8);
   /* remaining: 24 bits */
+  length = (32 / 8) - (32 - 8) / 8;
   /* consumed: 1 bytes (total: 29) */
-  *(uint32_t *)out = tmp;
-  return (29);
+  memcpy(out, &tmp, length);
+  return 29;
 }
 
 static uint32_t
@@ -12133,7 +12224,7 @@ unpack29_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack30_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 30;
   *(uint32_t *)out = tmp;
@@ -12171,9 +12262,10 @@ pack30_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 28) */
   tmp  = (*(in + 7) - base) >> (30 - 16);
   /* remaining: 16 bits */
+  length = (32 / 8) - (32 - 16) / 8;
   /* consumed: 2 bytes (total: 30) */
-  *(uint32_t *)out = tmp;
-  return (30);
+  memcpy(out, &tmp, length);
+  return 30;
 }
 
 static uint32_t
@@ -12230,7 +12322,7 @@ unpack30_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 
 static uint32_t
 pack31_8(uint32_t base, const uint32_t *in, uint8_t *out) {
-  uint32_t tmp;
+  uint32_t tmp, length;
   tmp  = (*(in + 0) - base) << 0;
   tmp |= (*(in + 1) - base) << 31;
   *(uint32_t *)out = tmp;
@@ -12268,9 +12360,10 @@ pack31_8(uint32_t base, const uint32_t *in, uint8_t *out) {
   /* consumed: 4 bytes (total: 28) */
   tmp  = (*(in + 7) - base) >> (31 - 24);
   /* remaining: 8 bits */
+  length = (32 / 8) - (32 - 24) / 8;
   /* consumed: 3 bytes (total: 31) */
-  *(uint32_t *)out = tmp;
-  return (31);
+  memcpy(out, &tmp, length);
+  return 31;
 }
 
 static uint32_t
@@ -12417,7 +12510,7 @@ for_unpackfunc_t for_unpack8[33] = {
 
 static uint32_t
 pack1_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12445,7 +12538,9 @@ pack1_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 1) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 1) + 7) / 8;
 }
 
@@ -12485,7 +12580,7 @@ bail:
 
 static uint32_t
 pack2_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12513,7 +12608,9 @@ pack2_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 2) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 2) + 7) / 8;
 }
 
@@ -12553,7 +12650,7 @@ bail:
 
 static uint32_t
 pack3_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12581,7 +12678,9 @@ pack3_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 3) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 3) + 7) / 8;
 }
 
@@ -12621,7 +12720,7 @@ bail:
 
 static uint32_t
 pack4_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12649,7 +12748,9 @@ pack4_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 4) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 4) + 7) / 8;
 }
 
@@ -12689,7 +12790,7 @@ bail:
 
 static uint32_t
 pack5_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12720,7 +12821,9 @@ pack5_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 5) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 5) + 7) / 8;
 }
 
@@ -12764,7 +12867,7 @@ bail:
 
 static uint32_t
 pack6_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12795,7 +12898,9 @@ pack6_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 6) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 6) + 7) / 8;
 }
 
@@ -12839,7 +12944,7 @@ bail:
 
 static uint32_t
 pack7_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12870,7 +12975,9 @@ pack7_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 7) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 7) + 7) / 8;
 }
 
@@ -12914,7 +13021,7 @@ bail:
 
 static uint32_t
 pack8_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -12944,7 +13051,9 @@ pack8_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 8) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 8) + 7) / 8;
 }
 
@@ -12986,7 +13095,7 @@ bail:
 
 static uint32_t
 pack9_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13020,7 +13129,9 @@ pack9_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 9) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 9) + 7) / 8;
 }
 
@@ -13068,7 +13179,7 @@ bail:
 
 static uint32_t
 pack10_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13102,7 +13213,9 @@ pack10_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 10) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 10) + 7) / 8;
 }
 
@@ -13150,7 +13263,7 @@ bail:
 
 static uint32_t
 pack11_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13184,7 +13297,9 @@ pack11_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 11) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 11) + 7) / 8;
 }
 
@@ -13232,7 +13347,7 @@ bail:
 
 static uint32_t
 pack12_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13266,7 +13381,9 @@ pack12_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 12) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 12) + 7) / 8;
 }
 
@@ -13314,7 +13431,7 @@ bail:
 
 static uint32_t
 pack13_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13351,7 +13468,9 @@ pack13_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 13) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 13) + 7) / 8;
 }
 
@@ -13403,7 +13522,7 @@ bail:
 
 static uint32_t
 pack14_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13440,7 +13559,9 @@ pack14_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 14) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 14) + 7) / 8;
 }
 
@@ -13492,7 +13613,7 @@ bail:
 
 static uint32_t
 pack15_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13529,7 +13650,9 @@ pack15_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 15) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 15) + 7) / 8;
 }
 
@@ -13581,7 +13704,7 @@ bail:
 
 static uint32_t
 pack16_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13615,7 +13738,9 @@ pack16_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 16) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 16) + 7) / 8;
 }
 
@@ -13661,7 +13786,7 @@ bail:
 
 static uint32_t
 pack17_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13701,7 +13826,9 @@ pack17_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 17) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 17) + 7) / 8;
 }
 
@@ -13757,7 +13884,7 @@ bail:
 
 static uint32_t
 pack18_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13797,7 +13924,9 @@ pack18_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 18) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 18) + 7) / 8;
 }
 
@@ -13853,7 +13982,7 @@ bail:
 
 static uint32_t
 pack19_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13893,7 +14022,9 @@ pack19_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 19) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 19) + 7) / 8;
 }
 
@@ -13949,7 +14080,7 @@ bail:
 
 static uint32_t
 pack20_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -13989,7 +14120,9 @@ pack20_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 20) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 20) + 7) / 8;
 }
 
@@ -14045,7 +14178,7 @@ bail:
 
 static uint32_t
 pack21_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14088,7 +14221,9 @@ pack21_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 21) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 21) + 7) / 8;
 }
 
@@ -14148,7 +14283,7 @@ bail:
 
 static uint32_t
 pack22_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14191,7 +14326,9 @@ pack22_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 22) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 22) + 7) / 8;
 }
 
@@ -14251,7 +14388,7 @@ bail:
 
 static uint32_t
 pack23_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14294,7 +14431,9 @@ pack23_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 23) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 23) + 7) / 8;
 }
 
@@ -14354,7 +14493,7 @@ bail:
 
 static uint32_t
 pack24_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14396,7 +14535,9 @@ pack24_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 24) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 24) + 7) / 8;
 }
 
@@ -14454,7 +14595,7 @@ bail:
 
 static uint32_t
 pack25_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14500,7 +14641,9 @@ pack25_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 25) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 25) + 7) / 8;
 }
 
@@ -14564,7 +14707,7 @@ bail:
 
 static uint32_t
 pack26_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14610,7 +14753,9 @@ pack26_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 26) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 26) + 7) / 8;
 }
 
@@ -14674,7 +14819,7 @@ bail:
 
 static uint32_t
 pack27_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14720,7 +14865,9 @@ pack27_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 27) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 27) + 7) / 8;
 }
 
@@ -14784,7 +14931,7 @@ bail:
 
 static uint32_t
 pack28_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14830,7 +14977,9 @@ pack28_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 28) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 28) + 7) / 8;
 }
 
@@ -14894,7 +15043,7 @@ bail:
 
 static uint32_t
 pack29_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -14943,7 +15092,9 @@ pack29_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 29) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 29) + 7) / 8;
 }
 
@@ -15011,7 +15162,7 @@ bail:
 
 static uint32_t
 pack30_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -15060,7 +15211,9 @@ pack30_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 30) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 30) + 7) / 8;
 }
 
@@ -15128,7 +15281,7 @@ bail:
 
 static uint32_t
 pack31_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -15177,7 +15330,9 @@ pack31_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 31) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 31) + 7) / 8;
 }
 
@@ -15245,7 +15400,7 @@ bail:
 
 static uint32_t
 pack32_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
-  uint32_t tmp;
+  uint32_t tmp, remaining;
   if (length == 0)
     return 0;
   tmp  = (*(in + 0) - base) << 0;
@@ -15287,7 +15442,9 @@ pack32_x(uint32_t base, const uint32_t *in, uint8_t *out, uint32_t length) {
   if (length == 8)
     goto bail;
 bail:
-  *(uint32_t *)out = tmp;
+  remaining = (((length * 32) + 7) / 8) % 4;
+  if (remaining == 0) remaining = 4;
+  memcpy(out, &tmp, remaining);
   return ((length * 32) + 7) / 8;
 }
 

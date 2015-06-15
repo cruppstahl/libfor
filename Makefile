@@ -31,6 +31,9 @@ for.o: for.h for.c for-gen.c
 for: $(HEADERS) for.o
 	ar rvs libfor.a for.o
 
+gen: gen.pl
+	perl gen.pl > for-gen.c
+
 test: for $(HEADERS) test.c $(OBJECTS)
 	$(CC) $(CFLAGS) -o test test.c $(OBJECTS) libfor.a
 
