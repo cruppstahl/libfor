@@ -122,9 +122,6 @@ sub generate_unpack_impl
   my $bits = shift;
   my $block = shift;
 
-  my $consumed = 0;
-  my $inittmp = 1;
-
   my $mask = bitmask($bits);
 
   print "static uint32_t\n";
@@ -141,7 +138,9 @@ sub generate_unpack_impl
     return;
   }
 
-  print "  $type tmp;\n";
+  print "  $type *in32 = ($type *)in;\n";
+  print "  $type tmp; (void)tmp;\n";
+  my $consumed = 4;
 
   my $i = 0;
   my $j = 0;
@@ -149,26 +148,19 @@ sub generate_unpack_impl
   while (1) {
     my $b = 0;
     while ($b < $bits_per_word and $i < $block) {
-      if ($inittmp != 0) {
-        print "  tmp = *($type *)in;\n";
-        $consumed = consume($consumed, $bits_per_word / 8);
-        $inittmp = 0;
-      }
-
       # new value fits into the current word?
       if ($b + $bits <= $bits_per_word) {
-        print "  *(out + $j)  = base + ((tmp >> $b) & $mask);\n";
+        print "  *(out + $j)  = base + ((*in32 >> $b) & $mask);\n";
         $b += $bits;
       }
       # if not then decode at a word boundary
       else {
-        print "  *(out + $j)  = tmp >> $b;\n";
-        print "  in += sizeof($type);\n";
+        print "  tmp = (*in32 >> $b);\n";
+        print "  in32++;\n";
         $consumed = consume($consumed, $bits_per_word / 8);
         my $d = ($b + $bits) - 32;
-        print "  tmp = *($type *)in;\n";
-        print "  *(out + $j) |= (tmp % (1U << $d)) << ($bits - $d);\n";
-        print "  *(out + $j) += base;\n";
+        print "  tmp |= (*in32 % (1U << $d)) << ($bits - $d);\n";
+        print "  *(out + $j) = base + tmp;\n";
         $b = $d;
       }
       $j++;
@@ -177,8 +169,8 @@ sub generate_unpack_impl
 
     # move to next block
     if ($i < $block) {
-      print "  in += sizeof($type);\n";
-      $inittmp = 1;
+      print "  in32++;\n";
+      $consumed = consume($consumed, $bits_per_word / 8);
     }
     # or reached the end?
     else {
@@ -186,7 +178,7 @@ sub generate_unpack_impl
       my $remaining = $bits_per_word - $b;
       print "  /* remaining: $remaining bits */\n";
       $consumed -= $remaining / 8;
-      print "  return ($consumed);\n";
+      print "  return $consumed;\n";
       last;
     }
   }
