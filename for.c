@@ -180,7 +180,7 @@ for_compress_unsorted(const uint32_t *in, uint8_t *out, uint32_t length)
 
   /* store m and the bits */
   *(uint32_t *)(out + 0) = m;
-  *(uint32_t *)(out + 4) = b;
+  *(uint8_t *) (out + 4) = b;
   return METADATA + for_compress_bits(in, out + METADATA, length, m, b);
 }
 
@@ -201,7 +201,7 @@ for_compress_sorted(const uint32_t *in, uint8_t *out, uint32_t length)
 
   /* store m and the bits */
   *(uint32_t *)(out + 0) = m;
-  *(uint32_t *)(out + 4) = b;
+  *(uint8_t *) (out + 4) = b;
 
   return METADATA + for_compress_bits(in, out + METADATA, length, m, b);
 }
