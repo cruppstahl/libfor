@@ -12,6 +12,7 @@ In addition, the library can perform operations directly on compressed data:
    * select: returns a value at a specified index
    * linear search: for unsorted sequences, or short sorted sequences
    * lower bound search: based on binary search, for sorted sequences
+   * append: appends an integer to a compressed sequence
 
 Simple demo
 ------------------------
@@ -64,7 +65,8 @@ Requirements
 
 This library only works with little-endian CPUs.
 
-Tested on Linux. Porting it should not be difficult.
+Tested on Linux and Windows (Visual Studio 2013). Porting it should not
+be difficult.
 
 Acknowledgement
 ------------------------

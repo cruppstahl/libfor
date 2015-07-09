@@ -42,10 +42,10 @@ extern for_unpackxfunc_t for_unpackx[33];
 
 #define VERIFY_ARRAY(a1, a2, len)                                           \
                       do {                                                  \
-                        uint32_t i;                                         \
-                        for (i = 0; i < len; i++) {                         \
-                          if (a1[i] != a2[i]) {                             \
-                            printf("data mismatch at %u\n", i);             \
+                        uint32_t __i;                                       \
+                        for (__i = 0; __i < len; __i++) {                   \
+                          if (a1[__i] != a2[__i]) {                         \
+                            printf("data mismatch at %u\n", __i);           \
                             abort();                                        \
                           }                                                 \
                         }                                                   \
@@ -143,6 +143,90 @@ highlevel_unsorted(uint32_t length)
   for (i = 0; i < length; i++) {
     uint32_t index = for_linear_search(out, length, in[i]);
     VERIFY(in[i] == in[index]);
+  }
+}
+
+static void
+append_sorted()
+{
+#undef max
+#define max 10000
+  int i;
+  uint32_t s1, s2;
+
+  uint8_t out1[max * 8] = {0};
+  uint8_t out2[max * 8] = {0};
+  uint32_t in[max];
+
+  printf("append sorted, %d ints\n", max);
+
+  for (i = 0; i < max; i++) {
+    in[i] = i;
+
+    /* insert with "append" */
+    s1 = for_append_sorted(&out1[0], i, in[i]);
+
+    /* compress the full sequence */
+    s2 = for_compress_sorted(in, out2, i + 1);
+
+    VERIFY(s1 == s2);
+    VERIFY_ARRAY(out1, out2, s1);
+  }
+}
+
+static void
+append_unsorted()
+{
+#undef max
+#define max 10000
+  int i;
+  uint32_t s1, s2;
+
+  uint8_t out1[max * 8] = {0};
+  uint8_t out2[max * 8] = {0};
+  uint32_t in[max];
+
+  printf("append unsorted, %d ints\n", max);
+
+  for (i = 0; i < max; i++) {
+    in[i] = 7 + (rnd() - 7);
+
+    /* insert with "append" */
+    s1 = for_append_unsorted(&out1[0], i, in[i]);
+
+    /* compress the full sequence */
+    s2 = for_compress_unsorted(in, out2, i + 1);
+
+    VERIFY(s1 == s2);
+    VERIFY_ARRAY(out1, out2, s1);
+  }
+}
+
+static void
+append_sorted_bignum()
+{
+#undef max
+#define max 10
+  int i;
+  uint32_t s1, s2;
+
+  uint8_t out1[max * 8] = {0};
+  uint8_t out2[max * 8] = {0};
+  uint32_t in[max];
+
+  printf("append sorted bignum, %d ints\n", max);
+
+  for (i = 0; i < max; i++) {
+    in[i] = 1 << (17 + i);
+
+    /* insert with "append" */
+    s1 = for_append_sorted(&out1[0], i, in[i]);
+
+    /* compress the full sequence */
+    s2 = for_compress_sorted(in, out2, i + 1);
+
+    VERIFY(s1 == s2);
+    VERIFY_ARRAY(out1, out2, s1);
   }
 }
 
@@ -282,6 +366,10 @@ main()
   highlevel_unsorted(1024);
   highlevel_unsorted(1025);
   highlevel_unsorted(1333);
+
+  append_sorted();
+  append_sorted_bignum();
+  append_unsorted();
 
   printf("\nsuccess!\n");
   return 0;
