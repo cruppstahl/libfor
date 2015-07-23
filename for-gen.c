@@ -4,7 +4,7 @@
  */
 
 static uint32_t
-pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
+pack0_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   (void)base;
   (void)in;
   (void)out;
@@ -12,10 +12,46 @@ pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
 }
 
 static uint32_t
-unpack0_n(uint32_t base, const uint8_t *in, uint32_t *out) {
+pack0_16(uint32_t base, const uint32_t *in, uint8_t *out) {
+  (void)base;
+  (void)in;
+  (void)out;
+  return 0;
+}
+
+static uint32_t
+pack0_8(uint32_t base, const uint32_t *in, uint8_t *out) {
+  (void)base;
+  (void)in;
+  (void)out;
+  return 0;
+}
+
+static uint32_t
+unpack0_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   int k;
   (void)in;
   for (k = 0; k < 32; ++k) {
+    out[k] = base;
+  }
+  return 0;
+}
+
+static uint32_t
+unpack0_16(uint32_t base, const uint8_t *in, uint32_t *out) {
+  int k;
+  (void)in;
+  for (k = 0; k < 16; ++k) {
+    out[k] = base;
+  }
+  return 0;
+}
+
+static uint32_t
+unpack0_8(uint32_t base, const uint8_t *in, uint32_t *out) {
+  int k;
+  (void)in;
+  for (k = 0; k < 8; ++k) {
     out[k] = base;
   }
   return 0;
@@ -41,7 +77,23 @@ unpack0_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
 }
 
 static uint32_t
-linsearch0_n(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+linsearch0_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
   (void)in;
   if (base == value)
     *found = 0;
@@ -6191,7 +6243,7 @@ unpack32_32(uint32_t base, const uint8_t *in, uint32_t *out) {
 }
 
 for_packfunc_t for_pack32[33] = {
-                       pack0_n,
+                       pack0_32,
                        pack1_32,
                        pack2_32,
                        pack3_32,
@@ -6227,7 +6279,7 @@ for_packfunc_t for_pack32[33] = {
 };
 
 for_unpackfunc_t for_unpack32[33] = {
-                       unpack0_n,
+                       unpack0_32,
                        unpack1_32,
                        unpack2_32,
                        unpack3_32,
@@ -9580,7 +9632,7 @@ unpack32_16(uint32_t base, const uint8_t *in, uint32_t *out) {
 }
 
 for_packfunc_t for_pack16[33] = {
-                       pack0_n,
+                       pack0_16,
                        pack1_16,
                        pack2_16,
                        pack3_16,
@@ -9616,7 +9668,7 @@ for_packfunc_t for_pack16[33] = {
 };
 
 for_unpackfunc_t for_unpack16[33] = {
-                       unpack0_n,
+                       unpack0_16,
                        unpack1_16,
                        unpack2_16,
                        unpack3_16,
@@ -11549,7 +11601,7 @@ unpack32_8(uint32_t base, const uint8_t *in, uint32_t *out) {
 }
 
 for_packfunc_t for_pack8[33] = {
-                       pack0_n,
+                       pack0_8,
                        pack1_8,
                        pack2_8,
                        pack3_8,
@@ -11585,7 +11637,7 @@ for_packfunc_t for_pack8[33] = {
 };
 
 for_unpackfunc_t for_unpack8[33] = {
-                       unpack0_n,
+                       unpack0_8,
                        unpack1_8,
                        unpack2_8,
                        unpack3_8,
@@ -20815,7 +20867,7 @@ linsearch32_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
 }
 
 for_linsearchfunc_t for_linsearch32[33] = {
-                       linsearch0_n,
+                       linsearch0_32,
                        linsearch1_32,
                        linsearch2_32,
                        linsearch3_32,
@@ -24073,7 +24125,7 @@ linsearch32_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
 }
 
 for_linsearchfunc_t for_linsearch16[33] = {
-                       linsearch0_n,
+                       linsearch0_16,
                        linsearch1_16,
                        linsearch2_16,
                        linsearch3_16,
@@ -25871,7 +25923,7 @@ linsearch32_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
 }
 
 for_linsearchfunc_t for_linsearch8[33] = {
-                       linsearch0_n,
+                       linsearch0_8,
                        linsearch1_8,
                        linsearch2_8,
                        linsearch3_8,

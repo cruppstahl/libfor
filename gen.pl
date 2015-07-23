@@ -339,7 +339,7 @@ sub generate_packer_array
     print "                       $n"."0_x,\n";
   }
   else {
-    print "                       $n"."0_n,\n";
+    print "                       $n"."0_" . "$b,\n";
   }
   for (my $i = 1; $i < 32; $i++) {
     print "                       $n$i" . '_' . "$b,\n";
@@ -530,7 +530,7 @@ print <<EOL;
  */
 
 static uint32_t
-pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
+pack0_32(uint32_t base, const uint32_t *in, uint8_t *out) {
   (void)base;
   (void)in;
   (void)out;
@@ -538,10 +538,46 @@ pack0_n(uint32_t base, const uint32_t *in, uint8_t *out) {
 }
 
 static uint32_t
-unpack0_n(uint32_t base, const uint8_t *in, uint32_t *out) {
+pack0_16(uint32_t base, const uint32_t *in, uint8_t *out) {
+  (void)base;
+  (void)in;
+  (void)out;
+  return 0;
+}
+
+static uint32_t
+pack0_8(uint32_t base, const uint32_t *in, uint8_t *out) {
+  (void)base;
+  (void)in;
+  (void)out;
+  return 0;
+}
+
+static uint32_t
+unpack0_32(uint32_t base, const uint8_t *in, uint32_t *out) {
   int k;
   (void)in;
   for (k = 0; k < 32; ++k) {
+    out[k] = base;
+  }
+  return 0;
+}
+
+static uint32_t
+unpack0_16(uint32_t base, const uint8_t *in, uint32_t *out) {
+  int k;
+  (void)in;
+  for (k = 0; k < 16; ++k) {
+    out[k] = base;
+  }
+  return 0;
+}
+
+static uint32_t
+unpack0_8(uint32_t base, const uint8_t *in, uint32_t *out) {
+  int k;
+  (void)in;
+  for (k = 0; k < 8; ++k) {
     out[k] = base;
   }
   return 0;
@@ -567,7 +603,23 @@ unpack0_x(uint32_t base, const uint8_t *in, uint32_t *out, uint32_t length) {
 }
 
 static uint32_t
-linsearch0_n(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+linsearch0_32(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_16(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
+  (void)in;
+  if (base == value)
+    *found = 0;
+  return 0;
+}
+
+static uint32_t
+linsearch0_8(uint32_t base, const uint8_t *in, uint32_t value, int *found) {
   (void)in;
   if (base == value)
     *found = 0;
